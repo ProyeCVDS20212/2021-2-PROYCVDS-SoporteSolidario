@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.CategoriaMapper">
+
+    <!--añadirCategoria-->
+    <insert parameterType="map" id="añadirCategory">
+        INSERT INTO categoria (nombre,descripcion,fechacreacion,estado,fechamodificacion)
+        VALUES (#{categoria.nombre},#{category.descripcion},CURRENT_TIMESTAMP,true,CURRENT_TIMESTAMP)
+    </insert>
+
+</mapper>
