@@ -1,0 +1,29 @@
+body{
+    background-color: rgba(105, 35, 170, 0.856);
+    align-self: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+}
+.form{
+  display:flex;
+  text-align: center;
+  flex-direction:column;
+  width: 30%;
+  align-items: center;
+  height: auto;
+  background-color:rgba(76, 35, 114, 0.712);
+  font-size:12px;
+  padding:15px;
+  border-radius: 15px;
+}
+.but{
+  margin: 15px;
+  font-size:10px;
+  width:50px;
+  height:20px;
+  border-radius: 15px;
+  border:none;
+}
