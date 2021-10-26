@@ -9,9 +9,18 @@ public class Customer implements Serializable{
     private String Passwd;
     private int Rol;
     private String Email;
-    private char IsActive;
+    private boolean IsActive;
 
-    public Customer(String name, String username, String passwd, int rol, char isActive, String email){
+    /**
+     * Constructor de la clase Customer
+     * @param name nombre del cliente
+     * @param username username del cliente
+     * @param passwd contraseña del usuario
+     * @param rol el rol que posee el cliente
+     * @param isActive booleano para ver si esta activo el cliente
+     * @param email correo del cliente
+     */
+    public Customer(String name, String username, String passwd, int rol, boolean isActive, String email){
         this.Name = name;
         this.Username = username;
         this.Passwd = passwd;
@@ -36,7 +45,7 @@ public class Customer implements Serializable{
         return Username;
     }
 
-    public char getIsActive() {
+    public boolean getIsActive() {
         return IsActive;
     }
 
@@ -56,7 +65,7 @@ public class Customer implements Serializable{
         this.Email = email;
     }
 
-    public void setIsActive(char isActive) {
+    public void setIsActive(boolean isActive) {
         this.IsActive = isActive;
     }
 
