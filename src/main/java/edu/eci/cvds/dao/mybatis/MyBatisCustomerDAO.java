@@ -13,6 +13,12 @@ public class MyBatisCustomerDAO implements CustomerDAO{
     @Inject
     CustomerMapper customerMapper;
 
+    /**
+     * Retorna la lista de clientes que se desean consultar apartir del username
+     * @param username
+     * @return lista de clientes
+     * @exception Excepcion en caso de que no se pueda hacer el inicio de sesion
+     */
     @Override
     public List<Customer> inicioSesion(String username) throws PersistenceException {
         try {
