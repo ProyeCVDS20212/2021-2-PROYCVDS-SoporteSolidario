@@ -5,10 +5,25 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.CategoriaMapper">
 
+    <resultMap id="CategoriaResult" type="Categoria">
+        <id property="id" column="id"/>
+        <result property="nombre" column="nombre"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="fechacreacion" column="fechacreacion"/>
+        <result property="estado" column="estado"/>
+        <result property="fechamodificacion" column="fechamodificacion"/>
+    </resultMap>
+
     <!--añadirCategoria-->
-    <insert parameterType="map" id="añadirCategory">
+    <insert parameterType="map" id="añadirCategoria">
         INSERT INTO categoria (nombre,descripcion,fechacreacion,estado,fechamodificacion)
         VALUES (#{categoria.nombre},#{category.descripcion},CURRENT_TIMESTAMP,true,CURRENT_TIMESTAMP)
     </insert>
+
+    <!--actualizarCategoria-->
+    <update parameterType="map" id="actualizarCategoria">
+        update categoria set nombre=#{newNombre}, descripcion=#{newDescripcion}, estado=#{newEstado}, fechamodificacion=current_date
+        WHERE nombre=#{oldNombre}
+    </update>
 
 </mapper>
