@@ -1,10 +1,9 @@
-package edu.eci.cvds.persistence.mybatisimpl;
+package edu.eci.cvds.dao.mybatis;
 
+import edu.eci.cvds.dao.CategoriaDAO;
 import edu.eci.cvds.dao.PersistenceException;
+import edu.eci.cvds.dao.mybatis.mappers.CategoriaMapper;
 import edu.eci.cvds.entities.Categoria;
-import edu.eci.cvds.persistence.CategoriaDAO;
-import edu.eci.cvds.persistence.mybatisimpl.mappers.CategoriaMapper;
-
 
 import javax.inject.Inject;
 
@@ -15,7 +14,7 @@ public class MyBatisCategoriaDAO implements CategoriaDAO {
 
     @Override
     public void registrarCategoria(Categoria categoria) {
-        categoriaMapper.añadirCategoria(categoria);
+        categoriaMapper.anadirCategoria(categoria);
     }
 
     @Override

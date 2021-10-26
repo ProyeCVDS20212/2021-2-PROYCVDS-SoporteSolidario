@@ -1,6 +1,5 @@
-package edu.eci.cvds.persistence;
+package edu.eci.cvds.dao;
 
-import edu.eci.cvds.dao.PersistenceException;
 import edu.eci.cvds.entities.Categoria;
 
 public interface CategoriaDAO {

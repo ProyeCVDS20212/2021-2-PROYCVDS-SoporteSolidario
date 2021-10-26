@@ -2,8 +2,9 @@ package edu.eci.cvds.guice;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import edu.eci.cvds.persistence.*;
-import edu.eci.cvds.persistence.mybatisimpl.*;
+
+import edu.eci.cvds.dao.CategoriaDAO;
+import edu.eci.cvds.dao.mybatis.MyBatisCategoriaDAO;
 import edu.eci.cvds.services.SolidaridadServices;
 import edu.eci.cvds.services.impl.SolidaridadServicesImpl;
 import org.mybatis.guice.XMLMyBatisModule;

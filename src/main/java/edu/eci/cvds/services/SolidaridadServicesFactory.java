@@ -2,8 +2,10 @@ package edu.eci.cvds.services;
 
 import com.google.inject.Injector;
 import org.mybatis.guice.XMLMyBatisModule;
-import edu.eci.cvds.persistence.CategoriaDAO;
-import edu.eci.cvds.persistence.mybatisimpl.MyBatisCategoriaDAO;
+
+import edu.eci.cvds.dao.CategoriaDAO;
+import edu.eci.cvds.dao.mybatis.MyBatisCategoriaDAO;
+
 import java.util.Optional;
 import static com.google.inject.Guice.createInjector;
 

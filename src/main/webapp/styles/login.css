@@ -27,3 +27,9 @@ body{
   border-radius: 15px;
   border:none;
 }
+.inpu{
+  width: 10%;
+  height: 38px;
+  border-radius: 2px;
+  background-color: white;
+}

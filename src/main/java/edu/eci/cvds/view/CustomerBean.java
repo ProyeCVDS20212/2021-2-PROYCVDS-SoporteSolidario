@@ -24,7 +24,7 @@ import javax.faces.context.FacesContext;
 @javax.faces.bean.ManagedBean(name = "customerBean")
 @SessionScoped
 
-public class CustomerBean  extends PageBean{
+public class CustomerBean{
     private String correo;
     private String password;
     public static int customerID;

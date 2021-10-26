@@ -1,7 +1,8 @@
 package edu.eci.cvds.services.impl;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.persistence.CategoriaDAO;
+
+import edu.eci.cvds.dao.CategoriaDAO;
 import edu.eci.cvds.dao.PersistenceException;
 import edu.eci.cvds.entities.Categoria;
 import edu.eci.cvds.services.SolidaridadServices;
