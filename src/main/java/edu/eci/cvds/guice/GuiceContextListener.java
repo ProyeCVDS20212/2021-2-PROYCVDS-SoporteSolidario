@@ -3,8 +3,8 @@ package edu.eci.cvds.guice;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import edu.eci.cvds.dao.CategoriaDAO;
-import edu.eci.cvds.dao.mybatis.MyBatisCategoriaDAO;
+import edu.eci.cvds.dao.*;
+import edu.eci.cvds.dao.mybatis.*;
 import edu.eci.cvds.services.SolidaridadServices;
 import edu.eci.cvds.services.impl.SolidaridadServicesImpl;
 import org.mybatis.guice.XMLMyBatisModule;
@@ -31,7 +31,8 @@ public class GuiceContextListener {
                 setEnvironmentId("development");
 
                 setClassPathResource("mybatis-config.xml");
-
+                //Customer
+                bind(CustomerDAO.class).to(MyBatisCustomerDAO.class);
                 //Servicios
                 bind(SolidaridadServices.class).to(SolidaridadServicesImpl.class);
                 //Categoria

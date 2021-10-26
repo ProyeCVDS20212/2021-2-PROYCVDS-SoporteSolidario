@@ -3,8 +3,8 @@ package edu.eci.cvds.services;
 import com.google.inject.Injector;
 import org.mybatis.guice.XMLMyBatisModule;
 
-import edu.eci.cvds.dao.CategoriaDAO;
-import edu.eci.cvds.dao.mybatis.MyBatisCategoriaDAO;
+import edu.eci.cvds.dao.*;
+import edu.eci.cvds.dao.mybatis.*;
 
 import java.util.Optional;
 import static com.google.inject.Guice.createInjector;
@@ -25,8 +25,20 @@ public class SolidaridadServicesFactory {
                 setEnvironmentId(env);
                 setClassPathResource(pathResource);
                 bind(CategoriaDAO.class).to(MyBatisCategoriaDAO.class);
+                bind(CustomerDAO.class).to(MyBatisCustomerDAO.class);
             }
         });
+    }
+
+    public CustomerServices getServices(){
+        if (!optInjector.isPresent()) {
+            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+        }
+        return optInjector.get().getInstance(CustomerServices.class);
+    }
+
+    public static SolidaridadServicesFactory getInstance(){
+        return instance;
     }
 }
 

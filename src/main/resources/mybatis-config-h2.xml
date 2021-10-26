@@ -9,7 +9,7 @@
             <dataSource type="POOLED">
                 <property name="driver" value="org.h2.Driver" />
                 <property name="url" value="jdbc:h2:file:./target/db/testdb;MODE=MYSQL" />
-                <property name="username" value="grupo24" />
+                <property name="username" value="sd" />
                 <property name="password" value="" />
             </dataSource>
         </environment>

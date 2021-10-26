@@ -1,12 +1,14 @@
 package edu.eci.cvds.view;
+
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 import com.google.inject.Injector;
 
-public class PageBean implements Serializable {
-    private Injector injector;
+public abstract class PageBean implements Serializable {
+
+    private Injector injector = null;
 
     public Injector getInjector() {
         if (injector == null) {

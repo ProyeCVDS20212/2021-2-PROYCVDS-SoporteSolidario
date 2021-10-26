@@ -13,6 +13,9 @@
             </dataSource>
         </environment>
     </environments>
-
+    <mappers>
+        <mapper resource="mappers/CategoriaMapper.xml"></mapper>
+        <mapper resource="mappers/CustomerMapper.xml"></mapper>
+    </mappers>
 
 </configuration>

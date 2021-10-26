@@ -14,6 +14,8 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
+
+import java.util.List;
 import java.util.logging.Level;
 
 import javax.faces.application.FacesMessage;
@@ -24,7 +26,7 @@ import javax.faces.context.FacesContext;
 @javax.faces.bean.ManagedBean(name = "customerBean")
 @SessionScoped
 
-public class CustomerBean{
+public class CustomerBean extends PageBean{
     private String correo;
     private String password;
     public static int customerID;
@@ -34,7 +36,7 @@ public class CustomerBean{
     private Subject subject;
     private boolean isActive = false;
     private CustomerServices customerServices;
-    private final String redirectUrl = "/app/login.xhtml";
+    private String redirectUrl = "/app/login.xhtml";
 
     public static int getId() {
         return customerID;
@@ -103,15 +105,15 @@ public class CustomerBean{
         Logger log = LoggerFactory.getLogger(CustomerBean.class);
         try {
             //Verificar actividad del cliente
-            Customer datos = customerServices.IngresarSesion(username).get(0);
-            if (null!=datos)isActive= datos.getIsActive();
+            List<Customer> datos = customerServices.IngresarSesion(username);
+            if (!datos.isEmpty())isActive= datos.get(0).getIsActive();
             if (isActive){
-                    customerID = datos.getCustomerID();
-                    fullname = datos.getName();
-                    rol = datos.getRol();
-                    correo = datos.getEmail();
+                    customerID = datos.get(0).getCustomerID();
+                    fullname = datos.get(0).getName();
+                    rol = datos.get(0).getRol();
+                    correo = datos.get(0).getEmail();
                     subject.login(token);//crear token activo
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("home.xhtml");       
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("categorias.xhtml");       
                 }
             else{
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "El usuario esta inactivo"));
