@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.CustomerMapper">
+    <resultMap id="CustomerResult" type="Customer">
+        <id property="CustomerID" column="CustomerID"/>
+        <result property="Name" column="Name"/>
+        <result property="Username" column="Username"/>
+        <result property="Passwd" column="Passwd"/>
+        <result property="Rol" column="Rol"/>
+        <result property="Email" column="Email"/>
+        <result property="IsActive" column="IsActive"/>
+    </resultMap>
+    
+    <select parameterType="map" id="inicioSesion" resultMap="CustomerResult">
+        SELECT *
+        FROM Customer
+        WHERE Username = #{Username}
+    </select>
+
+</mapper>
