@@ -9,19 +9,16 @@ public class Categoria {
     private Date fechacreacion;
     private boolean estado;
     private Date fechamodificacion;
-    private boolean esValido;
-    private String descripcioninvalida;
 
 
-    public Categoria(int id, String nombre, String descripcion, Date fechacreacion, boolean estado, Date fechamodificacion, boolean esValido, String descripcioninvalida) {
+    public Categoria(int id, String nombre, String descripcion, Date fechacreacion, boolean estado, Date fechamodificacion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechacreacion = fechacreacion;
         this.estado = estado;
         this.fechamodificacion = fechamodificacion;
-        this.esValido = esValido;
-        this.descripcioninvalida = descripcioninvalida;
+
     }
 
     public int getId() {
@@ -70,21 +67,5 @@ public class Categoria {
 
     public void setFechamodificacion(Date fechamodificacion) {
         this.fechamodificacion = fechamodificacion;
-    }
-
-    public boolean isEsValido() {
-        return esValido;
-    }
-
-    public void setEsValido(boolean esValido) {
-        this.esValido = esValido;
-    }
-
-    public String getDescripcioninvalida() {
-        return descripcioninvalida;
-    }
-
-    public void setDescripcioninvalida(String descripcioninvalida) {
-        this.descripcioninvalida = descripcioninvalida;
     }
 }

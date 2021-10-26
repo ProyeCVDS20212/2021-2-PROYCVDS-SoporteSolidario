@@ -9,4 +9,18 @@ CREATE TABLE "Customer" (
     CONSTRAINT "pk_Customer" PRIMARY KEY (
         "CustomerID"
      )
+
 );
+
+CREATE TABLE "Categoria" (
+    "id" NUMERIC(9)   NOT NULL,
+    "nombre" VARCHAR(50)   NOT NULL,
+    "descripcion" VARCHAR(50)   NOT NULL,
+    "fechacreacion" DATE(50)   NOT NULL,
+    "estado" boolean  NOT NULL,
+    "fechamodificacion" DATE(50)   NOT NULL,
+    CONSTRAINT "pk_id" PRIMARY KEY (
+        "id"
+     )
+);
+

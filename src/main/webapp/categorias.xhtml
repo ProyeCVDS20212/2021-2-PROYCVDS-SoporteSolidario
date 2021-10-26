@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<h:head>
+    <title>Categorias</title>
+</h:head>
+<h:body>
+    <h:form id="form">
+        <div class="card">
+            <div class="card categoria">
+                <div class="p-field">
+                    <p:outputLabel for="nombre">nombre</p:outputLabel>
+                    <p:inputText id="nombre" value="#{categoriaBean.categoria.nombre}"/>
+                </div>
+                <div class="p-field">
+                    <p:outputLabel for="descripcion">descripcion</p:outputLabel>
+                    <p:inputTextarea id="descripcion" value="#{categoriaBean.categoria.descripcion}"/>
+                </div>
+                <div id="div-estado" class="p-field">
+                    <p:outputLabel for="estado">estado</p:outputLabel>
+                    <p:commandButton value="registrar" icon="pi pi-check" actionListener="#{categoriaBean.registrar}"/>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</html>
