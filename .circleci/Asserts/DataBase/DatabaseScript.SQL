@@ -5,7 +5,7 @@ CREATE TABLE "Customer" (
     "Passwd" VARCHAR(50)   NOT NULL,
     "Rol" NUMERIC(2)   NOT NULL,
     "Email" VARCHAR(50)   NOT NULL,
-    "IsActive" CHAR(1)   NOT NULL,
+    "IsActive" NUMERIC(1)   NOT NULL,
     CONSTRAINT "pk_Customer" PRIMARY KEY (
         "CustomerID"
      )
