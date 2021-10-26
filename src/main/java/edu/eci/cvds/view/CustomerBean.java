@@ -17,9 +17,12 @@ import org.slf4j.Logger;
 import java.util.logging.Level;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import java.util.List;
+
+@javax.faces.bean.ManagedBean(name = "customerBean")
+@SessionScoped
 
 public class CustomerBean  extends PageBean{
     private String correo;
@@ -137,5 +140,14 @@ public class CustomerBean  extends PageBean{
      */
     private void error(String e) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e));
+    }
+
+    public void logOut() {
+        SecurityUtils.getSubject().logout();
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect(redirectUrl);
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(CustomerBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

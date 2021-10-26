@@ -9,7 +9,7 @@
         <h1>Soporte Solidario</h1>
            <center><div class="form">
              <h1>Usuario</h1>
-             <h:inputText id="correo" value="#{customerBean.customername}" required="true" placeholder="Usuario" label="login" />
+             <h:inputText id="correo" value="#{customerBean.username}" required="true" placeholder="Usuario" label="login" />
              <h1>Contraseña</h1>
              <h:inputSecret id="password" value="#{customerBean.password}" required="true"  placeholder="Contraseña" label="password" />
             <h:commandButton value="LOGIN" action="#{customerBean.IngresarSesion()}" class="but"/>
