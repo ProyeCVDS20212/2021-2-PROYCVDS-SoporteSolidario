@@ -21,6 +21,14 @@ public class Categoria {
 
     }
 
+    public Categoria(String nombre, String descripcion, Date fechacreacion, boolean estado, Date fechamodificacion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechacreacion = fechacreacion;
+        this.estado = estado;
+        this.fechamodificacion = fechamodificacion;
+    }
+
     public int getId() {
         return id;
     }

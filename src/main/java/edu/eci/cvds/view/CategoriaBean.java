@@ -8,6 +8,7 @@ import edu.eci.cvds.services.CategoriaServices;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
+import javax.servlet.ServletException;
 
 import org.primefaces.PrimeFaces;
 
@@ -32,25 +33,27 @@ public class CategoriaBean  extends BasePageBean{
 
     public void agregarCategoria() throws ExceptionService {
         try {
-            Categoria categorie = new Categoria(id, nombre, descripcion,  new Date(), true,  new Date());
+            Categoria categorie = new Categoria(nombre, descripcion,  new Date(), true,  new Date());
             CategoriaServices.registrarCategoria(categorie);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message",
                     "Categoria creada correctamente");
             PrimeFaces.current().dialog().showMessageDynamic(message);
             // FacesContext.getCurrentInstance().getExternalContext().redirect("home.xhtml");
             cleanData();
-            System.out.println("Categoria creada");
         } catch (ExceptionService ex) {
             cleanData();
-            throw new ExceptionService("El item no esta registrado"+ ex);
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message",
+            "Ya existe una Categoria con este Nombre");
+                        PrimeFaces.current().dialog().showMessageDynamic(message);
         }
 
         cleanData();
     }
 
 
-    private void cleanData() {
-
+    public void cleanData() {
+        descripcion = "";
+        nombre = "";
     }
 
     public void actualizarCategoria() throws ExceptionService{
