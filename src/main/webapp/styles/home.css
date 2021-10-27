@@ -1,0 +1,15 @@
+.categoria{
+    background-color:  #b480c1 ;
+    color:#eeeeee;
+    border-radius: 15px;
+    text-decoration: none;
+    text-align: center;
+    width:80%;
+    margin:10px;
+}
+.link{
+    font-size: 20px;
+    color:lime;
+    text-decoration: none;
+    margin: 15px;
+}

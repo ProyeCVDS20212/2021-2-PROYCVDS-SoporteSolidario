@@ -6,6 +6,7 @@ body{
     justify-content: center;
     color: white;
     font-size: 25px;
+    font-family:sans-serif;
 }
 .form{
   display:flex;
@@ -22,10 +23,12 @@ body{
 .but{
   margin: 15px;
   font-size:10px;
-  width:50px;
-  height:20px;
+  width:80px;
+  height:30px;
   border-radius: 15px;
   border:none;
+    font-family:sans-serif;
+    font-size: medium;
 }
 .inpu{
   width: 30%;
