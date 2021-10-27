@@ -1,9 +1,9 @@
 package edu.eci.cvds.view;
 
-import edu.eci.cvds.dao.PersistenceException;
+
 import edu.eci.cvds.entities.Categoria;
 import edu.eci.cvds.services.ExceptionService;
-import edu.eci.cvds.services.SolidaridadServices;
+import edu.eci.cvds.services.CategoriaServices;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
@@ -19,7 +19,7 @@ import java.util.Date;
 public class CategoriaBean  extends BasePageBean{
 
     @Inject
-    private SolidaridadServices solidaridadServices;
+    private CategoriaServices CategoriaServices;
     private Categoria categoria;
     private int id;
     private String nombre;
@@ -30,19 +30,19 @@ public class CategoriaBean  extends BasePageBean{
     private String oldnombre;
 
 
-    public void agregarCategoria() throws PersistenceException {
+    public void agregarCategoria() throws ExceptionService {
         try {
             Categoria categorie = new Categoria(id, nombre, descripcion,  new Date(), true,  new Date());
-            solidaridadServices.registrarCategoria(categorie);
+            CategoriaServices.registrarCategoria(categorie);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message",
                     "Categoria creada correctamente");
             PrimeFaces.current().dialog().showMessageDynamic(message);
             // FacesContext.getCurrentInstance().getExternalContext().redirect("home.xhtml");
             cleanData();
             System.out.println("Categoria creada");
-        } catch (PersistenceException ex) {
+        } catch (ExceptionService ex) {
             cleanData();
-            throw new PersistenceException("El item no esta registrado"+ ex);
+            throw new ExceptionService("El item no esta registrado"+ ex);
         }
 
         cleanData();
@@ -53,11 +53,11 @@ public class CategoriaBean  extends BasePageBean{
 
     }
 
-    public void actualizarCategoria() throws PersistenceException{
+    public void actualizarCategoria() throws ExceptionService{
         try {
-            solidaridadServices.actualizarCategoria(nombre, descripcion, estado, oldnombre);
-        } catch (Exception e) {
-            throw new PersistenceException("Se produjo un error a la hora de actualizar la categoria", e);
+            CategoriaServices.actualizarCategoria(nombre, descripcion, estado, oldnombre);
+        } catch (ExceptionService e) {
+            throw new ExceptionService("Se produjo un error a la hora de actualizar la categoria", e);
         }
 
     }
@@ -86,8 +86,8 @@ public class CategoriaBean  extends BasePageBean{
         return oldnombre;
     }
 
-    public SolidaridadServices getSolidaridadServices() {
-        return solidaridadServices;
+    public CategoriaServices getCategoriaServices() {
+        return CategoriaServices;
     }
 
     public void setFechacreacion(Date fechacreacion) {
@@ -106,8 +106,8 @@ public class CategoriaBean  extends BasePageBean{
         this.oldnombre = oldnombre;
     }
 
-    public void setSolidaridadServices(SolidaridadServices solidaridadServices) {
-        this.solidaridadServices = solidaridadServices;
+    public void setCategoriaServices(CategoriaServices CategoriaServices) {
+        this.CategoriaServices = CategoriaServices;
     }
 
     public void setNombre(String nombre) {

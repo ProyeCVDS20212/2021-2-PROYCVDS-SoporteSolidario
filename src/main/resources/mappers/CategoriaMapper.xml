@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.CategoriaMapper">
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.CategoriaMapper">
 
     <resultMap id="CategoriaResult" type="Categoria">
         <id property="id" column="id"/>
@@ -14,10 +14,10 @@
         <result property="fechamodificacion" column="fechamodificacion"/>
     </resultMap>
 
-    <!--añadirCategoria-->
-    <insert parameterType="map" id="añadirCategoria">
+    <!--registrarCategoria-->
+    <insert parameterType="map" id="registrarCategoria">
         INSERT INTO categoria (nombre,descripcion,fechacreacion,estado,fechamodificacion)
-        VALUES (#{categoria.nombre},#{category.descripcion},CURRENT_TIMESTAMP,true,CURRENT_TIMESTAMP)
+        VALUES (#{categoria.nombre},#{categoria.descripcion},#{categoria.fechacreacion},#{categoria.estado},#{categoria.fechamodificacion})
     </insert>
 
     <!--actualizarCategoria-->

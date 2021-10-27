@@ -53,7 +53,7 @@ public class Categoria {
         this.fechacreacion = fechacreacion;
     }
 
-    public boolean isEstado() {
+    public boolean getisEstado() {
         return estado;
     }
 
