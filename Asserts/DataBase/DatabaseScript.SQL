@@ -8,7 +8,10 @@ CREATE TABLE Customer(
     IsActive BOOL   NOT NULL,
     CONSTRAINT "pk_Customer" PRIMARY KEY (
         CustomerID
-     )
+     ),
+     CONSTRAINT "fk_customerRoles" FOREIGN KEY(
+         ROL
+         ) REFERENCES ROLES(ID)
 
 );
 
@@ -27,3 +30,42 @@ CREATE TABLE Categoria (
      )
 );
 
+CREATE TABLE  necesidades(
+	id NUMERIC(7) NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	descripcion VARCHAR(250) NOT NULL,
+	estado NUMERIC(2) NOT NULL,
+	fechacreacion DATE NOT NULL,
+	fechamodificacion DATE NOT NULL,
+	categoriaId NUMERIC(9) NOT NULL,
+    CONSTRAINT "pk_idNecesidades" PRIMARY KEY (
+        id
+     ),
+     CONSTRAINT "fk_necesidadesCategoria" FOREIGN KEY(
+         categoriaId
+     ) REFERENCES Categoria(id)
+);
+
+CREATE TABLE ROLES (
+	id NUMERIC(2) NOT NULL,
+	NOMBRE VARCHAR(15) NOT NULL,
+	CONSTRAINT "	pk_ROLES" PRIMARY KEY (
+	id),
+	CONSTRAINT "uk_roles" UNIQUE (
+	NOMBRE)
+);
+
+Create or REPLACE FUNCTION autoCategoria() RETURNS trigger AS '
+Declare
+	autoid NUMERIC;
+BEGIN
+	select COUNT(*) into autoid from categoria;
+	NEW.id := autoid + 1;
+	RETURN NEW;
+END;
+' LANGUAGE plpgsql VOLATILE;
+
+
+CREATE TRIGGER bi_categoria
+BEFORE INSERT ON categoria
+FOR EACH ROW EXECUTE FUNCTION autoCategoria();

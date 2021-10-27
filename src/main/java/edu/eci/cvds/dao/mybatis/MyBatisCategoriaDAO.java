@@ -8,8 +8,9 @@ import edu.eci.cvds.entities.Categoria;
 import javax.inject.Inject;
 
 public class MyBatisCategoriaDAO implements CategoriaDAO {
-
-    private CategoriaMapper categoriaMapper;
+    
+    @Inject
+    CategoriaMapper categoriaMapper;
 
     @Override
     public void registrarCategoria(Categoria categoria) {

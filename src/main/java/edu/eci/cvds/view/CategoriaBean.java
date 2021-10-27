@@ -2,15 +2,21 @@ package edu.eci.cvds.view;
 
 import edu.eci.cvds.dao.PersistenceException;
 import edu.eci.cvds.entities.Categoria;
+import edu.eci.cvds.services.ExceptionService;
 import edu.eci.cvds.services.SolidaridadServices;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
+
+import org.primefaces.PrimeFaces;
+
+import java.time.LocalTime;
 import java.util.Date;
 
 @javax.faces.bean.ManagedBean(name = "categoriaBean")
 @SessionScoped
-public class CategoriaBean  {
+public class CategoriaBean  extends BasePageBean{
 
     @Inject
     private SolidaridadServices solidaridadServices;
@@ -23,8 +29,28 @@ public class CategoriaBean  {
     private Date fechamodificacion;
     private String oldnombre;
 
-    public void registrar(){
-        solidaridadServices.registrarCategoria(categoria);
+
+    public void agregarCategoria() throws PersistenceException {
+        try {
+            Categoria categorie = new Categoria(id, nombre, descripcion,  new Date(), true,  new Date());
+            solidaridadServices.registrarCategoria(categorie);
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message",
+                    "Categoria creada correctamente");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
+            // FacesContext.getCurrentInstance().getExternalContext().redirect("home.xhtml");
+            cleanData();
+            System.out.println("Categoria creada");
+        } catch (PersistenceException ex) {
+            cleanData();
+            throw new PersistenceException("El item no esta registrado"+ ex);
+        }
+
+        cleanData();
+    }
+
+
+    private void cleanData() {
+
     }
 
     public void actualizarCategoria() throws PersistenceException{
