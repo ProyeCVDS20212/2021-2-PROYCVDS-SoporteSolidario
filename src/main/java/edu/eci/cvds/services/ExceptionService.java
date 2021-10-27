@@ -4,4 +4,8 @@ public class ExceptionService extends Exception {
     public ExceptionService(String message){
         super(message);
     }
+
+    public ExceptionService(String message, Exception e){
+        super(message + e.toString());
+    }
 }

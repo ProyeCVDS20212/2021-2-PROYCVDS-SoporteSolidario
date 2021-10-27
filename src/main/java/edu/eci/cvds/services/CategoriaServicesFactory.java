@@ -10,12 +10,12 @@ import edu.eci.cvds.services.impl.*;
 import java.util.Optional;
 import static com.google.inject.Guice.createInjector;
 
-public class SolidaridadServicesFactory {
+public class CategoriaServicesFactory {
 
-    private static SolidaridadServicesFactory instance = new SolidaridadServicesFactory();
+    private static CategoriaServicesFactory instance = new CategoriaServicesFactory();
     private static Optional<Injector> optInjector;
 
-    private SolidaridadServicesFactory() {
+    private CategoriaServicesFactory() {
         optInjector = Optional.empty();
     }
 
@@ -28,6 +28,7 @@ public class SolidaridadServicesFactory {
                 bind(CategoriaDAO.class).to(MyBatisCategoriaDAO.class);
                 bind(CustomerDAO.class).to(MyBatisCustomerDAO.class);
                 bind(CustomerServices.class).to(CustomerServicesImpl.class);
+                bind(CategoriaServices.class).to(CategoriaServicesImpl.class);
             }
         });
     }
@@ -39,7 +40,7 @@ public class SolidaridadServicesFactory {
         return optInjector.get().getInstance(CustomerServices.class);
     }
 
-    public static SolidaridadServicesFactory getInstance(){
+    public static CategoriaServicesFactory getInstance(){
         return instance;
     }
 }
