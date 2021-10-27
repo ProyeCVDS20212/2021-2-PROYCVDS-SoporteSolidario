@@ -10,7 +10,7 @@ import java.util.Date;
 
 @javax.faces.bean.ManagedBean(name = "categoriaBean")
 @SessionScoped
-public class CategoriaBean extends PageBean{
+public class CategoriaBean  {
 
     @Inject
     private SolidaridadServices solidaridadServices;

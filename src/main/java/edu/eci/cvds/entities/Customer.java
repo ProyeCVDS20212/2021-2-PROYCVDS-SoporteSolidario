@@ -1,6 +1,7 @@
 package edu.eci.cvds.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class Customer implements Serializable{
     private int CustomerID;
@@ -20,11 +21,12 @@ public class Customer implements Serializable{
      * @param isActive booleano para ver si esta activo el cliente
      * @param email correo del cliente
      */
-    public Customer(String name, String username, String passwd, int rol, boolean isActive, String email){
+    public Customer(BigDecimal customerID,String name, String username, String passwd, BigDecimal rol, String email, boolean isActive){
+        this.CustomerID = customerID.intValue();
         this.Name = name;
         this.Username = username;
         this.Passwd = passwd;
-        this.Rol = rol;
+        this.Rol = rol.intValue();
         this.IsActive = isActive;
         this.Email = email;
     }

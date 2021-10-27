@@ -14,4 +14,6 @@ public interface CustomerMapper {
      * @return lista de clientes
      */
     List<Customer> inicioSesion(@Param("Username")String username);
+
+    List<Customer> NombreUsuario(@Param("CustomerID")int id);
 }

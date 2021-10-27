@@ -6,9 +6,9 @@ import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 import com.google.inject.Injector;
 
-public abstract class PageBean implements Serializable {
+public abstract class BasePageBean implements Serializable {
 
-    private Injector injector = null;
+    private Injector injector;
 
     public Injector getInjector() {
         if (injector == null) {

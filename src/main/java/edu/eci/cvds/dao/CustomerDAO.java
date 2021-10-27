@@ -13,4 +13,6 @@ public interface CustomerDAO {
      * @exception Excepcion en caso de que no se pueda hacer el inicio de sesion
      */
     List<Customer> inicioSesion(String username) throws PersistenceException;
+
+    List<Customer> NombreUsuario(int id) throws PersistenceException;
 }

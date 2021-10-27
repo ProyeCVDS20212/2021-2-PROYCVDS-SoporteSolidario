@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 public class MyBatisCategoriaDAO implements CategoriaDAO {
 
-    @Inject
     private CategoriaMapper categoriaMapper;
 
     @Override
