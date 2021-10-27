@@ -13,7 +13,7 @@ public class SolidaridadServicesImpl implements SolidaridadServices {
     private CategoriaDAO categoriaDAO;
 
     @Override
-    public void registrarCategoria(Categoria categoria){
+    public void registrarCategoria(Categoria categoria) throws PersistenceException{
         categoriaDAO.registrarCategoria(categoria);
 
     }

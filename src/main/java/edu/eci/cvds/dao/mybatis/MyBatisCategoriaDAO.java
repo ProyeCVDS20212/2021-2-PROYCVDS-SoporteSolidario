@@ -13,7 +13,7 @@ public class MyBatisCategoriaDAO implements CategoriaDAO {
     CategoriaMapper categoriaMapper;
 
     @Override
-    public void registrarCategoria(Categoria categoria) {
+    public void registrarCategoria(Categoria categoria)throws PersistenceException {
         categoriaMapper.anadirCategoria(categoria);
     }
 

@@ -11,16 +11,15 @@
     <title>Categorias</title>
 </h:head>
 <h:body>
-    <h:form id="form">
         <div class="card">
             <div class="card categoria">
                 <div class="p-field">
                     <p:outputLabel for="nombre">nombre</p:outputLabel>
-                    <p:inputText id="nombre" value="#{categoriaBean.categoria.nombre}"/>
+                    <p:inputText id="nombre" value="#{categoriaBean.nombre}"/>
                 </div>
                 <div class="p-field">
                     <p:outputLabel for="descripcion">descripcion</p:outputLabel>
-                    <p:inputTextarea id="descripcion" value="#{categoriaBean.categoria.descripcion}"/>
+                    <p:inputTextarea id="descripcion" value="#{categoriaBean.descripcion}"/>
                 </div>
                 <div id="div-estado" class="p-field">
                     <p:outputLabel for="estado">estado</p:outputLabel>
@@ -28,6 +27,5 @@
                 </div>
             </div>
         </div>
-    </h:form>
 </h:body>
 </html>
