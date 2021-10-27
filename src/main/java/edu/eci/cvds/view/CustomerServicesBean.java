@@ -88,6 +88,9 @@ public class CustomerServicesBean extends BasePageBean {
 
     }
 
+    /**
+     * Cierra la sesion 
+     */
     public void cerrarSesion() {
         SecurityUtils.getSubject().logout();
         try {
@@ -97,69 +100,138 @@ public class CustomerServicesBean extends BasePageBean {
         }
     }
 
+    /**
+     * Lanza el mensaje de error
+     * @param message
+     */
     private void messageError(String message) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", message));
     }
-    public static int getId() {
+
+    /**
+     * Devuelve el customerId
+     * @return
+     */
+    public static int getcustomerId() {
         return customerId;
     }
 
-    public void getcustomerId(int id) {
+    /**
+     * Asigna el customerId
+     * @param id
+     */
+    public void setcustomerId(int id) {
         this.customerId = customerId;
     }
 
+    /**
+     * Devuelve el name
+     * @return
+     */
     public String getFullname() {
         return fullname;
     }
 
+    /**
+     * Asigna el name
+     * @param fullname
+     */
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
 
+    /**
+     * Devuelve el username
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /***
+     * Asigna el username
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Devuelve el rol
+     * @return
+     */
     public static int getRol() {
         return rol;
     }
 
+    /**
+     * Asigna el rol
+     * @param rol
+     */
     public void setRol(int rol) {
         this.rol = rol;
     }
 
+    /**
+     * Devuelve si esta activo
+     * @return
+     */
     public boolean isIsactive() {
         return isactive;
     }
 
+    /**
+     * Asigna si esta activo
+     * @param isactive
+     */
     public void setIsactive(boolean isactive) {
         this.isactive = isactive;
     }
 
+    /***
+     * Devuelve el userServices
+     * @return
+     */
     public CustomerServices getUserServices() {
         return this.userServices;
     }
 
+    /**
+     * Asigna el userServices
+     * @param userServices
+     */
     public void setUserServices(CustomerServices userServices) {
         this.userServices = userServices;
     }
 
+    /**
+     * Devuelve el email
+     * @return
+     */
     public String getEmail() {
         return this.email;
     }
 
+    /**
+     * Asigna el email
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Devuelve la contraseña
+     * @return
+     */
     public String getPassword() {
         return this.password;
     }
 
+    /**
+     * Asigna la contraseña
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
