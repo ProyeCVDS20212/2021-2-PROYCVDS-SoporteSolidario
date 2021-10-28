@@ -16,6 +16,16 @@ public class Necesidad {
     private int idsolicitante;
 
 
+    public Necesidad(BigDecimal id,String value, String description, boolean status, BigDecimal category_id, BigDecimal urgencia, BigDecimal idsolicitante){
+        this.id = id.intValue();
+        this.nombre = value;
+        this.descripcion = description;
+        this.urgencia = urgencia.intValue();
+        this.estado = status;
+        this.categoriaId = category_id.intValue();
+        this.urgencia = urgencia.intValue();
+        this.idsolicitante=idsolicitante.intValue();
+    }
 
     public Necesidad(String value, String description, boolean status, BigDecimal category_id, BigDecimal urgencia, BigDecimal idsolicitante){
         this.nombre = value;
