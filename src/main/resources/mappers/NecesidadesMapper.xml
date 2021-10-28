@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.NecesidadesMapper">
+    <resultMap id="NeedsResult" type="Necesidad">
+        <id property="id" column="id"/>
+        <result property="nombre" column="nombre"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="estado" column="estado"/>
+        <result property="fechacreacion" column="fechacreacion"/>
+        <result property="fechamodificacion" column="fechamodificacion"/>
+        <result property="categoriaId" column="categoriaId"/>
+        <result property="urgencia" column="urgencia"/>
+        <result property="solicitante" column="solicitante"/>
+    </resultMap>
+
+    <insert parameterType="map" id="agregarNecesidades">
+        insert into needs (nombre,descripcion,estado,fechacreacion,fechamodificacion,categoriaId,urgencia,solicitante) values(#{need.nombre},#{need.descripcion},#{need.estado},current_date,current_date,#{need.categoriaId},#{need.urgencia},#{need.solicitante})
+    </insert>
+
+    <select parameterType="map" id="consultar" resultMap="NeedsResult">
+        select *
+        FROM necesidades
+        WHERE nombre=#{name}
+    </select>
+
+    </mapper>

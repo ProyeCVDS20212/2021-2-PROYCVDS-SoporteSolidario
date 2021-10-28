@@ -30,9 +30,9 @@ public class MyBatisCustomerDAO implements CustomerDAO{
     }
 
     @Override
-    public List<Customer> NombreUsuario(int id) throws PersistenceException {
+    public List<Customer> nombreUsuario(int id) throws PersistenceException {
         try {
-            return customerMapper.NombreUsuario(id);
+            return customerMapper.nombreUsuario(id);
         } catch (org.apache.ibatis.exceptions.PersistenceException e) {
             throw new PersistenceException("Error al iniciar sesion: ", e);
         }
