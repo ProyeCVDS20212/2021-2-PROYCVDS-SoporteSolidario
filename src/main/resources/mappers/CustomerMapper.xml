@@ -19,7 +19,7 @@
         WHERE Username = #{Username}
     </select>
 
-    <select parameterType="map" id="NombreUsuario" resultMap="CustomerResult">
+    <select parameterType="map" id="nombreUsuario" resultMap="CustomerResult">
         select fullname
         FROM users
         WHERE CustomerID = #{CustomerID}

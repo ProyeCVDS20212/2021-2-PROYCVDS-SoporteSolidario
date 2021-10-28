@@ -22,7 +22,7 @@ public class CustomerServicesImpl implements CustomerServices {
      * @throws ExceptionService controlador de errores de la capa de services
      */
     @Override
-    public List<Customer> IngresarSesion(String username) throws ExceptionService {
+    public List<Customer> ingresarSesion(String username) throws ExceptionService {
         try {
             return customerDAO.inicioSesion(username);
         } catch (PersistenceException e) {
@@ -35,9 +35,9 @@ public class CustomerServicesImpl implements CustomerServices {
      * @return Devuelve el nombre de usuario apartir del id
      */
     @Override
-    public List<Customer> NombreUsuario(int id) throws ExceptionService{
+    public List<Customer> nombreUsuario(int id) throws ExceptionService{
         try {
-            return customerDAO.NombreUsuario(id);
+            return customerDAO.nombreUsuario(id);
         } catch (org.apache.ibatis.exceptions.PersistenceException | PersistenceException e) {
             throw new ExceptionService("Error al iniciar sesion: "+e);
         }

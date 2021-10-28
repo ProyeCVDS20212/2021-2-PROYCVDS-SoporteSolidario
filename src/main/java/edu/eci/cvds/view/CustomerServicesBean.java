@@ -50,13 +50,13 @@ public class CustomerServicesBean extends BasePageBean {
      * @return String
      * @throws ServicesException controlador de excepciones
      */
-    public void IngresarSesion() throws Exception {
+    public void ingresarSesion() throws Exception {
         Logger log = LoggerFactory.getLogger(CustomerServices.class);
         UsernamePasswordToken token = new UsernamePasswordToken(username,password);
         subject = SecurityUtils.getSubject();
         try {
             //comprobar si está activo
-            List<Customer> datos = userServices.IngresarSesion(username);
+            List<Customer> datos = userServices.ingresarSesion(username);
             if (!datos.isEmpty())isactive= datos.get(0).getIsActive();
             if (isactive){
                     customerId = datos.get(0).getCustomerID();

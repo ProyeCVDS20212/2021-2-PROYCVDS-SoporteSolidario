@@ -13,6 +13,6 @@ public interface CustomerServices {
      * @throws ExceptionService controlador de errores de la package de service
      */
 
-    List<Customer> IngresarSesion(String username) throws ExceptionService;
-    List<Customer> NombreUsuario(int id) throws ExceptionService;
+    List<Customer> ingresarSesion(String username) throws ExceptionService;
+    List<Customer> nombreUsuario(int id) throws ExceptionService;
 }

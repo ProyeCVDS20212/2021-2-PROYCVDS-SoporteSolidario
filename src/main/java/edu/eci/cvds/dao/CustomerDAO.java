@@ -14,5 +14,5 @@ public interface CustomerDAO {
      */
     List<Customer> inicioSesion(String username) throws PersistenceException;
 
-    List<Customer> NombreUsuario(int id) throws PersistenceException;
+    List<Customer> nombreUsuario(int id) throws PersistenceException;
 }

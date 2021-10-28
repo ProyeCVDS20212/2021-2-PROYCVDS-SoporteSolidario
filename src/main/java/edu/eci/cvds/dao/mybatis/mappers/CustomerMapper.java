@@ -15,5 +15,5 @@ public interface CustomerMapper {
      */
     List<Customer> inicioSesion(@Param("Username")String username);
 
-    List<Customer> NombreUsuario(@Param("CustomerID")int id);
+    List<Customer> nombreUsuario(@Param("CustomerID")int id);
 }
