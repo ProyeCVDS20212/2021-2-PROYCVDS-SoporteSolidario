@@ -16,8 +16,8 @@
 
     <!--registrarCategoria-->
     <insert parameterType="map" id="registrarCategoria">
-        INSERT INTO categoria (nombre,descripcion,fechacreacion,estado,fechamodificacion)
-        VALUES (#{categoria.nombre},#{categoria.descripcion},#{categoria.fechacreacion},#{categoria.estado},#{categoria.fechamodificacion})
+        INSERT INTO categoria (nombre,descripcion)
+        VALUES (#{categoria.nombre},#{categoria.descripcion})
     </insert>
 
     <!--actualizarCategoria-->
@@ -25,5 +25,12 @@
         update categoria set nombre=#{newNombre}, descripcion=#{newDescripcion}, estado=#{newEstado}, fechamodificacion=current_date
         WHERE nombre=#{oldNombre}
     </update>
+
+    <!--verificarCategoria-->
+    <select id="verificarCategoria" parameterType="map" resultMap="CategoriaResult">
+        SELECT * 
+        FROM categoria
+        WHERE nombre=#{oldnombre}
+    </select>
 
 </mapper>

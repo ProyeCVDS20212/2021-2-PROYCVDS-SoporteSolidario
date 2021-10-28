@@ -1,6 +1,7 @@
 package edu.eci.cvds.entities;
 
-import java.util.Date;
+import java.math.BigDecimal;
+import java.sql.Date;
 
 public class Categoria {
     private int id;
@@ -10,15 +11,9 @@ public class Categoria {
     private boolean estado;
     private Date fechamodificacion;
 
-
-    public Categoria(int id, String nombre, String descripcion, Date fechacreacion, boolean estado, Date fechamodificacion) {
-        this.id = id;
+    public Categoria(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.fechacreacion = fechacreacion;
-        this.estado = estado;
-        this.fechamodificacion = fechamodificacion;
-
     }
 
     public Categoria(String nombre, String descripcion, Date fechacreacion, boolean estado, Date fechamodificacion) {
@@ -38,11 +33,11 @@ public class Categoria {
     }
 
     public String getNombre() {
-        return nombre;
+        return nombre.toUpperCase();
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre = nombre.toUpperCase();
     }
 
     public String getDescripcion() {

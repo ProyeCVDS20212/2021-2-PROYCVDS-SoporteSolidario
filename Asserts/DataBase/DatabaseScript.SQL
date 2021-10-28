@@ -61,6 +61,9 @@ Declare
 BEGIN
 	select COUNT(*) into autoid from categoria;
 	NEW.id := autoid + 1;
+    NEW.fechacreacion := current_date;
+    NEW.fechamodificacion := current_date;
+    NEW.estado := true;
 	RETURN NEW;
 END;
 ' LANGUAGE plpgsql VOLATILE;
