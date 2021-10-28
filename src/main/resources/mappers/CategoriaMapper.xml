@@ -26,4 +26,11 @@
         WHERE nombre=#{oldNombre}
     </update>
 
+    <!--verificarCategoria-->
+    <select id="verificarCategoria" parameterType="map" resultMap="CategoriaResult">
+        SELECT id 
+        FROM categoria
+        WHERE nombre=#{oldnombre}
+    </select>
+
 </mapper>

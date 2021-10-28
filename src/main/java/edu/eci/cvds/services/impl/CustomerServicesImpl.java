@@ -19,7 +19,7 @@ public class CustomerServicesImpl implements CustomerServices {
      * Retorna una lista con la información de un usruaio consultado
      * @param username  es el username con el cual se consultaran los datos
      * @return List de tipo User
-     * @throws ServicesException controlador de errores de la capa de services
+     * @throws ExceptionService controlador de errores de la capa de services
      */
     @Override
     public List<Customer> IngresarSesion(String username) throws ExceptionService {
@@ -31,6 +31,9 @@ public class CustomerServicesImpl implements CustomerServices {
     }
 
 
+    /**
+     * @return Devuelve el nombre de usuario apartir del id
+     */
     @Override
     public List<Customer> NombreUsuario(int id) throws ExceptionService{
         try {
