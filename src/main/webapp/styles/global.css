@@ -1,5 +1,5 @@
 body{
-    background-color: rgba(105, 35, 170, 0.856);
+    background-color: rgba(99, 34, 255, 1);
     align-self: center;
     text-align: center;
     align-items: center;
@@ -8,6 +8,13 @@ body{
     font-size: 25px;
     font-family:sans-serif;
 }
+.titulo{
+ text-shadow: 5px 5px 5px #000000;
+}
+.subtitulo{
+ text-shadow: 3px 3px 3px #000000;
+ font-family: MedievalSharp;
+}
 .form{
   display:flex;
   text-align: center;
@@ -15,7 +22,8 @@ body{
   width: 30%;
   align-items: center;
   height: auto;
-  background-color:rgba(76, 35, 114, 0.712);
+  text-shadow: 2px 2px 2px #000000;
+  background: linear-gradient(150deg, #eba102, #f10271, #00c298);
   font-size:12px;
   padding:15px;
   border-radius: 15px;
