@@ -30,20 +30,25 @@ CREATE TABLE Categoria (
      )
 );
 
-CREATE TABLE  necesidades(
+CREATE TABLE  NECESIDADES(
 	id NUMERIC(7) NOT NULL,
 	nombre VARCHAR(50) NOT NULL,
 	descripcion VARCHAR(250) NOT NULL,
-	estado NUMERIC(2) NOT NULL,
+    urgencia NUMERIC(1) NOT NULL,
+	estado BOOL NOT NULL,
 	fechacreacion DATE NOT NULL,
 	fechamodificacion DATE NOT NULL,
 	categoriaId NUMERIC(9) NOT NULL,
+    solicitante NUMERIC(9) NOT NULL,
     CONSTRAINT "pk_idNecesidades" PRIMARY KEY (
         id
      ),
      CONSTRAINT "fk_necesidadesCategoria" FOREIGN KEY(
          categoriaId
-     ) REFERENCES Categoria(id)
+     ) REFERENCES Categoria(id),
+     CONSTRAINT "fk_necesidadesCustome" FOREIGN KEY(
+         solicitante
+     ) REFERENCES Customer(CustomerID)
 );
 
 CREATE TABLE ROLES (

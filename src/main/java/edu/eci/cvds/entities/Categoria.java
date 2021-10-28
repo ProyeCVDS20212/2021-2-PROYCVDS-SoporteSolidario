@@ -16,6 +16,15 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
+    public Categoria(BigDecimal id,String nombre,String descripcion,Date fechaa,boolean estado, Date fechab){
+        this.id =id.intValue();
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechacreacion = fechaa;
+        this.estado = estado;
+        this.fechamodificacion = fechab;
+    }
+
     public Categoria(String nombre, String descripcion, Date fechacreacion, boolean estado, Date fechamodificacion) {
         this.nombre = nombre;
         this.descripcion = descripcion;

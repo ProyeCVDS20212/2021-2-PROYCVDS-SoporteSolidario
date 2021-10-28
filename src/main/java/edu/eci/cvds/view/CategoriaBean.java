@@ -37,7 +37,7 @@ public class CategoriaBean  extends BasePageBean{
      */
     public void agregarCategoria() throws ExceptionService {
         try {
-            Categoria categorie = new Categoria(nombre, descripcion);
+            Categoria categorie = new Categoria(nombre.toUpperCase(), descripcion);
             CategoriaServices.registrarCategoria(categorie);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message",
                     "Categoria creada correctamente");
@@ -66,7 +66,7 @@ public class CategoriaBean  extends BasePageBean{
      */
     public void actualizarCategoria() throws ExceptionService{
         try {
-            CategoriaServices.actualizarCategoria(nombre, descripcion, estado, oldnombre);
+            CategoriaServices.actualizarCategoria(nombre.toUpperCase(), descripcion, estado, oldnombre.toUpperCase());
         } catch (ExceptionService e) {
             throw new ExceptionService("Se produjo un error a la hora de actualizar la categoria", e);
         }
@@ -118,7 +118,7 @@ public class CategoriaBean  extends BasePageBean{
      * @return
      */
     public String getOldnombre() {
-        return oldnombre.toUpperCase();
+        return oldnombre;
     }
 
     /**
@@ -158,7 +158,7 @@ public class CategoriaBean  extends BasePageBean{
      * @param oldnombre
      */
     public void setOldnombre(String oldnombre) {
-        this.oldnombre = oldnombre.toUpperCase();
+        this.oldnombre = oldnombre;
     }
 
     /**
