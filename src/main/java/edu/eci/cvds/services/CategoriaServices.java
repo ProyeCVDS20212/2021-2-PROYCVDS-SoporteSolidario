@@ -23,6 +23,13 @@ public interface CategoriaServices{
      */
     public void actualizarCategoria(String nombre, String descripcion, boolean estado, String oldnombre) throws ExceptionService;
 
+
+    /***
+     * Verifica si la categoria que se desea buscar existe en la base de datos
+     * @param oldnombre nombre de la categoria
+     * @return
+     * @throws ExceptionService
+     */
     public List<Categoria> verificarCategoria(String oldnombre) throws ExceptionService;
 
 }

@@ -10,6 +10,8 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/app/*</url-pattern>
   </servlet-mapping>
+
+
   <welcome-file-list>
     <welcome-file>/app/login.xhtml</welcome-file>
   </welcome-file-list>

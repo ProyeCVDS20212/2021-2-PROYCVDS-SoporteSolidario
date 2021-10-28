@@ -3,6 +3,7 @@ package edu.eci.cvds.services.impl;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
 
@@ -37,18 +38,21 @@ public class CategoriaServicesImpl implements CategoriaServices {
             if(!existeCategoria.isEmpty()){
                 if(existeNuevaCategoria.isEmpty()){
                     categoriaDAO.actualizarCategoria(nombre, descripcion, estado, oldnombre);
-                    FacesMessage messageCorrect = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message",
-                            "Categoria actualizada correctamente");
-                    PrimeFaces.current().dialog().showMessageDynamic(messageCorrect);
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria actualizada correctamente",
+                            "");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                    //PrimeFaces.current().dialog().showMessageDynamic(messageCorrect);
                 }
                 else{
-                    FacesMessage messageExiste =new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "La categoria con ese nombre ya existe");
-                    PrimeFaces.current().dialog().showMessageDynamic(messageExiste);
+                    FacesMessage message =new FacesMessage(FacesMessage.SEVERITY_ERROR, "La categoria con ese nombre ya existe", "");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                    //PrimeFaces.current().dialog().showMessageDynamic(messageExiste);
                 }
             }
             else{
-                FacesMessage messageExiste =new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "La categoria que desea actualizar no existe");
-                    PrimeFaces.current().dialog().showMessageDynamic(messageExiste);
+                FacesMessage message =new FacesMessage(FacesMessage.SEVERITY_ERROR, "La categoria que desea actualizar no existe", "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+                    //PrimeFaces.current().dialog().showMessageDynamic(messageExiste);
             }
             
         } catch (Exception e) {
