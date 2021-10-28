@@ -7,16 +7,17 @@ import edu.eci.cvds.services.CategoriaServices;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.view.facelets.FaceletContext;
 import javax.inject.Inject;
-import javax.servlet.ServletException;
+
+
 
 import org.primefaces.PrimeFaces;
 
-import java.time.LocalTime;
 import java.util.Date;
 
 @javax.faces.bean.ManagedBean(name = "categoriaBean")
-@SessionScoped
 public class CategoriaBean  extends BasePageBean{
 
     @Inject
@@ -39,16 +40,17 @@ public class CategoriaBean  extends BasePageBean{
         try {
             Categoria categorie = new Categoria(nombre.toUpperCase(), descripcion);
             CategoriaServices.registrarCategoria(categorie);
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message",
-                    "Categoria creada correctamente");
-            PrimeFaces.current().dialog().showMessageDynamic(message);
-            // FacesContext.getCurrentInstance().getExternalContext().redirect("home.xhtml");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria creada correctamente",
+                    "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            //PrimeFaces.current().dialog().showMessageDynamic(message);
             cleanData();
         } catch (ExceptionService ex) {
             cleanData();
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Message",
-            "Ya existe una Categoria con este Nombre");
-                        PrimeFaces.current().dialog().showMessageDynamic(message);
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Ya existe una Categoria con este Nombre",
+            "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+                        //PrimeFaces.current().dialog().showMessageDynamic(message);
         }
 
         cleanData();
