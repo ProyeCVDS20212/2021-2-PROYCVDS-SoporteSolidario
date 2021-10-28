@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
 
-import org.primefaces.PrimeFaces;
+
 
 import edu.eci.cvds.dao.CategoriaDAO;
 import edu.eci.cvds.entities.Categoria;

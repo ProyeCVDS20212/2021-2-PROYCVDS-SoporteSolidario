@@ -8,12 +8,10 @@ import edu.eci.cvds.services.CategoriaServices;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.view.facelets.FaceletContext;
 import javax.inject.Inject;
 
 
 
-import org.primefaces.PrimeFaces;
 
 import java.util.Date;
 

@@ -36,6 +36,15 @@ public class Necesidad {
         this.urgencia = urgencia.intValue();
         this.idsolicitante=idsolicitante.intValue();
     }
+    public Necesidad(String value, String description, boolean status, int category_id, int urgencia, int idsolicitante){
+        this.nombre = value;
+        this.descripcion = description;
+        this.urgencia = urgencia;
+        this.estado = status;
+        this.categoriaId = category_id;
+        this.urgencia = urgencia;
+        this.idsolicitante=idsolicitante;
+    }
 
     public int getCategoriaId() {
         return categoriaId;

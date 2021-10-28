@@ -54,6 +54,7 @@ CREATE TABLE  NECESIDADES(
 CREATE TABLE ROLES (
 	id NUMERIC(2) NOT NULL,
 	NOMBRE VARCHAR(15) NOT NULL,
+    LimiteSolicitudes NUMERIC(2),
 	CONSTRAINT "	pk_ROLES" PRIMARY KEY (
 	id),
 	CONSTRAINT "uk_roles" UNIQUE (
@@ -77,3 +78,36 @@ END;
 CREATE TRIGGER bi_categoria
 BEFORE INSERT ON categoria
 FOR EACH ROW EXECUTE FUNCTION autoCategoria();
+
+Create or REPLACE FUNCTION autoCustomer() RETURNS trigger AS '
+Declare
+	autoid NUMERIC;
+BEGIN
+	select COUNT(*) into autoid from Customer;
+	NEW.CustomerID := autoid + 1;
+	RETURN NEW;
+END;
+' LANGUAGE plpgsql VOLATILE;
+
+
+CREATE TRIGGER bi_customer
+BEFORE INSERT ON customer
+FOR EACH ROW EXECUTE FUNCTION autoCustomer();
+
+Create or REPLACE FUNCTION autoNecesidades() RETURNS trigger AS '
+Declare
+	autoid NUMERIC;
+BEGIN
+	select COUNT(*) into autoid from NECESIDADES;
+	NEW.id := autoid + 1;
+    NEW.fechacreacion := current_date;
+    NEW.fechamodificacion := current_date;
+    NEW.estado := true;
+	RETURN NEW;
+END;
+' LANGUAGE plpgsql VOLATILE;
+
+
+CREATE TRIGGER bi_necesidades
+BEFORE INSERT ON necesidades
+FOR EACH ROW EXECUTE FUNCTION autoNecesidades();
