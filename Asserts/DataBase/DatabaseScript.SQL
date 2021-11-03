@@ -64,7 +64,7 @@ CREATE TABLE ROLES (
 CREATE TABLE OFERTAS (
 	id NUMERIC(7) NOT NULL,
 	NOMBRE VARCHAR(15) NOT NULL,
-    descripcion NUMERIC(2),
+    descripcion VARCHAR(250),
     Estado BOOL NOT NULL,
     fechacreacion DATE NOT NULL,
 	fechamodificacion DATE NOT NULL,
@@ -75,6 +75,37 @@ CREATE TABLE OFERTAS (
          categoriaId
      ) REFERENCES Categoria(id)
 );
+
+CREATE TABLE RESPUESTAS (
+    id numeric(7) NOT NULL,
+    NOMBRE VARCHAR(15) NOT NULL,
+    COMENTARIO VARCHAR(250),
+    fechacreacion DATE NOT NULL,
+    OFERTAID NUMERIC(7),
+    NECESIDADID NUMERIC(7),
+    CONSTRAINT "fk_RESPUESTASOFERTA" FOREIGN KEY(
+         OFERTAID
+     ) REFERENCES OFERTAS(id),
+          CONSTRAINT "fk_RESPUESTANECESIDAD" FOREIGN KEY(
+         NECESIDADID
+     ) REFERENCES NECESIDADES(id)
+);
+
+Create or REPLACE FUNCTION autorespuesta() RETURNS trigger AS '
+Declare
+	autoid NUMERIC;
+BEGIN
+	select COUNT(*) into autoid from RESPUESTAS;
+	NEW.id := autoid + 1;
+    NEW.fechacreacion := current_date;
+	RETURN NEW;
+END;
+' LANGUAGE plpgsql VOLATILE;
+
+
+CREATE TRIGGER bi_respuesta
+BEFORE INSERT ON RESPUESTAS
+FOR EACH ROW EXECUTE FUNCTION autorespuesta();
 
 Create or REPLACE FUNCTION autoOfertas() RETURNS trigger AS '
 Declare
