@@ -18,4 +18,17 @@
         INSERT INTO Ofertas(NOMBRE,descripcion,Estado,fechacreacion,fechamodificacion,categoriaId,solicitanteId) VALUES(#{oferta.NOMBRE},#{oferta.descripcion},#{oferta.Estado},current_date,current_date,#{oferta.categoriaId},#{oferta.solicitanteId})
     </insert>
 
+    <select parameterType="map" id="verificarOferta" resultMap="OfertasResult">
+        SELECT *
+        FROM Ofertas
+        WHERE NOMBRE=#{oldnombre}
+    </select>
+
+    <select parameterType="map" id="OfertasporUsuario" resultMap="OfertasResult">
+        SELECT *
+        FROM Ofertas
+        WHERE solicitanteId=#{solicitanteId}
+    </select>
+
+
 </mapper>

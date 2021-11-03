@@ -120,7 +120,7 @@ public class CustomerServicesBean extends BasePageBean {
      * Asigna el customerId
      * @param id
      */
-    public void setcustomerId(int id) {
+    public void setcustomerId(int customerId) {
         this.customerId = customerId;
     }
 
