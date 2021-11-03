@@ -61,6 +61,39 @@ CREATE TABLE ROLES (
 	NOMBRE)
 );
 
+CREATE TABLE OFERTAS (
+	id NUMERIC(7) NOT NULL,
+	NOMBRE VARCHAR(15) NOT NULL,
+    descripcion NUMERIC(2),
+    Estado BOOL NOT NULL,
+    fechacreacion DATE NOT NULL,
+	fechamodificacion DATE NOT NULL,
+    categoriaId NUMERIC(9) NOT NULL,
+	CONSTRAINT "pk_OFERTAS" PRIMARY KEY (
+	id),
+     CONSTRAINT "fk_ofertasCategoria" FOREIGN KEY(
+         categoriaId
+     ) REFERENCES Categoria(id)
+);
+
+Create or REPLACE FUNCTION autoOfertas() RETURNS trigger AS '
+Declare
+	autoid NUMERIC;
+BEGIN
+	select COUNT(*) into autoid from ofertas;
+	NEW.id := autoid + 1;
+    NEW.fechacreacion := current_date;
+    NEW.fechamodificacion := current_date;
+    NEW.estado := true;
+	RETURN NEW;
+END;
+' LANGUAGE plpgsql VOLATILE;
+
+
+CREATE TRIGGER bi_ofertas
+BEFORE INSERT ON ofertas
+FOR EACH ROW EXECUTE FUNCTION autoOfertas();
+
 Create or REPLACE FUNCTION autoCategoria() RETURNS trigger AS '
 Declare
 	autoid NUMERIC;
