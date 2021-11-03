@@ -32,5 +32,10 @@
         FROM categoria
         WHERE nombre=#{oldnombre}
     </select>
+        <!--Consultar categorias-->
+        <select id="consultarCategorias" parameterType="map" resultMap="CategoriaResult">
+            SELECT * 
+            FROM categoria
+        </select>
 
 </mapper>

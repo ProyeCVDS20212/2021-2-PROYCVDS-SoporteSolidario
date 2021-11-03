@@ -69,11 +69,15 @@ CREATE TABLE OFERTAS (
     fechacreacion DATE NOT NULL,
 	fechamodificacion DATE NOT NULL,
     categoriaId NUMERIC(9) NOT NULL,
+    solicitanteid numeric(9) NOT NULL,
 	CONSTRAINT "pk_OFERTAS" PRIMARY KEY (
 	id),
      CONSTRAINT "fk_ofertasCategoria" FOREIGN KEY(
          categoriaId
-     ) REFERENCES Categoria(id)
+     ) REFERENCES Categoria(id),
+          CONSTRAINT "fk_ofertassolicitante" FOREIGN KEY(
+         solicitanteid
+     ) REFERENCES Customer(CustomerID)
 );
 
 CREATE TABLE RESPUESTAS (
@@ -83,10 +87,14 @@ CREATE TABLE RESPUESTAS (
     fechacreacion DATE NOT NULL,
     OFERTAID NUMERIC(7),
     NECESIDADID NUMERIC(7),
+    remitente NUMERIC(9) not null,
     CONSTRAINT "fk_RESPUESTASOFERTA" FOREIGN KEY(
          OFERTAID
      ) REFERENCES OFERTAS(id),
-          CONSTRAINT "fk_RESPUESTANECESIDAD" FOREIGN KEY(
+          CONSTRAINT "fk_RESPUESTAcustomer" FOREIGN KEY(
+         remitente
+     ) REFERENCES Customer(CustomerID),
+            CONSTRAINT "fk_RESPUESTANECESIDAD" FOREIGN KEY(
          NECESIDADID
      ) REFERENCES NECESIDADES(id)
 );

@@ -25,6 +25,7 @@
         <mapper resource="mappers/CustomerMapper.xml"></mapper>
         <mapper resource="mappers/NecesidadesMapper.xml"></mapper>
         <mapper resource="mappers/OfertasMapper.xml"></mapper>
+        <mapper resource="mappers/RespuestasMapper.xml"></mapper>   
     </mappers>
 
 </configuration>

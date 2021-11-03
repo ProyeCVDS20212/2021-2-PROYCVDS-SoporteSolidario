@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.RespuestasMapper">
+    <resultMap id="RespuestasResult" type="Respuesta">
+        <id property="id" column="id"/>
+        <result property="Nombre" column="Nombre"/>
+        <result property="Comentario" column="Comentario"/>
+        <result property="fechacreacion" column="fechacreacion"/>
+        <result property="OFERTAID" column="OFERTAID"/>
+        <result property="NECESIDADID" column="NECESIDADID"/>
+    </resultMap>
+    
+    <select parameterType="map" id="consultarRespuestas" resultMap="RespuestasResult">
+        SELECT *
+        FROM Respuestas
+    </select>
+
+    <select parameterType="map" id="consultarRespuesta" resultMap="RespuestasResult">
+        SELECT *
+        FROM Respuestas
+        WHERE id = #{id}
+    </select>
+
+    <insert parameterType="map" id="registrarRespuestaOferta">
+        INSERT INTO respuestas (nombre,comentario,ofertaid)
+        VALUES (#{respuesta.nombre},#{respuesta.comentario},#{respuesta.ofertaid})
+    </insert>
+
+    <insert parameterType="map" id="registrarRespuestaNecesidad">
+        INSERT INTO respuestas (nombre,comentario,necesidadid)
+        VALUES (#{respuesta.nombre},#{respuesta.comentario},#{respuesta.necesidadid})
+    </insert>
+</mapper>
