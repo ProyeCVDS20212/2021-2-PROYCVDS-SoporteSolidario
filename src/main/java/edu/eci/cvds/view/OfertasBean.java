@@ -27,7 +27,7 @@ public class OfertasBean  extends BasePageBean{
 
         try {
             
-        } catch (ExceptionService e) {
+        } catch (Exception e) {
             
         }
 
