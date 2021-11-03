@@ -25,12 +25,6 @@ public class OfertasBean  extends BasePageBean{
 
     public void agregarOferta() throws ExceptionService{
 
-        try {
-            
-        } catch (ExceptionService e) {
-            
-        }
-
     }
     
     public void setCategoriaid(int categoriaid) {

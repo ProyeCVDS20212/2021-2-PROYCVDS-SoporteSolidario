@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.OfertasMapper">
+    <resultMap id="OfertasResult" type="Ofertas">
+        <id property="id" column="id"/>
+        <result property="NOMBRE" column="NOMBRE"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="Estado" column="Estado"/>
+        <result property="fechacreacion" column="fechacreacion"/>
+        <result property="fechamodificacion" column="fechamodificacion"/>
+        <result property="categoriaId" column="categoriaId"/>
+        <result property="solicitanteId" column="solicitanteId"/>
+    </resultMap>
+
+    <insert id="agregarOferta" parameterType="map">
+        INSERT INTO Ofertas(NOMBRE,descripcion,Estado,fechacreacion,fechamodificacion,categoriaId,solicitanteId) VALUES(#{oferta.NOMBRE},#{oferta.descripcion},#{oferta.Estado},current_date,current_date,#{oferta.categoriaId},#{oferta.solicitanteId})
+    </insert>
+
+</mapper>
