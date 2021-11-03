@@ -31,4 +31,9 @@
         WHERE solicitante=#{solicitante} and estado
     </select>
 
+    <select parameterType="map" id="consultarNecesidades" resultMap="NeedsResult">
+        select *
+        FROM necesidades
+    </select>
+
     </mapper>
