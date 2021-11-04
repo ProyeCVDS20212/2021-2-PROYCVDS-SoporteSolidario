@@ -1,10 +1,12 @@
 body{
-    background-color: rgba(99, 34, 255, 1);
+    background-image: url("https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: 100%;
+    background-repeat: no-repeat;
     align-self: center;
     text-align: center;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: rgba(24,120,133,1);
     font-size: 25px;
     font-family:sans-serif;
 }
@@ -13,6 +15,12 @@ body{
 }
 .subtitulo{
  text-shadow: 3px 3px 3px #000000;
+ color: white;
+ font-family: MedievalSharp;
+}
+.subtitulo1{
+ text-shadow: 3px 3px 3px #000000;
+ color: rgba(255,3,61,1);
  font-family: MedievalSharp;
 }
 .form{
