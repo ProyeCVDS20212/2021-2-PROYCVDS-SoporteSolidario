@@ -27,6 +27,6 @@ public interface OfertasServices {
      * @return
      * @throws ExceptionService
      */
-    List<Ofertas> OfertasporUsuario(int solicitanteId) throws ExceptionService;
+    List<Ofertas> OfertasporUsuario(int solicitanteId,boolean estado) throws ExceptionService;
 
 }

@@ -6,6 +6,8 @@
         <typeAlias type="edu.eci.cvds.entities.Customer" alias="Customer" />
         <typeAlias type="edu.eci.cvds.entities.Categoria" alias="Categoria" />
         <typeAlias type="edu.eci.cvds.entities.Necesidad" alias="Necesidad"/>
+        <typeAlias type="edu.eci.cvds.entities.Ofertas" alias="Ofertas" />
+        <typeAlias type="edu.eci.cvds.entities.Respuesta" alias="Respuesta"/>
     </typeAliases>
 
 

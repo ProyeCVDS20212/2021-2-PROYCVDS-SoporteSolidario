@@ -1,6 +1,7 @@
 package edu.eci.cvds.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Date;
 
 public class Ofertas implements Serializable{
@@ -13,6 +14,14 @@ public class Ofertas implements Serializable{
     private int categoriaId;
     private int solicitanteId;
 
+    public Ofertas(String nombre, String descripcion, boolean estado, BigDecimal categoriaId, BigDecimal solicitanteId){
+        this.NOMBRE = nombre;
+        this.descripcion = descripcion;
+        this.Estado = estado;
+        this.categoriaId = categoriaId.intValue();
+        this.solicitanteId = solicitanteId.intValue();
+    }
+
     public Ofertas(String nombre, String descripcion, boolean estado, int categoriaId, int solicitanteId){
         this.NOMBRE = nombre;
         this.descripcion = descripcion;
@@ -20,7 +29,6 @@ public class Ofertas implements Serializable{
         this.categoriaId = categoriaId;
         this.solicitanteId = solicitanteId;
     }
-
     public Ofertas(){
         super();
     }

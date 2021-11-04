@@ -33,9 +33,9 @@ public class MyBatisNecesidadesDAO implements NecesidadesDAO {
     }
 
     @Override
-    public int consultarNecesidadesAsociadas(int name) throws PersistenceException {
+    public int consultarNecesidadesAsociadas(int name,boolean estado) throws PersistenceException {
         try {
-            return needsMapper.consultarNecesidadesAsociadas(name).size();
+            return needsMapper.consultarNecesidadesAsociadas(name,estado).size();
         } catch (org.apache.ibatis.exceptions.PersistenceException e) {
             throw new PersistenceException("No se pudo consultar los nombres", e);
         }

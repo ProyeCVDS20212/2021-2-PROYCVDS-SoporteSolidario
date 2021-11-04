@@ -1,28 +1,40 @@
 package edu.eci.cvds.view;
 
 import java.sql.Date;
-import java.util.Set;
+import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import  javax.faces.bean.ManagedBean;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+import javax.faces.context.FacesContext;
 
+import com.google.inject.Inject;
+
+import edu.eci.cvds.dao.NecesidadesDAO;
+import edu.eci.cvds.entities.Categoria;
+import edu.eci.cvds.entities.Ofertas;
+import edu.eci.cvds.services.CategoriaServices;
 import edu.eci.cvds.services.ExceptionService;
 import edu.eci.cvds.services.OfertasServices;
+import edu.eci.cvds.services.RolesServices;
 
 @ManagedBean(name = "ofertasBean")
 public class OfertasServicesBean  extends BasePageBean{
     @Inject
     OfertasServices ofertasServices;
+    @Inject
+    CategoriaServices categoriaServices;
+    @Inject
+    RolesServices rolesServices;
 
     private int id;
-    private String NOMBRE;
+    private String nombre;
     private String descripcion;
     private boolean Estado;
     private Date fechacreacion;
     private Date fechamodificacion;
     private int categoriaId;
     private int solicitanteId;
+    private String categoria;
 
 
 
@@ -30,15 +42,31 @@ public class OfertasServicesBean  extends BasePageBean{
     public void agregarOferta() throws ExceptionService{
         try {
             solicitanteId = CustomerServicesBean.getcustomerId();
+            try {
+                List<Categoria> temp = categoriaServices.verificarCategoria(categoria.toUpperCase());
+                if (temp.isEmpty())throw new ExceptionService("La categoria no existe");
+                categoriaId = temp.get(0).getId();
+            } catch (ExceptionService e) {
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, ""+e.getMessage(),
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+            }
+            if(rolesServices.limiteNecesidades(id) > ofertasServices.OfertasporUsuario(solicitanteId, true).size())ofertasServices.agregarOferta(new Ofertas(nombre,descripcion,true,categoriaId,solicitanteId));
+            else{
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se supera el limite de ofertas",
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+            }
         } catch (Exception e) {
             throw new ExceptionService("Se produjo un error a la hora de agregar una oferta" + e.toString());
         }
-
     }
     public int getCategoriaId() {
         return categoriaId;
     }
-
+    public String getCategoria() {
+        return categoria;
+    }
     public String getDescripcion() {
         return descripcion;
     }
@@ -56,7 +84,7 @@ public class OfertasServicesBean  extends BasePageBean{
     }
 
     public String getNombre() {
-        return NOMBRE;
+        return nombre;
     }
 
     public int getSolicitanteId() {
@@ -66,7 +94,9 @@ public class OfertasServicesBean  extends BasePageBean{
     public boolean getEstado(){
         return Estado;
     }
-
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
     public void setCategoriaId(int categoriaId) {
         this.categoriaId = categoriaId;
     }
@@ -92,7 +122,7 @@ public class OfertasServicesBean  extends BasePageBean{
     }
 
     public void setNombre(String nombre) {
-        this.NOMBRE = nombre;
+        this.nombre = nombre;
     }
 
     public void setSolicitanteId(int solicitanteId) {

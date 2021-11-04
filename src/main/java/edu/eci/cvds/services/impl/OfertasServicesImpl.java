@@ -19,16 +19,7 @@ public class OfertasServicesImpl implements OfertasServices{
     @Override
     public void agregarOferta(Ofertas oferta) throws ExceptionService {
         try {
-            List<Ofertas> existeOferta = verificarOferta(oferta.getNombre());
-            if(existeOferta.isEmpty()){
-                ofertasDAO.agregarOferta(oferta);
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "La oferta ha sido creada correctamente","");
-                FacesContext.getCurrentInstance().addMessage(null, message);
-            }
-            else{
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "La oferta ya existe. Verifique el nombre e intentelo de nuevo","");
-                FacesContext.getCurrentInstance().addMessage(null, message);
-            }
+            ofertasDAO.agregarOferta(oferta);
         } catch (Exception e) {
             throw new ExceptionService("Se produjo un error a la hora de agregar la oferta" + e.toString());
         }
@@ -45,9 +36,9 @@ public class OfertasServicesImpl implements OfertasServices{
     }
 
     @Override
-    public List<Ofertas> OfertasporUsuario(int solicitanteId) throws ExceptionService {
+    public List<Ofertas> OfertasporUsuario(int solicitanteId,boolean estado) throws ExceptionService {
         try {
-            return ofertasDAO.OfertasporUsuario(solicitanteId);
+            return ofertasDAO.OfertasporUsuario(solicitanteId,estado);
         } catch (Exception e) {
             throw new ExceptionService("Se produjo un error a la hora de verificar las ofertas por usuario" + e.toString());
         }
