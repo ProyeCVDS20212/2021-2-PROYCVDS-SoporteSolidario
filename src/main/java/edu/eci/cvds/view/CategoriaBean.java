@@ -6,6 +6,7 @@ import edu.eci.cvds.services.ExceptionService;
 import edu.eci.cvds.services.CategoriaServices;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
@@ -15,6 +16,7 @@ import javax.inject.Inject;
 import java.util.Date;
 
 @javax.faces.bean.ManagedBean(name = "categoriaBean")
+@SessionScoped
 public class CategoriaBean  extends BasePageBean{
 
     @Inject

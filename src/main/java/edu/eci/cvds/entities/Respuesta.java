@@ -21,11 +21,11 @@ public class Respuesta {
         this.necesidadid = necesidad.intValue();
     }
 
-    public Respuesta(String nombre,String comentario,BigDecimal ofertaid,BigDecimal necesidad){
+    public Respuesta(String nombre,String comentario,int ofertaid,int necesidad){
         this.nombre = nombre;
         this.comentario = comentario;
-        this.ofertaid = ofertaid.intValue();
-        this.necesidadid = necesidad.intValue();
+        this.ofertaid = ofertaid;
+        this.necesidadid = necesidad;
     }
     
     public void setComentario(String comentario) {

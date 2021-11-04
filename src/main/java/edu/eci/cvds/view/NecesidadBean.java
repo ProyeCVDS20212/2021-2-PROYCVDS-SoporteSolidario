@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
@@ -15,6 +16,8 @@ import edu.eci.cvds.services.ExceptionService;
 import edu.eci.cvds.services.NecesidadesServices;
 import edu.eci.cvds.services.RolesServices;
 
+@javax.faces.bean.ManagedBean(name = "necesidadBean")
+@SessionScoped
 public class NecesidadBean extends BasePageBean{
     @Inject
     NecesidadesServices necesidadesServices;

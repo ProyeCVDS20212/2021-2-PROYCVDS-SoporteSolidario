@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import  javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
@@ -18,6 +19,7 @@ import edu.eci.cvds.services.OfertasServices;
 import edu.eci.cvds.services.RolesServices;
 
 @ManagedBean(name = "ofertasBean")
+@SessionScoped
 public class OfertasServicesBean  extends BasePageBean{
     @Inject
     OfertasServices ofertasServices;
@@ -51,7 +53,7 @@ public class OfertasServicesBean  extends BasePageBean{
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
-            if(rolesServices.limiteNecesidades(id) > ofertasServices.OfertasporUsuario(solicitanteId, true).size())ofertasServices.agregarOferta(new Ofertas(nombre,descripcion,true,categoriaId,solicitanteId));
+            if(rolesServices.limiteNecesidades(id) > ofertasServices.OfertasporUsuario(solicitanteId, true).size())ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,true,categoriaId,solicitanteId));
             else{
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se supera el limite de ofertas",
                 "");

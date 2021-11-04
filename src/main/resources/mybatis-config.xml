@@ -7,6 +7,7 @@
         <typeAlias type="edu.eci.cvds.entities.Categoria" alias="Categoria" />
         <typeAlias type="edu.eci.cvds.entities.Necesidad" alias="Necesidad"/>
         <typeAlias type="edu.eci.cvds.entities.Ofertas" alias="Ofertas" />
+        <typeAlias type="edu.eci.cvds.entities.Rol" alias="Rol"/>
         <typeAlias type="edu.eci.cvds.entities.Respuesta" alias="Respuesta"/>
     </typeAliases>
 
@@ -27,7 +28,8 @@
         <mapper resource="mappers/CustomerMapper.xml"></mapper>
         <mapper resource="mappers/NecesidadesMapper.xml"></mapper>
         <mapper resource="mappers/OfertasMapper.xml"></mapper>
-        <mapper resource="mappers/RespuestasMapper.xml"></mapper>   
+        <mapper resource="mappers/RespuestasMapper.xml"></mapper>
+        <mapper resource="mappers/RolesMapper.xml"></mapper>   
     </mappers>
 
 </configuration>

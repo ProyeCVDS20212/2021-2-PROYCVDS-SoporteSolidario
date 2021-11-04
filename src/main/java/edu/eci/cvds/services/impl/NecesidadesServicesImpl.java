@@ -43,5 +43,14 @@ CustomerDAO customerDAO;
             throw new ExceptionService("Error en la consulta",e);
         }
     }
+
+    @Override
+    public List<Necesidad> consultarnecesidad(String nombre) throws ExceptionService {
+        try {
+            return necesidadDao.consultar(nombre);
+        } catch (PersistenceException e) {
+            throw new ExceptionService("Error en la consulta",e);
+        }
+    }
     
 }
