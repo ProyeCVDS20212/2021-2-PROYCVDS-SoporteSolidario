@@ -53,7 +53,12 @@ public class OfertasServicesBean  extends BasePageBean{
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
-            if(rolesServices.limiteNecesidades(id) > ofertasServices.OfertasporUsuario(solicitanteId, true).size())ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,true,categoriaId,solicitanteId));
+            if(rolesServices.limiteOfertas(CustomerServicesBean.getRol()) > ofertasServices.OfertasporUsuario(solicitanteId, true).size()){
+                ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,true,categoriaId,solicitanteId));
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se Agrego de forma exitosa la Oferta",
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+            }
             else{
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se supera el limite de ofertas",
                 "");

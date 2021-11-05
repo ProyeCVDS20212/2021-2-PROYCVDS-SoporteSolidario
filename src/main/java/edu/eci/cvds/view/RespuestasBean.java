@@ -61,6 +61,9 @@ public class RespuestasBean extends BasePageBean {
             if(ofertaid != necesidadid && (ofertaid != 0 || necesidadid != 0)){
                 Respuesta temp = new Respuesta(nombre.toUpperCase(), comentario, ofertaid, necesidadid);
                 respuestaServices.registrarRespuestaNecesidad(temp);
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se agrego de forma exitosa la respuesta",
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message); 
             }else{
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "No se pudo realizar el registro, error en los datos ingresados",
                 "");

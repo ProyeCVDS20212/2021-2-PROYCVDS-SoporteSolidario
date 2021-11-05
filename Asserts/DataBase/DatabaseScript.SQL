@@ -1,3 +1,15 @@
+CREATE TABLE ROLES (
+	id NUMERIC(2) NOT NULL,
+	NOMBRE VARCHAR(15) NOT NULL,
+    LimiteSolicitudes NUMERIC(2),
+    LimiteOfertas numeric(2),
+	CONSTRAINT "pk_ROLES" PRIMARY KEY (
+	id),
+	CONSTRAINT "uk_roles" UNIQUE (
+	NOMBRE)
+);
+
+
 CREATE TABLE Customer(
     CustomerID NUMERIC(9)   NOT NULL,
     Name VARCHAR(50)   NOT NULL,
@@ -49,16 +61,6 @@ CREATE TABLE  NECESIDADES(
      CONSTRAINT "fk_necesidadesCustome" FOREIGN KEY(
          solicitante
      ) REFERENCES Customer(CustomerID)
-);
-
-CREATE TABLE ROLES (
-	id NUMERIC(2) NOT NULL,
-	NOMBRE VARCHAR(15) NOT NULL,
-    LimiteSolicitudes NUMERIC(2),
-	CONSTRAINT "	pk_ROLES" PRIMARY KEY (
-	id),
-	CONSTRAINT "uk_roles" UNIQUE (
-	NOMBRE)
 );
 
 CREATE TABLE OFERTAS (
@@ -183,3 +185,9 @@ END;
 CREATE TRIGGER bi_necesidades
 BEFORE INSERT ON necesidades
 FOR EACH ROW EXECUTE FUNCTION autoNecesidades();
+
+insert into ROLES (ID,NOMBRE,LimiteSolicitudes,LimiteOfertas) VALUES ( 1,'Administrador',10,10);
+insert into ROLES (ID,NOMBRE,LimiteSolicitudes,LimiteOfertas) VALUES ( 2,'Estudiante',10,10);
+insert into ROLES (ID,NOMBRE,LimiteSolicitudes,LimiteOfertas) VALUES ( 3,'Profesor',10,10);
+insert into ROLES (ID,NOMBRE,LimiteSolicitudes,LimiteOfertas) VALUES ( 4,'Egresado',10,10);
+insert into ROLES (ID,NOMBRE,LimiteSolicitudes,LimiteOfertas) VALUES ( 4,'Administrativo',10,10);

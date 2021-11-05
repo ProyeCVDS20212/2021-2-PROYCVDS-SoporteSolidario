@@ -15,5 +15,10 @@ public class RolesServicesImpl implements RolesServices{
     public int limiteNecesidades(int id) throws PersistenceException {
         return rolesDAO.limiteNecesidades(id);
     }
+
+    @Override
+    public int limiteOfertas(int id) throws PersistenceException {
+        return rolesDAO.limiteOfertas(id);
+    }
     
 }

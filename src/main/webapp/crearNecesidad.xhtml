@@ -27,20 +27,24 @@
         <div class="subtitulo">
             <h1>Nombre</h1>
         </div>
-        <p:inputText  placeholder="nombre" class="inpu" required="true" value="#{NecesidadBean.nombre}"/>
+        <p:inputText  placeholder="nombre" class="inpu" required="true" value="#{necesidadBean.nombre}"/>
         <br></br>
         <div class="subtitulo">
             <h1>Descripcion</h1>
         </div>
-        <p:inputText  placeholder="Descripcion" class="inpu" required="true" value="#{NecesidadBean.descripcion}"/>
+        <p:inputText  placeholder="Descripcion" class="inpu" required="true" value="#{necesidadBean.descripcion}"/>
         <br></br>
+        <div class="subtitulo">
+            <h1>Categoria</h1>
+        </div>
+        <p:inputText  placeholder="categoria" class="inpu" required="true" value="#{necesidadBean.categoria}"/>
         <br></br>
         <div class="subtitulo">
             <h1>Urgencia</h1>
         </div>
-        <p:inputText  placeholder="Urgencia" class="inpu" required="true" value="#{NecesidadBean.urgencia}"/>
+        <p:inputText  placeholder="Urgencia" class="inpu" required="true" type="number" min="1" max="10" value="#{necesidadBean.urgencia}"/>
         <br></br>
-        <h:commandButton value="SUBMIT" update="form" actionListener="#{NecesidadBean.agregarNecesidades()}" class="but"/>
+        <h:commandButton value="SUBMIT" update="form" actionListener="#{necesidadBean.agregarNecesidades()}" class="but"/>
     </h:form>
     <div class="subtitulo">
         <a href="/app/home.xhtml" class="but btn" >Back</a>

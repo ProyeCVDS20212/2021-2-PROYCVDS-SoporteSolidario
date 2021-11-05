@@ -5,8 +5,8 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.RolesMapper">
     <resultMap id="RolResult" type="Rol">
         <id property="id" column="id"/>
-        <result property="Nombre" column="Nombre"/>
-        <result property="LimiteSolicitudes" column="limiteSolicitudes"/>
+        <result property="nombre" column="nombre"/>
+        <result property="limiteSolicitudes" column="limiteSolicitudes"/>
     </resultMap>
     
     <select parameterType="map" id="consultarRol" resultMap="RolResult">

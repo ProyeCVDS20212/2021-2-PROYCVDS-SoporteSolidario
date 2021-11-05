@@ -12,11 +12,11 @@
         <result property="fechamodificacion" column="fechamodificacion"/>
         <result property="categoriaId" column="categoriaId"/>
         <result property="urgencia" column="urgencia"/>
-        <result property="solicitante" column="solicitante"/>
+        <result property="idsolicitante" column="solicitante"/>
     </resultMap>
 
     <insert parameterType="map" id="agregarNecesidades">
-        insert into needs (nombre,descripcion,estado,fechacreacion,fechamodificacion,categoriaId,urgencia,solicitante) values(#{need.nombre},#{need.descripcion},#{need.estado},current_date,current_date,#{need.categoriaId},#{need.urgencia},#{need.solicitante})
+        insert into necesidades (nombre,descripcion,estado,fechacreacion,fechamodificacion,categoriaId,urgencia,solicitante) values(#{necesidad.nombre},#{necesidad.descripcion},#{necesidad.estado},current_date,current_date,#{necesidad.categoriaId},#{necesidad.urgencia},#{necesidad.idsolicitante})
     </insert>
 
     <select parameterType="map" id="consultar" resultMap="NeedsResult">

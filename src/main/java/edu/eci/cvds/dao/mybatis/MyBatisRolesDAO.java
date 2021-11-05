@@ -19,5 +19,17 @@ public class MyBatisRolesDAO implements RolesDAO {
             throw new PersistenceException("Error al consultar", e);
         }        
     }
+
+
+    @Override
+    public int limiteOfertas(int id) throws PersistenceException {
+        try {
+            return rolMapper.consultarRol(id).get(0).getLimiteOfertas();
+        } catch (Exception e) {
+            throw new PersistenceException("Error al consultar", e);
+        }   
+    }
     
+
+        
 }
