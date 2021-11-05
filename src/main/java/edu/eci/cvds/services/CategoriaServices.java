@@ -32,4 +32,7 @@ public interface CategoriaServices{
      */
     public List<Categoria> verificarCategoria(String oldnombre) throws ExceptionService;
 
+    List<Categoria> consultarCategorias() throws ExceptionService;
+
+    Categoria consultarCategoria(int cId) throws ExceptionService;
 }

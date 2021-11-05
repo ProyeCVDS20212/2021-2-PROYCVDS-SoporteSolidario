@@ -55,8 +55,7 @@ public class NecesidadBean extends BasePageBean{
             }
             if(rolesServices.limiteNecesidades(CustomerServicesBean.getRol()) > necesidadesServices.consultarNecesidadesAsociadas(idsolicitante,true)){
                 necesidadesServices.agregarNecesidades(new Necesidad(nombre, descripcion, true, categoriaId, urgencia, idsolicitante));
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad Creada de forma exitosa",
-                "");
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad Creada de forma exitosa", "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
                 clear();
             }else
@@ -81,6 +80,13 @@ public class NecesidadBean extends BasePageBean{
         categoriaId= 0;
         idsolicitante= 0;
         categoria= null;
+    }
+
+    public List<Categoria> getCategorias() throws ExceptionService{
+        return categoriaServices.consultarCategorias();
+    };
+    public Categoria getC(int cId) throws ExceptionService{
+        return categoriaServices.consultarCategoria(cId);
     }
     public String getCategoria() {
         return categoria;

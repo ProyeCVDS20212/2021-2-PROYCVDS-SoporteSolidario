@@ -12,4 +12,8 @@ public interface CategoriaDAO {
     public void actualizarCategoria(String nombre, String descripcion, boolean estado, String oldnombre) throws ExceptionService;
 
     List<Categoria> verificarCategoria(String oldnombre) throws ExceptionService;
+
+    List<Categoria> consultarCategorias() throws ExceptionService;
+
+    Categoria consultarCategoria(int cId) throws ExceptionService;
 }

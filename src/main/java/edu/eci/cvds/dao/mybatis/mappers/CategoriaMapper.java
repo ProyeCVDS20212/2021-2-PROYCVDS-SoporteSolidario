@@ -14,4 +14,8 @@ public interface CategoriaMapper {
     public void  actualizarCategoria(@Param("newNombre")String nombre,@Param("newDescripcion")String descripcion, @Param("newEstado")boolean estado, @Param("oldNombre")String oldnombre);
 
     public List<Categoria> verificarCategoria(@Param("oldnombre")String oldnombre);
+
+    public List<Categoria> consultarCategorias();
+
+    Categoria consultarCategoria(@Param("categoriaId")int cId);
 }

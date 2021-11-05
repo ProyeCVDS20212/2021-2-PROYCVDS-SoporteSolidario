@@ -32,10 +32,25 @@
         FROM categoria
         WHERE nombre=#{oldnombre}
     </select>
-        <!--Consultar categorias-->
-        <select id="consultarCategorias" parameterType="map" resultMap="CategoriaResult">
-            SELECT * 
-            FROM categoria
-        </select>
+
+    <!--Consultar categorias-->
+    <select id="consultarCategorias" parameterType="map" resultMap="CategoriaResult">
+        SELECT *
+        FROM categoria
+    </select>
+
+    <!--Consultar categoria-->
+    <select id="consultarCategoria" parameterType="map" resultMap="CategoriaResult">
+        SELECT
+            c.id ,
+            c.nombre ,
+            c.descripcion ,
+            c.fechacreacion ,
+            c.estado ,
+            c.fechamodificacion
+        FROM categoria
+        WHERE c.id = #{id}
+    </select>
+
 
 </mapper>
