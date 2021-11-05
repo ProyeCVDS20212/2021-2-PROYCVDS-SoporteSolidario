@@ -8,13 +8,13 @@ public class Ofertas implements Serializable{
     private int id;
     private String NOMBRE;
     private String descripcion;
-    private boolean Estado;
+    private char Estado;
     private Date fechacreacion;
     private Date fechamodificacion;
     private int categoriaId;
     private int solicitanteId;
 
-    public Ofertas(String nombre, String descripcion, boolean estado, BigDecimal categoriaId, BigDecimal solicitanteId){
+    public Ofertas(String nombre, String descripcion, char estado, BigDecimal categoriaId, BigDecimal solicitanteId){
         this.NOMBRE = nombre;
         this.descripcion = descripcion;
         this.Estado = estado;
@@ -22,7 +22,7 @@ public class Ofertas implements Serializable{
         this.solicitanteId = solicitanteId.intValue();
     }
 
-    public Ofertas(String nombre, String descripcion, boolean estado, int categoriaId, int solicitanteId){
+    public Ofertas(String nombre, String descripcion, char estado, int categoriaId, int solicitanteId){
         this.NOMBRE = nombre;
         this.descripcion = descripcion;
         this.Estado = estado;
@@ -61,7 +61,7 @@ public class Ofertas implements Serializable{
         return solicitanteId;
     }
     
-    public boolean getEstado(){
+    public char getEstado(){
         return Estado;
     }
 
@@ -73,7 +73,7 @@ public class Ofertas implements Serializable{
         this.descripcion = descripcion;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(char estado) {
         this.Estado = estado;
     }
 

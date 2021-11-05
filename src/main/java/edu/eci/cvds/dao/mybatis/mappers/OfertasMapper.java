@@ -31,6 +31,8 @@ public interface OfertasMapper {
      * @return
      * @throws ExceptionService
      */
-    List<Ofertas> OfertasporUsuario(@Param("solicitanteId") int solicitanteId,@Param("estado") boolean estado);
+    List<Ofertas> OfertasporUsuario(@Param("solicitanteId") int solicitanteId);
 
+    void actualizarEstadoOferta(@Param("nombre")String nombre, @Param("estado")char estado);
+    
 }

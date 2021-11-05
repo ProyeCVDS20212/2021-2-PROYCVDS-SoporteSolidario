@@ -31,7 +31,7 @@ public class OfertasServicesBean  extends BasePageBean{
     private int id;
     private String nombre;
     private String descripcion;
-    private boolean Estado;
+    private char Estado;
     private Date fechacreacion;
     private Date fechamodificacion;
     private int categoriaId;
@@ -53,8 +53,8 @@ public class OfertasServicesBean  extends BasePageBean{
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
-            if(rolesServices.limiteOfertas(CustomerServicesBean.getRol()) > ofertasServices.OfertasporUsuario(solicitanteId, true).size()){
-                ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,true,categoriaId,solicitanteId));
+            if(rolesServices.limiteOfertas(CustomerServicesBean.getRol()) > ofertasServices.OfertasporUsuario(solicitanteId).size()){
+                ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,'A',categoriaId,solicitanteId));
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se Agrego de forma exitosa la Oferta",
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
@@ -68,6 +68,16 @@ public class OfertasServicesBean  extends BasePageBean{
             throw new ExceptionService("Se produjo un error a la hora de agregar una oferta" + e.toString());
         }
     }
+
+    public void actualizarEstadoOferta() throws ExceptionService{
+        try {
+            
+        } catch (Exception e) {
+            
+        }
+    }
+
+    
     public int getCategoriaId() {
         return categoriaId;
     }
@@ -98,7 +108,7 @@ public class OfertasServicesBean  extends BasePageBean{
         return solicitanteId;
     }
     
-    public boolean getEstado(){
+    public char getEstado(){
         return Estado;
     }
     public void setCategoria(String categoria) {
@@ -112,7 +122,7 @@ public class OfertasServicesBean  extends BasePageBean{
         this.descripcion = descripcion;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(char estado) {
         this.Estado = estado;
     }
 

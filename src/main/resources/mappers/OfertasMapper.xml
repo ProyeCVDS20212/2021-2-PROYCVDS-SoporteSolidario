@@ -27,8 +27,12 @@
     <select parameterType="map" id="OfertasporUsuario" resultMap="OfertasResult">
         SELECT *
         FROM Ofertas
-        WHERE solicitanteId=#{solicitanteId} and #{estado};
+        WHERE solicitanteId=#{solicitanteId}
     </select>
 
+    <update id="actualizarEstadoOferta" parameterType="map">
+        UPDATE Ofertas SET Estado = #{estado}
+        WHERE NOMBRE = #{nombre}
+    </update>
 
 </mapper>

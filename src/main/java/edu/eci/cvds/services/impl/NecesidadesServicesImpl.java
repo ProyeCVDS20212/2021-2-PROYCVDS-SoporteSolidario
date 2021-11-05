@@ -2,11 +2,8 @@ package edu.eci.cvds.services.impl;
 
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
-
 import com.google.inject.Inject;
 
-import org.primefaces.PrimeFaces;
 
 import edu.eci.cvds.dao.CustomerDAO;
 import edu.eci.cvds.dao.NecesidadesDAO;

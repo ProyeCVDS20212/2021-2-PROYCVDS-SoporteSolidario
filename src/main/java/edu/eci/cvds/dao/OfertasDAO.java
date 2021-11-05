@@ -28,6 +28,8 @@ public interface OfertasDAO {
      * @return
      * @throws ExceptionService
      */
-    List<Ofertas> OfertasporUsuario(int solicitanteId,boolean estado) throws ExceptionService;
+    List<Ofertas> OfertasporUsuario(int solicitanteId) throws ExceptionService;
+
+    void actualizarEstadoOferta(String nombre, char estado) throws ExceptionService;
 
 }

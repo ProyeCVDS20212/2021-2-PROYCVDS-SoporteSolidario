@@ -27,6 +27,10 @@ public interface OfertasServices {
      * @return
      * @throws ExceptionService
      */
-    List<Ofertas> OfertasporUsuario(int solicitanteId,boolean estado) throws ExceptionService;
+    List<Ofertas> OfertasporUsuario(int solicitanteId) throws ExceptionService;
+
+    
+    void actualizarEstadoOferta(String nombre, char Estado) throws ExceptionService;
+
 
 }
