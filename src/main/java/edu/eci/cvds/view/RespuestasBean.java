@@ -34,7 +34,9 @@ public class RespuestasBean extends BasePageBean {
     private String oferta = "";
     private String necesidad="";
 
-    
+    /**
+     * Es usado para controlar la funcionalidad de registrar las respuestas desde la interfaz
+     */
     public void registrarRespuesta(){
         try {
             if(necesidad != ""){
