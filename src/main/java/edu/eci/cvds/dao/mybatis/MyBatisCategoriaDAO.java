@@ -41,4 +41,22 @@ public class MyBatisCategoriaDAO implements CategoriaDAO {
             throw new ExceptionService("Se produjo un error a la hora de verificar si existe la categoria", e);
         }
     }
+
+    @Override
+    public List<Categoria> consultarCategorias() throws ExceptionService {
+        try {
+            return categoriaMapper.consultarCategorias();
+        } catch (Exception e){
+            throw new ExceptionService("No se encuentran las categorias", e);
+        }
+    }
+
+    @Override
+    public Categoria consultarCategoria(int cId) throws ExceptionService {
+        try {
+            return categoriaMapper.consultarCategoria(cId);
+        } catch (Exception e){
+            throw new ExceptionService("No se encuentra la categoria", e);
+        }
+    }
 }
