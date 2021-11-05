@@ -33,9 +33,9 @@ CustomerDAO customerDAO;
         
     }
 
-    public int consultarNecesidadesAsociadas(int solicitante , boolean estado) throws ExceptionService{
+    public int consultarNecesidadesAsociadas(int solicitante) throws ExceptionService{
         try {
-            return necesidadDao.consultarNecesidadesAsociadas(solicitante, estado);
+            return necesidadDao.consultarNecesidadesAsociadas(solicitante);
         } catch (PersistenceException e) {
             throw new ExceptionService("Error en la consulta",e);
         }

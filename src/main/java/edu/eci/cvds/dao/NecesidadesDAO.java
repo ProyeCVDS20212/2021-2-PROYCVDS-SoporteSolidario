@@ -10,6 +10,6 @@ public interface NecesidadesDAO {
 
     List<Necesidad> consultar(String name) throws PersistenceException;
 
-    int consultarNecesidadesAsociadas(int name,boolean estado) throws PersistenceException;
+    int consultarNecesidadesAsociadas(int name) throws PersistenceException;
 
 }

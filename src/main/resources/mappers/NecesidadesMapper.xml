@@ -28,7 +28,7 @@
     <select parameterType="map" id="consultarNecesidadesAsociadas" resultMap="NeedsResult">
         select *
         FROM necesidades
-        WHERE solicitante=#{solicitante} and #{estado}
+        WHERE solicitante=#{solicitante}
     </select>
 
     <select parameterType="map" id="consultarNecesidades" resultMap="NeedsResult">
