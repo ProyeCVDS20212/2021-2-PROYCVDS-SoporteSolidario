@@ -69,6 +69,16 @@ public class NecesidadBean extends BasePageBean{
         }
     }
 
+    public void actualizarEstadoNecesidad() throws ExceptionService{
+        try {
+            
+        } catch (Exception e) {
+            
+        }
+    }
+
+
+
     public void clear(){
         id = 0;
         nombre= null;

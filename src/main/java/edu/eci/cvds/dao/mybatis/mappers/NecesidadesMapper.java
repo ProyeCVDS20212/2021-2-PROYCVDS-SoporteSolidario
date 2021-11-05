@@ -8,8 +8,13 @@ import edu.eci.cvds.dao.PersistenceException;
 import edu.eci.cvds.entities.Necesidad;
 
 public interface NecesidadesMapper {
+
     void agregarNecesidades(@Param("necesidad")Necesidad nece) throws PersistenceException;
+
     List<Necesidad> consultar (@Param("name")String name)throws PersistenceException;
+
     List<Necesidad> consultarNecesidadesAsociadas (@Param("solicitante")int name)throws PersistenceException;
+
+    void actualizarEstadoNecesidad(@Param("nombre") String nombre, @Param("estado") char estado)throws PersistenceException;
 
 }

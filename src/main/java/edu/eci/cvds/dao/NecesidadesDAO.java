@@ -12,4 +12,6 @@ public interface NecesidadesDAO {
 
     int consultarNecesidadesAsociadas(int name) throws PersistenceException;
 
+    void actualizarEstadoNecesidad(String nombre, char estado) throws PersistenceException;
+
 }

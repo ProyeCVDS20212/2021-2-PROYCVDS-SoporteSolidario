@@ -49,5 +49,15 @@ CustomerDAO customerDAO;
             throw new ExceptionService("Error en la consulta",e);
         }
     }
+
+    @Override
+    public void actualizarEstadoNecesidad(String nombre, char estado) throws ExceptionService {
+        try {
+            necesidadDao.actualizarEstadoNecesidad(nombre, estado);
+        } catch (Exception e) {
+            throw new ExceptionService("No se pudo actualizar el estado de la necesidad", e);
+        }
+        
+    }
     
 }

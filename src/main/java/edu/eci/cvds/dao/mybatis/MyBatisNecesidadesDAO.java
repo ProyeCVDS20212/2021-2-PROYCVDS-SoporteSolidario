@@ -40,5 +40,16 @@ public class MyBatisNecesidadesDAO implements NecesidadesDAO {
             throw new PersistenceException("No se pudo consultar los nombres", e);
         }
     }
+
+    @Override
+    public void actualizarEstadoNecesidad(String nombre, char estado) throws PersistenceException {
+        try {
+            needsMapper.actualizarEstadoNecesidad(nombre, estado);
+        } catch (Exception e) {
+            throw new PersistenceException("No se pudo actualizar la necesidad", e);
+        }
+        
+    }
+    
     
 }

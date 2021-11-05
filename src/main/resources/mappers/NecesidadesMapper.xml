@@ -36,4 +36,9 @@
         FROM necesidades
     </select>
 
+    <update id="actualizarEstadoNecesidad" parameterType="map">
+        UPDATE necesidades SET estado=#{estado}
+        WHERE nombre=#{nombre}
+    </update>
+
     </mapper>
