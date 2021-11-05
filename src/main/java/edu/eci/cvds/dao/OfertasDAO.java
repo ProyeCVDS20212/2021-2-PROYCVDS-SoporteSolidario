@@ -30,6 +30,12 @@ public interface OfertasDAO {
      */
     List<Ofertas> OfertasporUsuario(int solicitanteId) throws ExceptionService;
 
+    /**
+     * Se actualiza el estado de la oferta deseada
+     * @param nombre nombre de la oferta que se desea actualizar el estado
+     * @param estado nuevo estado de la oferta
+     * @throws ExceptionService
+     */
     void actualizarEstadoOferta(String nombre, char estado) throws ExceptionService;
 
 }

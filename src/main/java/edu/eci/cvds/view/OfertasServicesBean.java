@@ -41,6 +41,10 @@ public class OfertasServicesBean  extends BasePageBean{
 
 
 
+    /**
+     * Agrega la oferta deseada
+     * @throws ExceptionService
+     */
     public void agregarOferta() throws ExceptionService{
         try {
             solicitanteId = CustomerServicesBean.getcustomerId();
@@ -69,6 +73,10 @@ public class OfertasServicesBean  extends BasePageBean{
         }
     }
 
+    /**
+     * Se actualiza el estado de la oferta deseada
+     * @throws ExceptionService
+     */
     public void actualizarEstadoOferta() throws ExceptionService{
         try {
             
@@ -77,7 +85,7 @@ public class OfertasServicesBean  extends BasePageBean{
         }
     }
 
-    
+
     public int getCategoriaId() {
         return categoriaId;
     }
