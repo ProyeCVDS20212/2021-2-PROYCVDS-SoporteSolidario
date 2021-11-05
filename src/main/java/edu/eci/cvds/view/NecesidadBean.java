@@ -69,6 +69,10 @@ public class NecesidadBean extends BasePageBean{
         }
     }
 
+    /**
+     * Es usado para controlar la funcionalidad de actualizar el estado de la necesidad desde la interfaz
+     * @throws ExceptionService
+     */
     public void actualizarEstadoNecesidad() throws ExceptionService{
         try {
             
