@@ -33,16 +33,16 @@ public class MyBatisOfertasDAO implements OfertasDAO{
     }
 
     @Override
-    public List<Ofertas> OfertasporUsuario(int solicitanteId) throws ExceptionService {
+    public List<Ofertas> ofertasporUsuario(int solicitanteId) throws ExceptionService {
         try {
-            return ofertaMapper.OfertasporUsuario(solicitanteId);
+            return ofertaMapper.ofertasporUsuario(solicitanteId);
         } catch (Exception e) {
             throw new ExceptionService("Se produjo un error a la hora de ver las ofertas por usuario" + e.toString());
         }
     }
 
     @Override
-    public void actualizarEstadoOferta(String nombre, char estado) throws ExceptionService {
+    public void actualizarEstadoOferta(String nombre, String estado) throws ExceptionService {
         try {
             ofertaMapper.actualizarEstadoOferta(nombre, estado);
         } catch (Exception e) {

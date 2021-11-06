@@ -33,16 +33,16 @@ public class OfertasServicesImpl implements OfertasServices{
     }
 
     @Override
-    public List<Ofertas> OfertasporUsuario(int solicitanteId) throws ExceptionService {
+    public List<Ofertas> ofertasporUsuario(int solicitanteId) throws ExceptionService {
         try {
-            return ofertasDAO.OfertasporUsuario(solicitanteId);
+            return ofertasDAO.ofertasporUsuario(solicitanteId);
         } catch (Exception e) {
             throw new ExceptionService("Se produjo un error a la hora de verificar las ofertas por usuario" + e.toString());
         }
     }
 
     @Override
-    public void actualizarEstadoOferta(String nombre, char estado) throws ExceptionService {
+    public void actualizarEstadoOferta(String nombre, String estado) throws ExceptionService {
         try {
             ofertasDAO.actualizarEstadoOferta(nombre,estado);
         } catch (Exception e) {

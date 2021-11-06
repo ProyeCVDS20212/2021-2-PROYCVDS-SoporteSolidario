@@ -28,7 +28,7 @@ public interface OfertasDAO {
      * @return
      * @throws ExceptionService
      */
-    List<Ofertas> OfertasporUsuario(int solicitanteId) throws ExceptionService;
+    List<Ofertas> ofertasporUsuario(int solicitanteId) throws ExceptionService;
 
     /**
      * Se actualiza el estado de la oferta deseada
@@ -36,6 +36,6 @@ public interface OfertasDAO {
      * @param estado nuevo estado de la oferta
      * @throws ExceptionService
      */
-    void actualizarEstadoOferta(String nombre, char estado) throws ExceptionService;
+    void actualizarEstadoOferta(String nombre, String estado) throws ExceptionService;
 
 }

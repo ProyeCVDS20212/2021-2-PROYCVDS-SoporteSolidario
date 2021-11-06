@@ -24,7 +24,7 @@
         WHERE NOMBRE=#{oldnombre}
     </select>
 
-    <select parameterType="map" id="OfertasporUsuario" resultMap="OfertasResult">
+    <select parameterType="map" id="ofertasporUsuario" resultMap="OfertasResult">
         SELECT *
         FROM Ofertas
         WHERE solicitanteId=#{solicitanteId}

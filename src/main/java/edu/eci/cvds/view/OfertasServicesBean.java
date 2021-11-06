@@ -31,7 +31,7 @@ public class OfertasServicesBean  extends BasePageBean{
     private int id;
     private String nombre;
     private String descripcion;
-    private char Estado;
+    private String Estado;
     private Date fechacreacion;
     private Date fechamodificacion;
     private int categoriaId;
@@ -57,8 +57,8 @@ public class OfertasServicesBean  extends BasePageBean{
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
-            if(rolesServices.limiteOfertas(CustomerServicesBean.getRol()) > ofertasServices.OfertasporUsuario(solicitanteId).size()){
-                ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,'A',categoriaId,solicitanteId));
+            if(rolesServices.limiteOfertas(CustomerServicesBean.getRol()) > ofertasServices.ofertasporUsuario(solicitanteId).size()){
+                ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,Estado,categoriaId,solicitanteId));
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se Agrego de forma exitosa la Oferta",
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
@@ -116,7 +116,7 @@ public class OfertasServicesBean  extends BasePageBean{
         return solicitanteId;
     }
     
-    public char getEstado(){
+    public String getEstado(){
         return Estado;
     }
     public void setCategoria(String categoria) {
@@ -130,7 +130,7 @@ public class OfertasServicesBean  extends BasePageBean{
         this.descripcion = descripcion;
     }
 
-    public void setEstado(char estado) {
+    public void setEstado(String estado) {
         this.Estado = estado;
     }
 

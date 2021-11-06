@@ -1,5 +1,6 @@
 package edu.eci.cvds.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.inject.Inject;
@@ -33,9 +34,20 @@ CustomerDAO customerDAO;
         
     }
 
-    public int consultarNecesidadesAsociadas(int solicitante) throws ExceptionService{
+    public List<Necesidad> consultarNecesidadesAsociadas(int solicitante) throws ExceptionService{
         try {
             return necesidadDao.consultarNecesidadesAsociadas(solicitante);
+        } catch (PersistenceException e) {
+            throw new ExceptionService("Error en la consulta",e);
+        }
+    }
+    public int consultarNecesidadesAsociadasA(int solicitante) throws ExceptionService{
+        try {
+            List<Necesidad> temp = new ArrayList<>();
+            for(Necesidad n : necesidadDao.consultarNecesidadesAsociadas(solicitante)){
+                if(n.getEstado().equals("A")) temp.add(n); 
+            }
+            return temp.size();
         } catch (PersistenceException e) {
             throw new ExceptionService("Error en la consulta",e);
         }
@@ -51,9 +63,9 @@ CustomerDAO customerDAO;
     }
 
     @Override
-    public void actualizarEstadoNecesidad(String nombre, char estado) throws ExceptionService {
+    public void actualizarEstadoNecesidad(int idsolicitante,String nombre, String estado) throws ExceptionService {
         try {
-            necesidadDao.actualizarEstadoNecesidad(nombre, estado);
+            necesidadDao.actualizarEstadoNecesidad(idsolicitante,nombre, estado);
         } catch (Exception e) {
             throw new ExceptionService("No se pudo actualizar el estado de la necesidad", e);
         }

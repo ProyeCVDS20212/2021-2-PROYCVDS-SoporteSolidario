@@ -9,14 +9,14 @@ public class Necesidad {
     private String nombre;
     private String descripcion;
     private int urgencia;
-    private char estado;
+    private String estado;
     private Date fechacreacion;
     private Date fechamodificacion;
     private int categoriaId;
     private int idsolicitante;
 
 
-    public Necesidad(BigDecimal id,String value, String description,  BigDecimal urgencia,char status,Date creacion,Date modificacion, BigDecimal category_id, BigDecimal idsolicitante){
+    public Necesidad(BigDecimal id,String value, String description,  BigDecimal urgencia,String status,Date creacion,Date modificacion, BigDecimal category_id, BigDecimal idsolicitante){
         this.id = id.intValue();
         this.nombre = value;
         this.descripcion = description;
@@ -29,7 +29,7 @@ public class Necesidad {
         this.idsolicitante=idsolicitante.intValue();
     }
 
-    public Necesidad(String value, String description, char status, BigDecimal category_id, BigDecimal urgencia, BigDecimal idsolicitante){
+    public Necesidad(String value, String description, String status, BigDecimal category_id, BigDecimal urgencia, BigDecimal idsolicitante){
         this.nombre = value;
         this.descripcion = description;
         this.urgencia = urgencia.intValue();
@@ -38,7 +38,7 @@ public class Necesidad {
         this.urgencia = urgencia.intValue();
         this.idsolicitante=idsolicitante.intValue();
     }
-    public Necesidad(String value, String description, char status, int category_id, int urgencia, int idsolicitante){
+    public Necesidad(String value, String description, String status, int category_id, int urgencia, int idsolicitante){
         this.nombre = value;
         this.descripcion = description;
         this.urgencia = urgencia;
@@ -54,7 +54,7 @@ public class Necesidad {
     public int getIdsolicitante() {
         return idsolicitante;
     }
-    public char getEstado(){
+    public String getEstado(){
         return estado;
     }
     public String getDescripcion() {
@@ -84,7 +84,7 @@ public class Necesidad {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public void setEstado(char estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
     public void setFechacreacion(Date fechacreacion) {

@@ -47,7 +47,7 @@ CREATE TABLE  NECESIDADES(
 	nombre VARCHAR(50) NOT NULL,
 	descripcion VARCHAR(250) NOT NULL,
     urgencia NUMERIC(1) NOT NULL,
-	estado BOOL NOT NULL,
+	estado VARCHAR(1) NOT NULL,
 	fechacreacion DATE NOT NULL,
 	fechamodificacion DATE NOT NULL,
 	categoriaId NUMERIC(9) NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE OFERTAS (
 	id NUMERIC(7) NOT NULL,
 	NOMBRE VARCHAR(15) NOT NULL,
     descripcion VARCHAR(250),
-    Estado BOOL NOT NULL,
+    Estado VARCHAR(1) NOT NULL,
     fechacreacion DATE NOT NULL,
 	fechamodificacion DATE NOT NULL,
     categoriaId NUMERIC(9) NOT NULL,
@@ -125,7 +125,6 @@ BEGIN
 	NEW.id := autoid + 1;
     NEW.fechacreacion := current_date;
     NEW.fechamodificacion := current_date;
-    NEW.estado := true;
 	RETURN NEW;
 END;
 ' LANGUAGE plpgsql VOLATILE;
@@ -176,7 +175,6 @@ BEGIN
 	NEW.id := autoid + 1;
     NEW.fechacreacion := current_date;
     NEW.fechamodificacion := current_date;
-    NEW.estado := true;
 	RETURN NEW;
 END;
 ' LANGUAGE plpgsql VOLATILE;

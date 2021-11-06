@@ -38,7 +38,7 @@
 
     <update id="actualizarEstadoNecesidad" parameterType="map">
         UPDATE necesidades SET estado=#{estado}
-        WHERE nombre=#{nombre}
+        WHERE nombre=#{nombre} and solicitante=#{solicitante}
     </update>
 
     </mapper>

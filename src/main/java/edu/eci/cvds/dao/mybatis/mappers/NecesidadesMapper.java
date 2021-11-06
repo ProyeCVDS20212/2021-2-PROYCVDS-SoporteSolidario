@@ -38,6 +38,6 @@ public interface NecesidadesMapper {
      * @param estado nuevo estado
      * @throws PersistenceException
      */
-    void actualizarEstadoNecesidad(@Param("nombre") String nombre, @Param("estado") char estado)throws PersistenceException;
+    void actualizarEstadoNecesidad(@Param("solicitante") int idsolicitante,@Param("nombre") String nombre, @Param("estado") String estado)throws PersistenceException;
 
 }

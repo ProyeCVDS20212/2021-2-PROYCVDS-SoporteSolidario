@@ -13,12 +13,20 @@ public interface NecesidadesServices {
     void agregarNecesidades(Necesidad need) throws ExceptionService;
 
     /**
-     * Devuelve la cantidad de necesidades asociadas a un id
+     * Devuelve  necesidades asociadas a un id
      * @param id
      * @return
      * @throws ExceptionService
      */
-    int consultarNecesidadesAsociadas(int id)throws ExceptionService;
+    List<Necesidad> consultarNecesidadesAsociadas(int solicitante) throws ExceptionService;
+
+    /**
+     * Devuelve la cantidad de necesidades asociadas a un id y estan activas
+     * @param id
+     * @return
+     * @throws ExceptionService
+     */
+    int consultarNecesidadesAsociadasA(int id)throws ExceptionService;
 
     /**
      * Devuelve la necesidad que se identifica por el nombre deseado
@@ -34,6 +42,6 @@ public interface NecesidadesServices {
      * @param estado nuevo estado
      * @throws ExceptionService
      */
-    void actualizarEstadoNecesidad(String nombre, char estado) throws ExceptionService;
+    void actualizarEstadoNecesidad(int idsolicitante,String nombre, String estado) throws ExceptionService;
 
 }

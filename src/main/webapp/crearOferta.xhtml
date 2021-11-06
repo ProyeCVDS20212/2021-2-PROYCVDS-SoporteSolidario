@@ -40,6 +40,12 @@
         </div>
         <p:inputText  placeholder="categoria" class="inpu" required="true" value="#{ofertasBean.categoria}"/>
         <br></br>
+        <h:selectOneListbox  class = "inpu" value = "#{ofertasBean.estado}"> 
+            <f:selectItem itemValue = "A" itemLabel = "Activo" /> 
+            <f:selectItem itemValue = "E" itemLabel = "En Proceso" />
+            <f:selectItem itemValue = "R" itemLabel = "Resuelta" /> 
+            <f:selectItem itemValue = "C" itemLabel = "Cerrada" /> 
+        </h:selectOneListbox>   
         <h:commandButton value="SUBMIT" update="form" actionListener="#{ofertasBean.agregarOferta()}" class="but"/>
     </h:form>
     <div class="subtitulo">

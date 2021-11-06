@@ -27,7 +27,7 @@ public interface NecesidadesDAO {
      * @return
      * @throws PersistenceException
      */
-    int consultarNecesidadesAsociadas(int name) throws PersistenceException;
+    List<Necesidad> consultarNecesidadesAsociadas(int name) throws PersistenceException;
 
     /**
      * Actualiza el estado de la necesidad que se desea
@@ -35,6 +35,6 @@ public interface NecesidadesDAO {
      * @param estado nuevo estado
      * @throws PersistenceException
      */
-    void actualizarEstadoNecesidad(String nombre, char estado) throws PersistenceException;
+    void actualizarEstadoNecesidad(int idsolicitante,String nombre, String estado) throws PersistenceException;
 
 }

@@ -1,8 +1,11 @@
 package edu.eci.cvds.dao.mybatis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.inject.Inject;
+
+import org.apache.ibatis.javassist.bytecode.SignatureAttribute.NestedClassType;
 
 import edu.eci.cvds.dao.NecesidadesDAO;
 import edu.eci.cvds.dao.PersistenceException;
@@ -33,18 +36,18 @@ public class MyBatisNecesidadesDAO implements NecesidadesDAO {
     }
 
     @Override
-    public int consultarNecesidadesAsociadas(int name) throws PersistenceException {
+    public List<Necesidad> consultarNecesidadesAsociadas(int name) throws PersistenceException {
         try {
-            return needsMapper.consultarNecesidadesAsociadas(name).size();
+            return needsMapper.consultarNecesidadesAsociadas(name);
         } catch (org.apache.ibatis.exceptions.PersistenceException e) {
             throw new PersistenceException("No se pudo consultar los nombres", e);
         }
     }
 
     @Override
-    public void actualizarEstadoNecesidad(String nombre, char estado) throws PersistenceException {
+    public void actualizarEstadoNecesidad(int idsolicitante,String nombre, String estado) throws PersistenceException {
         try {
-            needsMapper.actualizarEstadoNecesidad(nombre, estado);
+            needsMapper.actualizarEstadoNecesidad(idsolicitante,nombre, estado);
         } catch (Exception e) {
             throw new PersistenceException("No se pudo actualizar la necesidad", e);
         }

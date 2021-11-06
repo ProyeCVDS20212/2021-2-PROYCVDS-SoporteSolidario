@@ -29,7 +29,7 @@ public class NecesidadBean extends BasePageBean{
     private String nombre;
     private String descripcion;
     private int urgencia;
-    private char estado;
+    private String estado;
     private Date fechacreacion;
     private Date fechamodificacion;
     private int categoriaId;
@@ -53,8 +53,8 @@ public class NecesidadBean extends BasePageBean{
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
-            if(rolesServices.limiteNecesidades(CustomerServicesBean.getRol()) > necesidadesServices.consultarNecesidadesAsociadas(idsolicitante)){
-                necesidadesServices.agregarNecesidades(new Necesidad(nombre, descripcion, 'A', categoriaId, urgencia, idsolicitante));
+            if(rolesServices.limiteNecesidades(CustomerServicesBean.getRol()) > necesidadesServices.consultarNecesidadesAsociadasA(idsolicitante)){
+                necesidadesServices.agregarNecesidades(new Necesidad(nombre, descripcion, estado, categoriaId, urgencia, idsolicitante));
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad Creada de forma exitosa", "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
                 clear();
@@ -75,9 +75,21 @@ public class NecesidadBean extends BasePageBean{
      */
     public void actualizarEstadoNecesidad() throws ExceptionService{
         try {
-            
+            idsolicitante = CustomerServicesBean.getcustomerId();
+            if(necesidadesServices.consultarnecesidad(nombre.toUpperCase()).get(0).getIdsolicitante() == idsolicitante || rolesServices.getRol(CustomerServicesBean.getRol()).equals("Administrador")){
+                necesidadesServices.actualizarEstadoNecesidad(nombre, estado);
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad Fue actualizada de forma exitosa", "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+                clear();
+            }else
+            {
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "No tienes permisos para modificar esta Necesidad",
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+                clear();
+            }
         } catch (Exception e) {
-            
+            throw new ExceptionService("Se produjo un error a la hora de agregar una necesidad " + e.getMessage());
         }
     }
 
@@ -88,7 +100,7 @@ public class NecesidadBean extends BasePageBean{
         nombre= null;
         descripcion= null;
         urgencia= 0;
-        estado = 'A';
+        estado = "A";
         fechacreacion= null;
         fechamodificacion= null;
         categoriaId= 0;
@@ -134,7 +146,7 @@ public int getCategoriaId() {
 public int getIdsolicitante() {
     return idsolicitante;
 }
-public char getEstado(){
+public String getEstado(){
     return estado;
 }
 public void setCategoriaId(int categoriaId) {
@@ -143,7 +155,7 @@ public void setCategoriaId(int categoriaId) {
 public void setDescripcion(String descripcion) {
     this.descripcion = descripcion;
 }
-public void setEstado(char estado) {
+public void setEstado(String estado) {
     this.estado = estado;
 }
 public void setFechacreacion(Date fechacreacion) {

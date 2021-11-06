@@ -31,13 +31,13 @@ public interface OfertasMapper {
      * @return
      * @throws ExceptionService
      */
-    List<Ofertas> OfertasporUsuario(@Param("solicitanteId") int solicitanteId);
+    List<Ofertas> ofertasporUsuario(@Param("solicitanteId") int solicitanteId);
 
     /**
      * Se actualiza el estado de la oferta deseada
      * @param nombre nombre de la oferta que se desea actualizar el estado
      * @param estado nuevo estado de la oferta
      */
-    void actualizarEstadoOferta(@Param("nombre")String nombre, @Param("estado")char estado);
+    void actualizarEstadoOferta(@Param("nombre")String nombre, @Param("estado")String estado);
 
 }
