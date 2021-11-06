@@ -33,6 +33,7 @@ public interface NecesidadesDAO {
      * Actualiza el estado de la necesidad que se desea
      * @param nombre nombre de la necesidad
      * @param estado nuevo estado
+     * @param idsolicitante id del solicitante
      * @throws PersistenceException
      */
     void actualizarEstadoNecesidad(int idsolicitante,String nombre, String estado) throws PersistenceException;
