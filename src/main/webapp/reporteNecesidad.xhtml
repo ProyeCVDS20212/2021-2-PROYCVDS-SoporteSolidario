@@ -27,7 +27,7 @@
         <p:messages id="messages" showDetail="true" closable="true">
             <p:autoUpdate />
         </p:messages>
-        <div class="body" style="height: auto; padding-bottom: 5%;">
+        <div style="height: auto; padding-bottom: 5%;">
             <div >
                 <h1>Reporte de Necesidad</h1>
                 <p:chart type="bar" model="#{necesidadBean.getGrafico()}" style="height:300px" />
@@ -70,7 +70,9 @@
     </p:dataTable>
 </div>
 <div id="export">
+    <div class="subtitulo2">
     <h1>Exportar</h1>
+    </div>
                 <div class="icon" >
                     <h:commandLink  >
                         <p:graphicImage  value="./icons/excel.png" width="70" />
