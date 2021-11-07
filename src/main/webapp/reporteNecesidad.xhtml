@@ -30,8 +30,11 @@
     <p:autoUpdate />
 </p:messages>
 <center>
-    <h:form class="form" id="form">
-<div id="tabla">
+    <div class="titulo">
+        <h1>Exportar</h1>
+    </div>
+    <h:form class="formnecesidad" id="formnecesidad">
+<div class="formnecesidad">
     <p:dataTable id="table" var="necesidad" value="#{necesidadBean.getTabla()}">
         <p:column  headerText="ID">
             <h:outputText  value="#{necesidad.id}" />
@@ -48,7 +51,7 @@
         <p:column  headerText="fecha de Creacion">
             <h:outputText  value="#{necesidad.fechacreacion}" />
         </p:column>
-        <p:column  headerText="fecha de Modificacion">
+        <p:column headerText="fecha de Modificacion">
             <h:outputText  value="#{necesidad.fechamodificacion}" />
         </p:column>
         <p:column  headerText="Categoria">
@@ -63,7 +66,6 @@
     </p:dataTable>
 </div>
 <div id="export">
-    <h1>Exportar</h1>
                 <div >
                     <h:commandLink >
                         <p:graphicImage value="./icons/excel.png" />
