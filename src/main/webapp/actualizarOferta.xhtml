@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:head>
+    <title>CrearOferta</title>
+    <link rel="stylesheet" type="text/css" href="styles/global.css" />
+    <link rel="stylesheet" type="text/css" href="styles/crearCategoria.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
+</h:head>
+<body>
+<p:messages id="messages" showDetail="true" closable="true">
+    <p:autoUpdate />
+</p:messages>
+<center>
+    <div class="titulo">
+        <h1>Actualizemos una nueva Oferta</h1>
+    </div>
+    <h:form class="form" id="form">
+        <div class="subtitulo">
+            <h1>Nombre Actual </h1>
+        </div>
+        <p:inputText  placeholder="Descripcion" class="inpu" required="true" value="#{ofertasBean.nombre}"/>
+        <br></br>
+        <div class="subtitulo">
+            <h1>Descripcion</h1>
+        </div>
+        <p:inputText  placeholder="Descripcion" class="inpu" required="true" value="#{ofertasBean.descripcion}"/>
+        <br></br>
+        <div class="subtitulo">
+            <h1>Categoria</h1>
+        </div>
+        <p:inputText  placeholder="categoria" class="inpu" required="true" value="#{ofertasBean.categoria}"/>
+        <br></br>
+        <h:selectOneMenu  class = "inpu" value = "#{ofertasBean.estado}">
+            <f:selectItem itemValue = "A" itemLabel = "Activo" />
+            <f:selectItem itemValue = "E" itemLabel = "En Proceso" />
+            <f:selectItem itemValue = "R" itemLabel = "Resuelta" />
+            <f:selectItem itemValue = "C" itemLabel = "Cerrada" />
+        </h:selectOneMenu>
+        <h:commandButton value="SUBMIT" update="form" actionListener="#{ofertasBean.actualizarEstadoOferta()}" class="but"/>
+        <br></br>
+        <h:commandButton value="RESET" update="form" actionListener="#{ofertasBean.clear()}" class="but"/>
+    </h:form>
+    <div class="subtitulo">
+        <a href="/app/home.xhtml" class="but btn" >Back</a>
+    </div>
+</center>
+</body>
+</html>

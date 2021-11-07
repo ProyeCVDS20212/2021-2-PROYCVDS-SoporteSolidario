@@ -36,6 +36,13 @@ body{
   padding:15px;
   border-radius: 15px;
 }
+.formnecesidad{
+  table-layout:fixed;
+  font-size:6px;
+}
+.heightletra{
+  font-size:6px;
+}
 .but{
   margin: 15px;
   font-size:10px;
@@ -43,8 +50,8 @@ body{
   height:30px;
   border-radius: 15px;
   border:none;
-    font-family:sans-serif;
-    font-size: medium;
+  font-family:sans-serif;
+  font-size: medium;
 }
 .inpu{
   width: 30%;
