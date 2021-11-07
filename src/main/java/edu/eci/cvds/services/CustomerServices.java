@@ -14,5 +14,5 @@ public interface CustomerServices {
      */
 
     List<Customer> ingresarSesion(String username) throws ExceptionService;
-    List<Customer> nombreUsuario(int id) throws ExceptionService;
+    String nombreUsuario(int id) throws ExceptionService;
 }

@@ -40,4 +40,13 @@ public interface NecesidadesMapper {
      */
     void actualizarEstadoNecesidad(@Param("solicitante") int idsolicitante,@Param("nombre") String nombre, @Param("estado") String estado)throws PersistenceException;
 
+    /**
+     * Devuelve la cantidad de necesidades 
+     * @return
+     * @throws PersistenceException
+     */
+    List<Necesidad> consultarNecesidades ()throws PersistenceException;
+
+
+    
 }

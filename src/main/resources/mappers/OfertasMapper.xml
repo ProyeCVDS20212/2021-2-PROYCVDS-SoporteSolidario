@@ -7,7 +7,7 @@
         <id property="id" column="id"/>
         <result property="NOMBRE" column="NOMBRE"/>
         <result property="descripcion" column="descripcion"/>
-        <result property="Estado" column="Estado"/>
+        <result property="estado" column="estado"/>
         <result property="fechacreacion" column="fechacreacion"/>
         <result property="fechamodificacion" column="fechamodificacion"/>
         <result property="categoriaId" column="categoriaId"/>
@@ -15,7 +15,7 @@
     </resultMap>
 
     <insert id="agregarOferta" parameterType="map">
-        INSERT INTO Ofertas(NOMBRE,descripcion,Estado,fechacreacion,fechamodificacion,categoriaId,solicitanteId) VALUES(#{oferta.NOMBRE},#{oferta.descripcion},#{oferta.Estado},current_date,current_date,#{oferta.categoriaId},#{oferta.solicitanteId})
+        INSERT INTO Ofertas(NOMBRE,descripcion,estado,fechacreacion,fechamodificacion,categoriaId,solicitanteId) VALUES(#{oferta.NOMBRE},#{oferta.descripcion},#{oferta.estado},current_date,current_date,#{oferta.categoriaId},#{oferta.solicitanteId})
     </insert>
 
     <select parameterType="map" id="verificarOferta" resultMap="OfertasResult">
@@ -31,8 +31,8 @@
     </select>
 
     <update id="actualizarEstadoOferta" parameterType="map">
-        UPDATE Ofertas SET Estado = #{estado}
-        WHERE NOMBRE = #{nombre}
+        UPDATE Ofertas SET estado = #{estado}
+        WHERE NOMBRE = #{nombre} and solicitanteId=#{solicitanteId}
     </update>
 
 </mapper>

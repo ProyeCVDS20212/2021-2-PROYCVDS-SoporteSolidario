@@ -21,6 +21,14 @@ public interface NecesidadesServices {
     List<Necesidad> consultarNecesidadesAsociadas(int solicitante) throws ExceptionService;
 
     /**
+     * Devuelve  necesidades asociadas a un id
+     * @param id
+     * @return
+     * @throws ExceptionService
+     */
+    List<Necesidad> consultarNecesidades() throws ExceptionService;
+
+    /**
      * Devuelve la cantidad de necesidades asociadas a un id y estan activas
      * @param id
      * @return

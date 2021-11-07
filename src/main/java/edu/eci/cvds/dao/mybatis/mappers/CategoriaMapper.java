@@ -17,5 +17,5 @@ public interface CategoriaMapper {
 
     public List<Categoria> consultarCategorias();
 
-    Categoria consultarCategoria(@Param("categoriaId")int cId);
+    public Categoria consultarCategoria(@Param("categoriaId")int cId);
 }

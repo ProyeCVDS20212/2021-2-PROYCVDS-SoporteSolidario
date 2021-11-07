@@ -42,9 +42,9 @@ public class OfertasServicesImpl implements OfertasServices{
     }
 
     @Override
-    public void actualizarEstadoOferta(String nombre, String estado) throws ExceptionService {
+    public void actualizarEstadoOferta(int solicitanteId,String nombre, String estado) throws ExceptionService {
         try {
-            ofertasDAO.actualizarEstadoOferta(nombre,estado);
+            ofertasDAO.actualizarEstadoOferta(solicitanteId,nombre,estado);
         } catch (Exception e) {
             throw new ExceptionService("Se produjo un error a la hora de actualizar el estado de la oferta" ,e);
         }

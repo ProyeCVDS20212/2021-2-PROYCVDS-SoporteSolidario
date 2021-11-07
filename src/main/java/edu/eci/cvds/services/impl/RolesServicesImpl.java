@@ -1,12 +1,11 @@
 package edu.eci.cvds.services.impl;
 
-import java.util.List;
+
 
 import com.google.inject.Inject;
 
 import edu.eci.cvds.dao.PersistenceException;
 import edu.eci.cvds.dao.RolesDAO;
-import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.services.RolesServices;
 
 public class RolesServicesImpl implements RolesServices{
@@ -27,6 +26,22 @@ public class RolesServicesImpl implements RolesServices{
     @Override
     public String getRol(int id) throws PersistenceException {
         return rolesDAO.getRol(id);
+    }
+
+    @Override
+    public void actualizarLimites(String rol, int limiteO, int limiteN) throws PersistenceException {
+        rolesDAO.actualizarLimites(rol,limiteO, limiteN);
+        
+    }
+
+    @Override
+    public int limiteNecesidades(String id) throws PersistenceException {
+        return rolesDAO.limiteNecesidades(id);
+    }
+
+    @Override
+    public int limiteOfertas(String id) throws PersistenceException {
+        return rolesDAO.limiteOfertas(id);
     }
     
 }

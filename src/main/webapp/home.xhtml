@@ -33,6 +33,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
                 <h1>Necesidad</h1>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item link" href="/app/crearNecesidad.xhtml">Crear</a>
+                    <a class="dropdown-item link" href="/app/reporteNecesidad.xhtml">Reporte</a>
                 </div>
             </div>
             <div class ="tag">
@@ -41,6 +42,12 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
                     <a class="dropdown-item link" href="/app/crearOferta.xhtml">Crear</a>
                 </div>
             </div>
+            <h:panelGroup class ="tag" style="display: #{rolBean.visible()}" >
+                <h1>Roles</h1>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item link" href="/app/actualizarRoles.xhtml">Modificar Limites</a>
+                </div>
+            </h:panelGroup>
         </div>
         <h:form>
         <div class="subtitulo">

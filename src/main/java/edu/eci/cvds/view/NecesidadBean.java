@@ -89,10 +89,33 @@ public class NecesidadBean extends BasePageBean{
                 clear();
             }
         } catch (Exception e) {
-            throw new ExceptionService("Se produjo un error a la hora de agregar una necesidad " + e.getMessage());
+            throw new ExceptionService("Se produjo un error a la hora de actualizar una necesidad " + e.getMessage());
         }
     }
+    public List<Necesidad> getTabla(){
+        try {
+            return necesidadesServices.consultarNecesidades();
+        } catch (ExceptionService e) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error Al crear la tabla",
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+                clear();
+        }
+        return null;
+    }
 
+    public String getCategoria(int idcategoria){
+        String nombre="";
+        try {
+            nombre = categoriaServices.consultarCategoria(idcategoria).getNombre();
+        } catch (ExceptionService e) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error Al crear la tabla",
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+                clear();
+        }
+        return nombre;
+    }
 
 
     public void clear(){

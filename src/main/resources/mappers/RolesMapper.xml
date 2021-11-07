@@ -13,4 +13,14 @@
         SELECT *
         FROM Roles WHERE id=#{id}
     </select>
+    <select parameterType="map" id="consultarRolN" resultMap="RolResult">
+        SELECT *
+        FROM Roles WHERE nombre=#{name}
+    </select>
+
+    <update id="actualizarLimites" parameterType="map">
+        UPDATE Roles SET limitesolicitudes=#{limiteN},limiteofertas=#{limiteO}
+        WHERE NOMBRE = #{name}
+    </update>
+
 </mapper>

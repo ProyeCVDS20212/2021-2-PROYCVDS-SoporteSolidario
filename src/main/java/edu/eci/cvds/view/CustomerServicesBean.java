@@ -88,6 +88,16 @@ public class CustomerServicesBean extends BasePageBean {
 
     }
 
+    public String nombre(int numero){
+        try {
+            return userServices.nombreUsuario(numero);
+        } catch (ExceptionService e) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error en consulta nombre", "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+        return "";
+    }
+
     /**
      * Cierra la sesion 
      */

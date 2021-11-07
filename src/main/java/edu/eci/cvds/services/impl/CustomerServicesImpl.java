@@ -35,11 +35,11 @@ public class CustomerServicesImpl implements CustomerServices {
      * @return Devuelve el nombre de usuario apartir del id
      */
     @Override
-    public List<Customer> nombreUsuario(int id) throws ExceptionService{
+    public String nombreUsuario(int id) throws ExceptionService{
         try {
-            return customerDAO.nombreUsuario(id);
-        } catch (org.apache.ibatis.exceptions.PersistenceException | PersistenceException e) {
-            throw new ExceptionService("Error al iniciar sesion: "+e);
+            return customerDAO.nombreUsuario(id).get(0).getName();
+        } catch (PersistenceException e) {
+            throw new ExceptionService("Error al consultar Nombre "+e);
         }
     }
 }

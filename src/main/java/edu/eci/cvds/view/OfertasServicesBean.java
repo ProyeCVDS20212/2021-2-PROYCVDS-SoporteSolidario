@@ -31,7 +31,7 @@ public class OfertasServicesBean  extends BasePageBean{
     private int id;
     private String nombre;
     private String descripcion;
-    private String Estado;
+    private String estado;
     private Date fechacreacion;
     private Date fechamodificacion;
     private int categoriaId;
@@ -58,7 +58,7 @@ public class OfertasServicesBean  extends BasePageBean{
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
             if(rolesServices.limiteOfertas(CustomerServicesBean.getRol()) > ofertasServices.ofertasporUsuario(solicitanteId).size()){
-                ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,Estado,categoriaId,solicitanteId));
+                ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,estado,categoriaId,solicitanteId));
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se Agrego de forma exitosa la Oferta",
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
@@ -78,13 +78,34 @@ public class OfertasServicesBean  extends BasePageBean{
      * @throws ExceptionService
      */
     public void actualizarEstadoOferta() throws ExceptionService{
-        try {
-            
-        } catch (Exception e) {
-            
-        }
+            try {
+                solicitanteId = CustomerServicesBean.getcustomerId();
+                if(ofertasServices.verificarOferta(nombre.toUpperCase()).get(0).getSolicitanteId() == solicitanteId || rolesServices.getRol(CustomerServicesBean.getRol()).equals("Administrador")){
+                    ofertasServices.actualizarEstadoOferta(solicitanteId,nombre, estado);
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Oferta Fue actualizada de forma exitosa", "");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                    clear();
+                }else
+                {
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "No tienes permisos para modificar esta Oferta",
+                    "");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                    clear();
+                }
+            } catch (Exception e) {
+                throw new ExceptionService("Se produjo un error a la hora de actualizar una oferta " + e.getMessage());
+            }
     }
 
+    private void clear(){
+        id = 0;
+        nombre="";
+        descripcion="";
+        estado="A";
+        categoriaId=0;
+        solicitanteId=0;
+        categoria="";
+    }
 
     public int getCategoriaId() {
         return categoriaId;
@@ -117,7 +138,7 @@ public class OfertasServicesBean  extends BasePageBean{
     }
     
     public String getEstado(){
-        return Estado;
+        return estado;
     }
     public void setCategoria(String categoria) {
         this.categoria = categoria;
@@ -131,7 +152,7 @@ public class OfertasServicesBean  extends BasePageBean{
     }
 
     public void setEstado(String estado) {
-        this.Estado = estado;
+        this.estado = estado;
     }
 
     public void setFechacreacion(Date fechacreacion) {

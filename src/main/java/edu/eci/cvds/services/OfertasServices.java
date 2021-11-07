@@ -35,7 +35,7 @@ public interface OfertasServices {
      * @param estado nuevo estado de la oferta
      * @throws ExceptionService
      */
-    void actualizarEstadoOferta(String nombre, String Estado) throws ExceptionService;
+    void actualizarEstadoOferta(int solicitanteId, String nombre, String estado) throws ExceptionService;
 
 
 }

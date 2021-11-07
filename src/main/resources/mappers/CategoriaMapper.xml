@@ -41,15 +41,9 @@
 
     <!--Consultar categoria-->
     <select id="consultarCategoria" parameterType="map" resultMap="CategoriaResult">
-        SELECT
-            c.id ,
-            c.nombre ,
-            c.descripcion ,
-            c.fechacreacion ,
-            c.estado ,
-            c.fechamodificacion
+        SELECT *
         FROM categoria
-        WHERE c.id = #{id}
+        WHERE id = #{categoriaId}
     </select>
 
 

@@ -47,12 +47,12 @@
         <div class="subtitulo">
             <h1>Estado</h1>
         </div>
-        <h:selectOneListbox  class = "inpu" value = "#{necesidadBean.estado}"> 
+        <h:selectOneMenu  class = "inpu" value = "#{necesidadBean.estado}"> 
             <f:selectItem itemValue = "A" itemLabel = "Activo" /> 
             <f:selectItem itemValue = "E" itemLabel = "En Proceso" />
             <f:selectItem itemValue = "R" itemLabel = "Resuelta" /> 
             <f:selectItem itemValue = "C" itemLabel = "Cerrada" /> 
-        </h:selectOneListbox>   
+        </h:selectOneMenu>   
         <br></br>
         <h:commandButton value="SUBMIT" update="form" actionListener="#{necesidadBean.agregarNecesidades()}" class="but"/>
     </h:form>

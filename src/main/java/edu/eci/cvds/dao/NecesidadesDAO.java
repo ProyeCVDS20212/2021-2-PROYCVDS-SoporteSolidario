@@ -38,4 +38,12 @@ public interface NecesidadesDAO {
      */
     void actualizarEstadoNecesidad(int idsolicitante,String nombre, String estado) throws PersistenceException;
 
+    /**
+     * Devuelve la cantidad de necesidades 
+     * @param id
+     * @return
+     * @throws PersistenceException
+     */
+    List<Necesidad> consultarNecesidades() throws PersistenceException;
+
 }

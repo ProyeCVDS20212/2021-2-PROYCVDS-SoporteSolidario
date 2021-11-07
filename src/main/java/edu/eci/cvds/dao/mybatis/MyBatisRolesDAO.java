@@ -42,7 +42,36 @@ public class MyBatisRolesDAO implements RolesDAO {
             throw new PersistenceException("Error al consultar", e);
         }  
     }
+
+
+    @Override
+    public void actualizarLimites(String rol, int limiteO, int limiteN) throws PersistenceException {
+        try {
+            rolMapper.actualizarLimites(rol,limiteO,limiteN);
+        } catch (Exception e) {
+            throw new PersistenceException("Error al Actualizar", e);
+        } 
+        
+    }
     
+    @Override
+    public int limiteNecesidades(String id) throws PersistenceException {
+        try {
+            return rolMapper.consultarRolN(id).get(0).getLimiteSolicitudes();
+        } catch (Exception e) {
+            throw new PersistenceException("Error al consultar", e);
+        }        
+    }
+
+
+    @Override
+    public int limiteOfertas(String id) throws PersistenceException {
+        try {
+            return rolMapper.consultarRolN(id).get(0).getLimiteOfertas();
+        } catch (Exception e) {
+            throw new PersistenceException("Error al consultar", e);
+        }   
+    }
 
         
 }

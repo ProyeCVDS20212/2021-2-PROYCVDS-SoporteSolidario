@@ -38,6 +38,6 @@ public interface OfertasMapper {
      * @param nombre nombre de la oferta que se desea actualizar el estado
      * @param estado nuevo estado de la oferta
      */
-    void actualizarEstadoOferta(@Param("nombre")String nombre, @Param("estado")String estado);
+    void actualizarEstadoOferta(@Param("solicitanteId")int solicitanteId,@Param("nombre")String nombre, @Param("estado")String estado);
 
 }

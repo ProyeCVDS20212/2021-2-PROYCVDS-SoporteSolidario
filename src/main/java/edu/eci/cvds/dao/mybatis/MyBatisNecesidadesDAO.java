@@ -53,6 +53,15 @@ public class MyBatisNecesidadesDAO implements NecesidadesDAO {
         }
         
     }
+
+    @Override
+    public List<Necesidad> consultarNecesidades() throws PersistenceException {
+        try {
+            return needsMapper.consultarNecesidades();
+        } catch (org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("No se pudo consultar los nombres", e);
+        }
+    }
     
     
 }

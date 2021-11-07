@@ -40,5 +40,5 @@
         UPDATE necesidades SET estado=#{estado}
         WHERE nombre=#{nombre} and solicitante=#{solicitante}
     </update>
-
+    
     </mapper>

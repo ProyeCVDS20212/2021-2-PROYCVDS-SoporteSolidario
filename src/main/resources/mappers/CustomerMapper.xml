@@ -20,9 +20,9 @@
     </select>
 
     <select parameterType="map" id="nombreUsuario" resultMap="CustomerResult">
-        select fullname
-        FROM users
-        WHERE CustomerID = #{CustomerID}
+        select *
+        FROM Customer
+        WHERE customerid = #{CustomerID}
     </select>
 
 </mapper>
