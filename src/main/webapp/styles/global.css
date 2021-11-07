@@ -18,6 +18,12 @@ body{
  color: white;
  font-family: MedievalSharp;
 }
+.subtituloboton{
+ text-shadow: 3px 3px 3px #000000;
+ color: blue;
+ font-family: MedievalSharp;
+ cursor: pointer;
+}
 .subtitulo1{
  text-shadow: 3px 3px 3px #000000;
  color: rgba(255,3,61,1);
