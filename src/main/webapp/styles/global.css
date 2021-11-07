@@ -63,6 +63,10 @@ body{
   color:#eeeeee;
   border-radius: 15px;
 }
+.icon{
+  width: 70px;
+  height: 70px;
+}
 .p-field{
  margin: 5% 10%;
 }
