@@ -63,6 +63,7 @@ body{
   border:none;
   font-family:sans-serif;
   font-size: medium;
+  cursor: pointer;
 }
 .inpu{
   width: 30%;
