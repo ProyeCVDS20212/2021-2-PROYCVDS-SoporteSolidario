@@ -34,6 +34,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item link" href="/app/crearNecesidad.xhtml">Crear</a>
                     <a class="dropdown-item link" href="/app/reporteNecesidad.xhtml">Reporte</a>
+                    <a class="dropdown-item link" href="/app/actualizarNecesidad.xhtml">Actualizar</a>
                 </div>
             </div>
             </center>
@@ -41,6 +42,11 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item link" href="/app/crearOferta.xhtml">Crear</a>
                 <a class="dropdown-item link" href="/app/actualizarOferta.xhtml">Actualizar</a>
+            </div>
+            <h1>Respuesta</h1>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item link" href="/app/respuestaNecesidad.xhtml">Necesidad</a>
+                <a class="dropdown-item link" href="/app/respuestaOferta.xhtml">Oferta</a>
             </div>
             <h:panelGroup class ="tag" style="display: #{rolBean.visible()}" >
                 <h1>Roles</h1>
@@ -52,7 +58,7 @@
     </div>
     <h:form>
         <div class="subtituloboton">
-            <h:commandButton action="#{customerBean.cerrarSesion()}" class="but" value="LogOut"/>
+            <h:commandButton action="#{customerBean.cerrarSesion()}" class="but" value="Salir"/>
         </div>
     </h:form>
 

@@ -81,7 +81,7 @@ public class NecesidadBean extends BasePageBean{
     public void actualizarEstadoNecesidad() throws ExceptionService{
         try {
             idsolicitante = CustomerServicesBean.getcustomerId();
-            if(necesidadesServices.consultarnecesidad(nombre.toUpperCase()).get(0).getIdsolicitante() == idsolicitante || rolesServices.getRol(CustomerServicesBean.getRol()).equals("Administrador")){
+            if(necesidadesServices.consultarnecesidad(nombre).get(0).getIdsolicitante() == idsolicitante || rolesServices.getRol(CustomerServicesBean.getRol()).equals("Administrador")){
                 necesidadesServices.actualizarEstadoNecesidad(idsolicitante,nombre, estado);
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad Fue actualizada de forma exitosa", "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
