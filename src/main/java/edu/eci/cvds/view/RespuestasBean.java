@@ -39,14 +39,13 @@ public class RespuestasBean extends BasePageBean {
      */
     public void registrarRespuesta(){
         try {
-            System.out.println(necesidad);
             if(necesidad != ""){
                 try {
-                    List<Necesidad>tempnecesidad =  necesidadesServices.consultarnecesidad(necesidad);
+                    List<Necesidad>tempnecesidad =  necesidadesServices.consultarnecesidad(necesidad.toUpperCase());
                     necesidadid =(tempnecesidad.isEmpty())?0:tempnecesidad.get(0).getId();
-                    System.out.println(necesidadid);
+                    if(!tempnecesidad.get(0).getEstado().equalsIgnoreCase("A")&&!tempnecesidad.get(0).getEstado().equalsIgnoreCase("E")) throw new ExceptionService("Estado no valido");
                 } catch (ExceptionService e) {
-                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "El nombre de la necesidad no es valido",
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "El nombre de la necesidad no es valido o esta esta en un estado no valido",
                     "");
                     FacesContext.getCurrentInstance().addMessage(null, message);
                 }
@@ -55,19 +54,21 @@ public class RespuestasBean extends BasePageBean {
                 try {
                     List<Ofertas>tempofertas =  ofertasServices.verificarOferta(oferta.toUpperCase());
                     ofertaid =(tempofertas.isEmpty())?0:tempofertas.get(0).getId();
+                    if(!tempofertas.get(0).getEstado().equalsIgnoreCase("A")&&!tempofertas.get(0).getEstado().equalsIgnoreCase("E")) throw new ExceptionService("Estado no valido");
                 } catch (ExceptionService e) {
-                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "El nombre de la oferta no es valido",
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "El nombre de la oferta no es valido o esta en un estado no valido",
                     "");
                     FacesContext.getCurrentInstance().addMessage(null, message); 
                 }
 
             }
             if(ofertaid != necesidadid && (ofertaid != 0 || necesidadid != 0)){
-                Respuesta temp = new Respuesta(nombre.toUpperCase(), comentario, ofertaid, necesidadid);
+                Respuesta temp = new Respuesta(nombre.toUpperCase(), comentario,ofertaid ,necesidadid,CustomerServicesBean.getcustomerId());
                 respuestaServices.registrarRespuestaNecesidad(temp);
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se agrego de forma exitosa la respuesta",
                 "");
-                FacesContext.getCurrentInstance().addMessage(null, message); 
+                FacesContext.getCurrentInstance().addMessage(null, message);
+
             }else{
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "No se pudo realizar el registro, error en los datos ingresados",
                 "");
@@ -78,8 +79,18 @@ public class RespuestasBean extends BasePageBean {
             "");
             FacesContext.getCurrentInstance().addMessage(null, message); 
         }
+        clean();
     }
 
+    public void clean(){
+        id =0;
+        nombre="";
+        comentario="";
+        ofertaid=0;
+        necesidadid=0;
+        oferta = "";
+        necesidad="";
+    }
 
     public void setComentario(String comentario) {
         this.comentario = comentario;

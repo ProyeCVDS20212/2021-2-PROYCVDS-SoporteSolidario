@@ -11,22 +11,29 @@ public class Respuesta {
     private Date fechacreacion;
     private int ofertaid;
     private int necesidadid;
+    private int remitente;
 
-    public Respuesta(BigDecimal id,String nombre,String comentario, Date fechacreacion,BigDecimal ofertaid,BigDecimal necesidad){
+    public Respuesta(BigDecimal id,String nombre,String comentario, Date fechacreacion,BigDecimal ofertaid,BigDecimal necesidad,BigDecimal remite){
         this.id =id.intValue();
         this.nombre = nombre;
         this.comentario = comentario;
         this.fechacreacion = fechacreacion;
         this.ofertaid = ofertaid.intValue();
         this.necesidadid = necesidad.intValue();
+        this.remitente = remite.intValue();
     }
 
-    public Respuesta(String nombre,String comentario,int ofertaid,int necesidad){
+    public Respuesta(String nombre,String comentario,int ofertaid,int necesidad,int remi){
         this.nombre = nombre;
         this.comentario = comentario;
         this.ofertaid = ofertaid;
         this.necesidadid = necesidad;
+        this.remitente = remi;
     }
+    public void setRemitente(int remitente) {
+        this.remitente = remitente;
+    }
+
     
     public void setComentario(String comentario) {
         this.comentario = comentario;
@@ -48,6 +55,9 @@ public class Respuesta {
     }
     public String getComentario() {
         return comentario;
+    }
+    public int getRemitente() {
+        return remitente;
     }
     public Date getFechacreacion() {
         return fechacreacion;

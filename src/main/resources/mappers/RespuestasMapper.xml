@@ -29,7 +29,7 @@
     </insert>
 
     <insert parameterType="map" id="registrarRespuestaNecesidad">
-        INSERT INTO respuestas (nombre,comentario,necesidadid)
-        VALUES (#{respuesta.nombre},#{respuesta.comentario},#{respuesta.necesidadid})
+        INSERT INTO respuestas (nombre,comentario,necesidadid,remitente)
+        VALUES (#{respuesta.nombre},#{respuesta.comentario},#{respuesta.necesidadid},#{respuesta.remitente})
     </insert>
 </mapper>

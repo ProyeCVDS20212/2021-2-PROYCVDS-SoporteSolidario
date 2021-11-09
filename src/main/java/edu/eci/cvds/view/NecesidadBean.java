@@ -59,7 +59,7 @@ public class NecesidadBean extends BasePageBean{
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
             if(rolesServices.limiteNecesidades(CustomerServicesBean.getRol()) > necesidadesServices.consultarNecesidadesAsociadasA(idsolicitante)){
-                necesidadesServices.agregarNecesidades(new Necesidad(nombre, descripcion, estado, categoriaId, urgencia, idsolicitante));
+                necesidadesServices.agregarNecesidades(new Necesidad(nombre.toUpperCase(), descripcion, estado, categoriaId, urgencia, idsolicitante));
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad Creada de forma exitosa", "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
                 clear();
