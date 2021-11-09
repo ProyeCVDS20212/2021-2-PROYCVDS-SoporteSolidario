@@ -39,12 +39,10 @@ public class RespuestasBean extends BasePageBean {
      */
     public void registrarRespuesta(){
         try {
-            System.out.println(necesidad);
             if(necesidad != ""){
                 try {
                     List<Necesidad>tempnecesidad =  necesidadesServices.consultarnecesidad(necesidad);
                     necesidadid =(tempnecesidad.isEmpty())?0:tempnecesidad.get(0).getId();
-                    System.out.println(necesidadid);
                 } catch (ExceptionService e) {
                     FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "El nombre de la necesidad no es valido",
                     "");
