@@ -49,6 +49,7 @@ body{
 .formnecesidad{
   table-layout:fixed;
   font-size:15px;
+  color: rgba(0,0,0,1);
   font-family: 'Times New Roman', serif;
 }
 .heightletra{
@@ -64,6 +65,9 @@ body{
   font-family:sans-serif;
   font-size: medium;
   cursor: pointer;
+}
+.colortext{
+  color: rgba(0,0,255,1);
 }
 .inpu{
   width: 30%;
@@ -82,7 +86,12 @@ body{
   color:#eeeeee;
   border-radius: 15px;
 }
-.icon{
+.iconright{
+  width: 70px;
+  height: 70px;
+  float: right;
+}
+.iconleft{
   width: 70px;
   height: 70px;
 }
@@ -104,9 +113,9 @@ body{
      -moz-border-radius: 28;
      border-radius: 28px;
    text-shadow: 3px 2px 1px #9daef5;
-     -webkit-box-shadow: 6px 5px 24px #666666;
-     -moz-box-shadow: 6px 5px 24px #666666;
-     box-shadow: 6px 5px 24px #666666;
+     -webkit-box-shadow: 6px 5px 24px #000000;
+     -moz-box-shadow: 6px 5px 24px #000000;
+     box-shadow: 6px 5px 24px #000000;
    font-family: Arial;
      color: #fafafa;
      font-size: 27px;

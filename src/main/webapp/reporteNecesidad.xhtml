@@ -4,9 +4,11 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
 <link rel="stylesheet" type="text/css" href="styles/global.css" />
+<link rel="stylesheet" type="text/css" href="styles/home.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -23,18 +25,18 @@
     </h:head>
     <center>
     <h:body style="margin: 0%;">
-        <h:form class="form" style="width: 60%;">
+        <h:form class="formnecesidad" style="width: 60%;">
         <p:messages id="messages" showDetail="true" closable="true">
             <p:autoUpdate />
         </p:messages>
         <div style="height: auto; padding-bottom: 5%;">
-            <div >
                 <h1>Reporte de Necesidad</h1>
+            <div class="colortext">
                 <p:chart type="bar" model="#{necesidadBean.getGrafico()}" style="height:300px" />
             </div>
         </div>
         <br></br>
- 
+    <center>
     <div id="tabla">
     <p:dataTable id="table" var="necesidad" value="#{necesidadBean.getTabla()}">
         <p:column  headerText="ID">
@@ -52,10 +54,10 @@
         <p:column  headerText="Estado">
             <h:outputText  value="#{necesidad.estado}" />
         </p:column>
-        <p:column  headerText="fecha de Creacion">
+        <p:column  headerText="Fecha de Creacion">
             <h:outputText  value="#{necesidad.fechacreacion}" />
         </p:column>
-        <p:column  headerText="fecha de Modificacion">
+        <p:column  headerText="Fecha de Modificacion">
             <h:outputText  value="#{necesidad.fechamodificacion}" />
         </p:column>
         <p:column  headerText="Categoria">
@@ -68,18 +70,20 @@
             <h:outputText  value="#{customerBean.nombre(necesidad.idsolicitante)}" />
         </p:column>
     </p:dataTable>
-</div>
+    </div>
+    </center>
 <div id="export">
     <div class="subtitulo2">
     <h1>Exportar</h1>
     </div>
-                <div class="icon" >
+
+                <div class="icon">
                     <h:commandLink  >
-                        <p:graphicImage  value="./icons/excel.png" width="70" />
+                        <p:graphicImage  value="./icons/excel.png" width="70" style="margin-right:20px;"/>
                         <p:dataExporter type="xls" postProcessor="#{navigationController.postProcessXLS}"
                             target="table" fileName="answerReport" />
-                    </h:commandLink>
-                    <h:commandLink >
+                    </h:commandLink  >
+                    <h:commandLink  >
                         <p:graphicImage  value="./icons/pdf.png" width="70"/>
                         <p:dataExporter type="pdf" target="table" fileName="answerReport" />
                     </h:commandLink>

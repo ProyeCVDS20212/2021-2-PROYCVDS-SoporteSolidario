@@ -1,5 +1,5 @@
 .tag{
-    background-color:  #b480c1 ;
+    background: linear-gradient(150deg, #eba102, #f10271, #00c298);
     color:#eeeeee;
     border-radius: 15px;
     text-decoration: none;
@@ -14,4 +14,3 @@
     text-decoration: none;
     margin: 15px;
 }
-
