@@ -17,54 +17,69 @@
 <div class="titulo">
     <h1>Bienvenido to Soporte Solidario</h1>
 </div>
-<div class="subtitulo1">
-    <p>Que quieres hacer hoy</p>
-</div>
-<center>
-    <div class="form">
-        <div class ="tag">
-            <h1>Categoria</h1>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item link" href="/app/crearCategoria.xhtml">Crear</a>
-                <a class="dropdown-item link" href="/app/actualizarCategoria.xhtml">Actualizar</a>
-            </div>
-            <center>
-                <h1>Necesidad</h1>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item link" href="/app/crearNecesidad.xhtml">Crear</a>
-                    <a class="dropdown-item link" href="/app/reporteNecesidad.xhtml">Reporte</a>
-                    <a class="dropdown-item link" href="/app/actualizarNecesidad.xhtml">Actualizar</a>
-            </div>
-            </center>
-            <h1>Oferta</h1>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item link" href="/app/crearOferta.xhtml">Crear</a>
-                <a class="dropdown-item link" href="/app/reporteOfertas.xhtml">Reporte</a>
-                <a class="dropdown-item link" href="/app/actualizarOferta.xhtml">Actualizar</a>
-            </div>
-            <h1>Respuesta</h1>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item link" href="/app/respuestaNecesidad.xhtml">Necesidad</a>
-                <a class="dropdown-item link" href="/app/respuestaOferta.xhtml">Oferta</a>
-                <a class="dropdown-item link" href="/app/reporteRespuestas.xhtml">Reporte</a>
-            </div>
-            <h:panelGroup class ="tag" style="display: #{rolBean.visible()}" >
-                <h1>Roles</h1>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item link" href="/app/actualizarRoles.xhtml">Modificar Limites</a>
-                </div>
-            </h:panelGroup>
-        </div>
-    </div>
+<div class ="card">
     <h:form>
-        <div class="subtituloboton">
-            <h:commandButton action="#{customerBean.cerrarSesion()}" class="but" value="Salir"/>
-        </div>
+        <p:megaMenu orientation="horizontal" autoDisplay="false">
+            <p:submenu label="Categoria" icon="pi pi-fw pi-video" class="subtitulo2">
+                <p:column>
+                        <p:submenu label="Categoria" class="subtitulohome">
+                        <p:menuitem value="Crear" outcome="crearCategoria"/>
+                        <p:menuitem value="Actualizar" outcome="actualizarCategoria"/>
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+
+            <p:submenu label="Necesidad" icon="pi pi-fw pi-users" class="subtitulo2">
+                <p:column>
+                    <p:submenu label="Necesidad" class="subtitulohome">
+                        <p:menuitem value="Crear" outcome="crearNecesidad"/>
+                        <p:menuitem value="Actualizar" outcome="actualizarNecesidad"/>
+                        <p:menuitem value="Reporte" outcome="reporteNecesidad"/>
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+
+            <p:submenu label="Oferta" icon="pi pi-fw pi-users" class="subtitulo2">
+                <p:column>
+                    <p:submenu label="Oferta" class="subtitulohome">
+                        <p:menuitem value="Crear" outcome="crearOferta"/>
+                        <p:menuitem value="Actualizar" outcome="actualizarOferta"/>
+                        <p:menuitem value="Reporte" outcome="reporteOfertas"/>
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+
+            <p:submenu label="Respuesta" icon="pi pi-fw pi-users" class="subtitulo2">
+                <p:column>
+                    <p:submenu label="Necesidad" class="subtitulohome">
+                        <p:menuitem value="Necesidad" outcome="respuestaNecesidad"/>
+                    </p:submenu>
+                    <p:submenu label="Oferta" class="subtitulohome">
+                        <p:menuitem value="Oferta" outcome="respuestaOferta"/>
+                    </p:submenu>
+                    <p:submenu label="Reporte" class="subtitulohome">
+                        <p:menuitem value="Reporte" outcome="reporteRespuestas"/>
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+            <p:submenu label="Roles" icon="pi pi-fw pi-users" class="subtitulo2" style="display: #{rolBean.visible()}">
+                <p:column>
+                    <p:submenu label="Modificar Limites" class="subtitulohome">
+                        <p:menuitem value="Modificar Limites" outcome="actualizarRoles"/>
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+        </p:megaMenu>
     </h:form>
+</div>
+<h:form>
+    <div class="subtituloboton">
+        <h:commandButton action="#{customerBean.cerrarSesion()}" class="but" value="Salir"/>
+    </div>
+</h:form>
 
 
-</center>
 <h:messages/>
-</body>
 
+</body>
 </html>
