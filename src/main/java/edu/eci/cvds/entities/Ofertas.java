@@ -6,7 +6,7 @@ import java.sql.Date;
 
 public class Ofertas implements Serializable{
     private int id;
-    private String NOMBRE;
+    private String nombre;
     private String descripcion;
     private String estado;
     private Date fechacreacion;
@@ -15,7 +15,7 @@ public class Ofertas implements Serializable{
     private int solicitanteId;
 
     public Ofertas(String nombre, String descripcion, String estado, BigDecimal categoriaId, BigDecimal solicitanteId){
-        this.NOMBRE = nombre;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.estado = estado;
         this.categoriaId = categoriaId.intValue();
@@ -23,7 +23,7 @@ public class Ofertas implements Serializable{
     }
 
     public Ofertas(String nombre, String descripcion, String estado, int categoriaId, int solicitanteId){
-        this.NOMBRE = nombre;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.estado = estado;
         this.categoriaId = categoriaId;
@@ -54,7 +54,7 @@ public class Ofertas implements Serializable{
     }
 
     public String getNombre() {
-        return NOMBRE;
+        return nombre;
     }
 
     public int getSolicitanteId() {
@@ -90,7 +90,7 @@ public class Ofertas implements Serializable{
     }
 
     public void setNombre(String nombre) {
-        this.NOMBRE = nombre;
+        this.nombre = nombre;
     }
 
     public void setSolicitanteId(int solicitanteId) {

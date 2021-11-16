@@ -50,5 +50,14 @@ public class MyBatisOfertasDAO implements OfertasDAO{
         }
         
     }
+
+    @Override
+    public List<Ofertas> consultarOfertas() throws ExceptionService {
+        try {
+            return ofertaMapper.consultarOfertas();
+        } catch (Exception e) {
+            throw new ExceptionService(e.getMessage());
+        }
+    }
     
 }

@@ -21,6 +21,14 @@ public interface OfertasServices {
      */
     List<Ofertas> verificarOferta(String oldnombre) throws ExceptionService;
 
+        /**
+     * Returna la lista de ofertas 
+
+     * @return
+     * @throws ExceptionService
+     */
+    List<Ofertas> consultarOfertas() throws ExceptionService;
+
     /**
      * Se retorna la lista de ofertas que tiene el usuario con el id especifico
      * @param solicitanteId

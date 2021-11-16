@@ -20,7 +20,7 @@
 
     <update id="actualizarLimites" parameterType="map">
         UPDATE Roles SET limitesolicitudes=#{limiteN},limiteofertas=#{limiteO}
-        WHERE NOMBRE = #{name}
+        WHERE nombre = #{name}
     </update>
 
 </mapper>

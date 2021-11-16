@@ -10,7 +10,11 @@ import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
 
-import edu.eci.cvds.dao.NecesidadesDAO;
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.BarChartModel;
+import org.primefaces.model.chart.ChartSeries;
+
 import edu.eci.cvds.entities.Categoria;
 import edu.eci.cvds.entities.Ofertas;
 import edu.eci.cvds.services.CategoriaServices;
@@ -69,8 +73,10 @@ public class OfertasServicesBean  extends BasePageBean{
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
         } catch (Exception e) {
+            clear();
             throw new ExceptionService("Se produjo un error a la hora de agregar una oferta" + e.toString());
         }
+        clear();
     }
 
     /**
@@ -81,7 +87,7 @@ public class OfertasServicesBean  extends BasePageBean{
             try {
                 solicitanteId = CustomerServicesBean.getcustomerId();
                 if(ofertasServices.verificarOferta(nombre.toUpperCase()).get(0).getSolicitanteId() == solicitanteId || rolesServices.getRol(CustomerServicesBean.getRol()).equals("Administrador")){
-                    ofertasServices.actualizarEstadoOferta(solicitanteId,nombre, estado);
+                    ofertasServices.actualizarEstadoOferta(solicitanteId,nombre.toUpperCase(), estado);
                     FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Oferta Fue actualizada de forma exitosa", "");
                     FacesContext.getCurrentInstance().addMessage(null, message);
                     clear();
@@ -97,6 +103,74 @@ public class OfertasServicesBean  extends BasePageBean{
             }
     }
 
+    public List<Ofertas> getTabla(){
+        try{
+            return ofertasServices.consultarOfertas();
+        }catch(ExceptionService e){
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error Al crear la tabla",
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+                clear();
+        }
+        return null;
+    }
+
+    private BarChartModel initBar(){
+        BarChartModel  model = new BarChartModel ();
+        ChartSeries  chartSeries = new ChartSeries();
+        chartSeries.setLabel("Necesidades");
+        model.setSeriesColors("823acf,32e33b,ffffff,e352c6");
+        int[] values = new int[4];
+        for(Ofertas a : getTabla()){
+            if(a.getEstado().equalsIgnoreCase( "A")){
+                values[0] +=1;
+            }else if(a.getEstado().equalsIgnoreCase( "C")){
+                values[1] +=1;
+            }
+            else if(a.getEstado().equalsIgnoreCase( "E")){
+                values[2] +=1;
+            }else if(a.getEstado().equalsIgnoreCase( "R")){
+                values[3] +=1;
+            }
+        }
+        chartSeries.set("Activo", values[0]);
+        chartSeries.set("Cerrada", values[1]);
+        chartSeries.set("En Proceso", values[2]);
+        chartSeries.set("Resuelta", values[3]);
+        model.addSeries(chartSeries);
+        return model;
+    }
+    
+        public BarChartModel getGrafico() throws ExceptionService{
+            BarChartModel model = initBar();
+            model.setTitle("Ofertas agrupadas por estado");
+            model.setLegendPosition("ne");
+            Axis xAxis = model.getAxis(AxisType.X);
+            xAxis.setLabel("Estados");
+            Axis yAxis = model.getAxis(AxisType.Y);
+            yAxis.setMin(0);
+    
+            return model;
+        }
+
+    public String intoEstado(String a){
+        String res = "";
+        switch(a){
+            case "A":
+                res = "Activo";
+                break;
+            case "C":
+                res = "Cerrado";
+                break;
+            case "E":
+                res = "En Proceso";
+                break;
+            case "R":
+                res = "Resuelta";
+                break;
+        }
+        return res;
+    }
     private void clear(){
         id = 0;
         nombre="";

@@ -5,16 +5,16 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.RespuestasMapper">
     <resultMap id="RespuestasResult" type="Respuesta">
         <id property="id" column="id"/>
-        <result property="Nombre" column="Nombre"/>
-        <result property="Comentario" column="Comentario"/>
+        <result property="nombre" column="nombre"/>
+        <result property="comentario" column="comentario"/>
         <result property="fechacreacion" column="fechacreacion"/>
-        <result property="OFERTAID" column="OFERTAID"/>
-        <result property="NECESIDADID" column="NECESIDADID"/>
+        <result property="ofertaid" column="ofertaid"/>
+        <result property="necesidadid" column="necesidadid"/>
+        <result property="remitente" column="remitente"/> 
     </resultMap>
     
     <select parameterType="map" id="consultarRespuestas" resultMap="RespuestasResult">
-        SELECT *
-        FROM Respuestas
+        select * from respuestas
     </select>
 
     <select parameterType="map" id="consultarRespuesta" resultMap="RespuestasResult">
@@ -24,8 +24,8 @@
     </select>
 
     <insert parameterType="map" id="registrarRespuestaOferta">
-        INSERT INTO respuestas (nombre,comentario,ofertaid)
-        VALUES (#{respuesta.nombre},#{respuesta.comentario},#{respuesta.ofertaid})
+        INSERT INTO respuestas (nombre,comentario,ofertaid,remitente)
+        VALUES (#{respuesta.nombre},#{respuesta.comentario},#{respuesta.ofertaid},#{respuesta.remitente})
     </insert>
 
     <insert parameterType="map" id="registrarRespuestaNecesidad">

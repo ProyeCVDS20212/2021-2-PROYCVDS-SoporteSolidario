@@ -5,7 +5,7 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.OfertasMapper">
     <resultMap id="OfertasResult" type="Ofertas">
         <id property="id" column="id"/>
-        <result property="NOMBRE" column="NOMBRE"/>
+        <result property="nombre" column="nombre"/>
         <result property="descripcion" column="descripcion"/>
         <result property="estado" column="estado"/>
         <result property="fechacreacion" column="fechacreacion"/>
@@ -15,13 +15,13 @@
     </resultMap>
 
     <insert id="agregarOferta" parameterType="map">
-        INSERT INTO Ofertas(NOMBRE,descripcion,estado,fechacreacion,fechamodificacion,categoriaId,solicitanteId) VALUES(#{oferta.NOMBRE},#{oferta.descripcion},#{oferta.estado},current_date,current_date,#{oferta.categoriaId},#{oferta.solicitanteId})
+        INSERT INTO Ofertas(nombre,descripcion,estado,fechacreacion,fechamodificacion,categoriaId,solicitanteId) VALUES(#{oferta.nombre},#{oferta.descripcion},#{oferta.estado},current_date,current_date,#{oferta.categoriaId},#{oferta.solicitanteId})
     </insert>
 
     <select parameterType="map" id="verificarOferta" resultMap="OfertasResult">
         SELECT *
         FROM Ofertas
-        WHERE NOMBRE=#{oldnombre}
+        WHERE nombre=#{oldnombre}
     </select>
 
     <select parameterType="map" id="ofertasporUsuario" resultMap="OfertasResult">
@@ -32,7 +32,13 @@
 
     <update id="actualizarEstadoOferta" parameterType="map">
         UPDATE Ofertas SET estado = #{estado}
-        WHERE NOMBRE = #{nombre} and solicitanteId=#{solicitanteId}
+        WHERE nombre = #{nombre} and solicitanteId=#{solicitanteId}
     </update>
 
+    <select parameterType="map" id="consultarOfertas" resultMap="OfertasResult">
+        SELECT *
+        FROM Ofertas
+    </select>
+
+    
 </mapper>

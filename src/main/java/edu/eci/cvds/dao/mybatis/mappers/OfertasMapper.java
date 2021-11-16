@@ -33,6 +33,15 @@ public interface OfertasMapper {
      */
     List<Ofertas> ofertasporUsuario(@Param("solicitanteId") int solicitanteId);
 
+ /**
+     * Se retorna la lista de ofertas
+     * @return
+     * @throws ExceptionService
+     */
+    List<Ofertas> consultarOfertas();
+
+
+
     /**
      * Se actualiza el estado de la oferta deseada
      * @param nombre nombre de la oferta que se desea actualizar el estado

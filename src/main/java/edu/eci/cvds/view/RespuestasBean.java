@@ -1,5 +1,6 @@
 package edu.eci.cvds.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -17,7 +18,7 @@ import edu.eci.cvds.services.NecesidadesServices;
 import edu.eci.cvds.services.OfertasServices;
 import edu.eci.cvds.services.RespuestaServices;
 
-@ManagedBean(name = "respuestasBean")
+@ManagedBean(name ="respuestaBean")
 @SessionScoped
 public class RespuestasBean extends BasePageBean {
     @Inject
@@ -64,7 +65,13 @@ public class RespuestasBean extends BasePageBean {
             }
             if(ofertaid != necesidadid && (ofertaid != 0 || necesidadid != 0)){
                 Respuesta temp = new Respuesta(nombre.toUpperCase(), comentario,ofertaid ,necesidadid,CustomerServicesBean.getcustomerId());
-                respuestaServices.registrarRespuestaNecesidad(temp);
+                if(ofertaid == 0 ){
+                    respuestaServices.registrarRespuestaNecesidad(temp);
+                }
+                else{
+                    respuestaServices.registrarRespuestaOferta(temp);
+                }
+                
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se agrego de forma exitosa la respuesta",
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
@@ -80,6 +87,22 @@ public class RespuestasBean extends BasePageBean {
             FacesContext.getCurrentInstance().addMessage(null, message); 
         }
         clean();
+    }
+
+    public String getRespue(Respuesta r){
+        return r.getNecesidadid()==0?"Oferta "+r.getOfertaid():"Necesidad "+r.getNecesidadid();
+    }
+
+    public List<Respuesta> getTabla()throws ExceptionService{
+        try{
+            return respuestaServices.consultarRespuestas();
+        }catch(ExceptionService e){
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error Al crear la tabla",
+                "");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+                throw new ExceptionService(e.getMessage());
+        }
+
     }
 
     public void clean(){

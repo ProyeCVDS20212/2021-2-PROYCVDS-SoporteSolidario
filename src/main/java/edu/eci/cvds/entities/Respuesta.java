@@ -18,7 +18,15 @@ public class Respuesta {
         this.nombre = nombre;
         this.comentario = comentario;
         this.fechacreacion = fechacreacion;
-        this.ofertaid = ofertaid.intValue();
+        this.ofertaid = ofertaid != null? ofertaid.intValue():0;
+        this.necesidadid = necesidad != null? necesidad.intValue():0;
+        this.remitente = remite.intValue();
+    }
+    public Respuesta(BigDecimal id,String nombre,String comentario, Date fechacreacion,String ofertaid,BigDecimal necesidad,BigDecimal remite){
+        this.id =id.intValue();
+        this.nombre = nombre;
+        this.comentario = comentario;
+        this.fechacreacion = fechacreacion;
         this.necesidadid = necesidad.intValue();
         this.remitente = remite.intValue();
     }
