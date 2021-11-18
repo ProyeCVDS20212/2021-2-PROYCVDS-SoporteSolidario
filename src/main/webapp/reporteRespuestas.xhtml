@@ -25,7 +25,8 @@
     </h:head>
     <center>
     <h:body style="margin: 0%;">
-        <h:form class="form" style="width: 60%;">
+        <ui:include src="menuTodo.xhtml"></ui:include>
+        <h:form class="formnecesidad" style="width: 60%;">
     <center>
     <div id="tabla">
     <p:dataTable id="table" var="respuesta" value="#{respuestaBean.getTabla()}">
