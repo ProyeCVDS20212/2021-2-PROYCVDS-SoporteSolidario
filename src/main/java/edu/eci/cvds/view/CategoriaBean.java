@@ -81,8 +81,13 @@ public class CategoriaBean  extends BasePageBean{
     public void eliminarCategoria() throws ExceptionService{
         try {
             CategoriaServices.eliminarCategoria(nombre.toUpperCase());
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria eliminada correctamente",
+                    "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
         } catch (Exception e) {
-            throw new ExceptionService("Se produjo un error a la hora de eliminar la categoria", e);
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se produjo un error a la hora de actualizar la categoria",
+                    "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
 
