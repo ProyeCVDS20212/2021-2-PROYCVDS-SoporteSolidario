@@ -32,9 +32,25 @@ public interface CategoriaServices{
      */
     public List<Categoria> verificarCategoria(String oldnombre) throws ExceptionService;
 
+    /**
+     * Devuelve todas las categorias existentes
+     * @return
+     * @throws ExceptionService
+     */
     List<Categoria> consultarCategorias() throws ExceptionService;
 
+    /**
+     * Retorna la categoria deseada de acuerdo al id
+     * @param cId id de la categoria que se desea consultar
+     * @return
+     * @throws ExceptionService
+     */
     Categoria consultarCategoria(int cId) throws ExceptionService;
 
+    /**
+     * Metodo usado por CategoriaServicesBean para enviar eliminarCategoria a CategoriaServicesImpl
+     * @param nombre nombre de la categoria que se desea eliminar
+     * @throws ExceptionService
+     */
     public void eliminarCategoria(String nombre) throws ExceptionService;
 }

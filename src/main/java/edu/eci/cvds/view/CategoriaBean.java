@@ -74,6 +74,10 @@ public class CategoriaBean  extends BasePageBean{
 
     }
 
+    /**
+     * Envia el parametro del nombre de la categoria que se desea eliminar a CategoriaServices
+     * @throws ExceptionService
+     */
     public void eliminarCategoria() throws ExceptionService{
         try {
             CategoriaServices.eliminarCategoria(nombre.toUpperCase());
