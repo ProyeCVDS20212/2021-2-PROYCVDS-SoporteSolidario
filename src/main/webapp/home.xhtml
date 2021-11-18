@@ -10,76 +10,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
 </h:head>
-<body>
+<h:body style="margin: 0%;">
+<ui:include src="menuTodo.xhtml"></ui:include>
 <p:messages id="messages" showDetail="true" closable="true">
     <p:autoUpdate />
 </p:messages>
-<div class="titulo">
-    <h1>Bienvenido to Soporte Solidario</h1>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<div class="text-title">
+    <p>Bienvenido a Soporte Solidario®</p>
 </div>
-<div class ="card">
-    <h:form>
-        <p:megaMenu orientation="horizontal" autoDisplay="false">
-            <p:submenu label="Categoria" icon="pi pi-fw pi-video" class="subtitulo2">
-                <p:column>
-                        <p:submenu label="Categoria" class="subtitulohome">
-                        <p:menuitem value="Crear" outcome="crearCategoria"/>
-                        <p:menuitem value="Actualizar" outcome="actualizarCategoria"/>
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-
-            <p:submenu label="Necesidad" icon="pi pi-fw pi-users" class="subtitulo2">
-                <p:column>
-                    <p:submenu label="Necesidad" class="subtitulohome">
-                        <p:menuitem value="Crear" outcome="crearNecesidad"/>
-                        <p:menuitem value="Actualizar" outcome="actualizarNecesidad"/>
-                        <p:menuitem value="Reporte" outcome="reporteNecesidad"/>
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-
-            <p:submenu label="Oferta" icon="pi pi-fw pi-users" class="subtitulo2">
-                <p:column>
-                    <p:submenu label="Oferta" class="subtitulohome">
-                        <p:menuitem value="Crear" outcome="crearOferta"/>
-                        <p:menuitem value="Actualizar" outcome="actualizarOferta"/>
-                        <p:menuitem value="Reporte" outcome="reporteOfertas"/>
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-
-            <p:submenu label="Respuesta" icon="pi pi-fw pi-users" class="subtitulo2">
-                <p:column>
-                    <p:submenu label="Necesidad" class="subtitulohome">
-                        <p:menuitem value="Necesidad" outcome="respuestaNecesidad"/>
-                    </p:submenu>
-                    <p:submenu label="Oferta" class="subtitulohome">
-                        <p:menuitem value="Oferta" outcome="respuestaOferta"/>
-                    </p:submenu>
-                    <p:submenu label="Reporte" class="subtitulohome">
-                        <p:menuitem value="Reporte" outcome="reporteRespuestas"/>
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-            <p:submenu label="Roles" icon="pi pi-fw pi-users" class="subtitulo2" style="display: #{rolBean.visible()}">
-                <p:column>
-                    <p:submenu label="Modificar Limites" class="subtitulohome">
-                        <p:menuitem value="Modificar Limites" outcome="actualizarRoles"/>
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-        </p:megaMenu>
-    </h:form>
-</div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
 <h:form>
     <div class="subtituloboton">
         <h:commandButton action="#{customerBean.cerrarSesion()}" class="but" value="Salir"/>
     </div>
 </h:form>
-
-
 <h:messages/>
-
-</body>
+</h:body>
 </html>

@@ -1,0 +1,72 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+    <h:form>
+        <div class ="card">
+            <p:megaMenu orientation="horizontal" autoDisplay="false">
+                <p:submenu label="Inicio" icon="pi pi-fw pi-video" class="subtitulo2">
+                    <p:column>
+                        <p:submenu label="Inicio" class="subtitulohome">
+                            <p:menuitem value="Inicio" outcome="home"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:submenu label="Categoria" icon="pi pi-fw pi-video" class="subtitulo2">
+                    <p:column>
+                        <p:submenu label="Categoria" class="subtitulohome">
+                            <p:menuitem value="Crear" outcome="crearCategoria"/>
+                            <p:menuitem value="Actualizar" outcome="actualizarCategoria"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+
+                <p:submenu label="Necesidad" icon="pi pi-fw pi-users" class="subtitulo2">
+                    <p:column>
+                        <p:submenu label="Necesidad" class="subtitulohome">
+                            <p:menuitem value="Crear" outcome="crearNecesidad"/>
+                            <p:menuitem value="Actualizar" outcome="actualizarNecesidad"/>
+                            <p:menuitem value="Reporte" outcome="reporteNecesidad"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+
+                <p:submenu label="Oferta" icon="pi pi-fw pi-users" class="subtitulo2">
+                    <p:column>
+                        <p:submenu label="Oferta" class="subtitulohome">
+                            <p:menuitem value="Crear" outcome="crearOferta"/>
+                            <p:menuitem value="Actualizar" outcome="actualizarOferta"/>
+                            <p:menuitem value="Reporte" outcome="reporteOfertas"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+
+                <p:submenu label="Respuesta" icon="pi pi-fw pi-users" class="subtitulo2">
+                    <p:column>
+                        <p:submenu label="Necesidad" class="subtitulohome">
+                            <p:menuitem value="Necesidad" outcome="respuestaNecesidad"/>
+                        </p:submenu>
+                        <p:submenu label="Oferta" class="subtitulohome">
+                            <p:menuitem value="Oferta" outcome="respuestaOferta"/>
+                        </p:submenu>
+                        <p:submenu label="Reporte" class="subtitulohome">
+                            <p:menuitem value="Reporte" outcome="reporteRespuestas"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:submenu label="Roles" icon="pi pi-fw pi-users" class="subtitulo2" style="display: #{rolBean.visible()}">
+                    <p:column>
+                        <p:submenu label="Modificar Limites" class="subtitulohome">
+                            <p:menuitem value="Modificar Limites" outcome="actualizarRoles"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+            </p:megaMenu>
+        </div>
+    </h:form>
+</ui:composition>
