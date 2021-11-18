@@ -18,4 +18,6 @@ public interface CategoriaMapper {
     public List<Categoria> consultarCategorias();
 
     public Categoria consultarCategoria(@Param("categoriaId")int cId);
+
+    public void eliminarCategoria(@Param("dnombre") String nombre);
 }

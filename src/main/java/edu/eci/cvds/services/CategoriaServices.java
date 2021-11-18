@@ -35,4 +35,6 @@ public interface CategoriaServices{
     List<Categoria> consultarCategorias() throws ExceptionService;
 
     Categoria consultarCategoria(int cId) throws ExceptionService;
+
+    public void eliminarCategoria(String nombre) throws ExceptionService;
 }

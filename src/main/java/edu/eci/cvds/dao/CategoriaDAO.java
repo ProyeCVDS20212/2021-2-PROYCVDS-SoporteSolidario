@@ -16,4 +16,6 @@ public interface CategoriaDAO {
     List<Categoria> consultarCategorias() throws ExceptionService;
 
     Categoria consultarCategoria(int cId) throws ExceptionService;
+
+    void eliminarCategoria(String nombre) throws ExceptionService;
 }

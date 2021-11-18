@@ -45,6 +45,10 @@
         FROM categoria
         WHERE id = #{categoriaId}
     </select>
-
+    
+    <!-- Eliminar categoria-->
+    <delete id="eliminarCategoria" parameterType="map">
+        DELETE FROM categoria WHERE nombre = #{dnombre}
+    </delete>
 
 </mapper>

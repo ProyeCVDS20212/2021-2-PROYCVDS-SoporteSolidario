@@ -59,4 +59,14 @@ public class MyBatisCategoriaDAO implements CategoriaDAO {
             throw new ExceptionService("No se encuentra la categoria", e);
         }
     }
+
+    @Override
+    public void eliminarCategoria(String nombre) throws ExceptionService {
+        try {
+            categoriaMapper.eliminarCategoria(nombre);
+        } catch (Exception e) {
+            throw new ExceptionService("Se produjo un error a la hora de eliminar la categoria", e);
+        }
+        
+    }
 }

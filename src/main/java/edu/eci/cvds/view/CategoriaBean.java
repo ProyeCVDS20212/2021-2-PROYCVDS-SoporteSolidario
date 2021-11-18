@@ -74,6 +74,14 @@ public class CategoriaBean  extends BasePageBean{
 
     }
 
+    public void eliminarCategoria() throws ExceptionService{
+        try {
+            CategoriaServices.eliminarCategoria(nombre.toUpperCase());
+        } catch (Exception e) {
+            throw new ExceptionService("Se produjo un error a la hora de eliminar la categoria", e);
+        }
+    }
+
     /**
      * Devuelve la categoria
      * @return
