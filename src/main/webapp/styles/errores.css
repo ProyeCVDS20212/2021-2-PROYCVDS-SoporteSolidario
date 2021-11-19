@@ -1,0 +1,22 @@
+body{
+    background-image: url("https://cdn.pixabay.com/photo/2021/01/10/20/03/laptop-5906264_960_720.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    align-self: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    position: absolute;
+    top:49%;
+    left: 56%;
+    font-size: 55px;
+    font-weight: bold;
+}
+.btn1{
+    position: absolute;
+    top:90%;
+    left: 50%;
+    font-size: 40px;
+}

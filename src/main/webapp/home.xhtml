@@ -3,6 +3,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:head>
+    <title>Home</title>
     <link rel="stylesheet" type="text/css" href="styles/global.css" />
     <link rel="stylesheet" type="text/css" href="styles/home.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -27,8 +28,8 @@
 <br></br>
 <br></br>
 <h:form>
-    <div class="subtituloboton">
-        <h:commandButton action="#{customerBean.cerrarSesion()}" class="but" value="Salir"/>
+    <div>
+        <h:commandButton action="#{customerBean.cerrarSesion()}" class="subtituloboton" value="Salir"/>
     </div>
 </h:form>
 <h:messages/>
