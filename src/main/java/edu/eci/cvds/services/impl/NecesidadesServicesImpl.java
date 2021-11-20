@@ -80,5 +80,14 @@ CustomerDAO customerDAO;
             throw new ExceptionService("No se pudo actualizar el estado de la necesidad", e);
         }
     }
+
+    @Override
+    public int consultarNecesidadCategorias(int necesidad) throws ExceptionService {
+        try {
+            return necesidadDao.consultarNecesidadCategorias(necesidad);
+        } catch (Exception e) {
+            throw new ExceptionService("No se pudo actualizar el estado de la necesidad", e);
+        }
+    }
     
 }

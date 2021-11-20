@@ -46,4 +46,11 @@ public interface OfertasServices {
     void actualizarEstadoOferta(int solicitanteId, String nombre, String estado) throws ExceptionService;
 
 
+    /**
+     * consulta cantidad de ofertas por la categoria seleccionada
+     * @param categoria     id categoria a consultar
+     * @return
+     */
+    int consultarOfertasCategorias(int categoria)throws ExceptionService;
+
 }

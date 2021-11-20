@@ -40,5 +40,11 @@
         UPDATE necesidades SET estado=#{estado}
         WHERE nombre=#{nombre} and solicitante=#{solicitante}
     </update>
-    
+    <select parameterType="map" id="consultarNecesidadCategorias" resultMap="NeedsResult">
+        select *
+        FROM necesidades
+        WHERE categoriaid=#{categoria}
+    </select>
+
+
     </mapper>

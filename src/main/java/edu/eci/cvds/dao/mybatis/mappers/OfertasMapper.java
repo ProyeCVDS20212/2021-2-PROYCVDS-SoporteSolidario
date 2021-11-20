@@ -49,4 +49,11 @@ public interface OfertasMapper {
      */
     void actualizarEstadoOferta(@Param("solicitanteId")int solicitanteId,@Param("nombre")String nombre, @Param("estado")String estado);
 
+
+    /**
+     * consulta cantidad de ofertas por la categoria seleccionada
+     * @param categoria     id categoria a consultar
+     * @return
+     */
+    List<Ofertas> consultarOfertasCategorias(@Param("categoria")int categoria);
 }

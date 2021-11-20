@@ -52,4 +52,11 @@ public interface NecesidadesServices {
      */
     void actualizarEstadoNecesidad(int idsolicitante,String nombre, String estado) throws ExceptionService;
 
+     /**
+     * consulta cantidad de ofertas por la necesidad seleccionada
+     * @param necesidad     id necesidad a consultar
+     * @return
+     */
+    int consultarNecesidadCategorias(int necesidad)throws ExceptionService;
+
 }

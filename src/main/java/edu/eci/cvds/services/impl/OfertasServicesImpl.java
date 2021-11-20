@@ -59,5 +59,14 @@ public class OfertasServicesImpl implements OfertasServices{
             throw new ExceptionService(e.getMessage());
         }
     }
+
+    @Override
+    public int consultarOfertasCategorias(int categoria) throws ExceptionService {
+        try {
+            return ofertasDAO.consultarOfertasCategorias(categoria);
+        } catch (Exception e) {
+            throw new ExceptionService(e.getMessage());
+        }
+    }
     
 }

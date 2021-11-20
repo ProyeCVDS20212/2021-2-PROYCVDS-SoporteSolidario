@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<link rel="stylesheet" type="text/css" href="styles/global.css" />
+<link rel="stylesheet" type="text/css" href="styles/home.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:head>
+        <title>ReporteNecesidad</title>
+    </h:head>
+    <center>
+    <h:body style="margin: 0%;">
+        <ui:include src="menuTodo.xhtml"></ui:include>
+        <h:form class="formnecesidad" style="width: 60%;">
+        <p:messages id="messages" showDetail="true" closable="true">
+            <p:autoUpdate />
+        </p:messages>
+        <div style="height: auto; padding-bottom: 5%;">
+                <h1>Reporte de Categorias</h1>
+            <div class="colortext">
+                <h2>Reporte de Categorias  Ofertadas</h2>
+                <p:chart type="bar" model="#{categoriaBean.getGraficoO()}" style="height:300px" />
+            </div>
+            <div class="colortext">
+                <h2>Reporte de Categorias  Necesitadas</h2>
+                <p:chart type="bar" model="#{categoriaBean.getGraficoN()}" style="height:300px" />
+            </div>
+        </div>
+        <br></br>
+    <center>
+    <div id="tabla">
+    <p:dataTable id="table" var="categoria" value="#{categoriaBean.getTabla()}">
+        <p:column  headerText="ID">
+            <h:outputText  value="#{categoria.get(0)}" />
+        </p:column>
+        <p:column  headerText="Titulo">
+            <h:outputText  value="#{categoria.get(1)}" />
+        </p:column>
+        <p:column  headerText="Ofertas">
+            <h:outputText  value="#{categoria.get(2)}" />
+        </p:column>
+        <p:column  headerText="Necesidades">
+            <h:outputText  value="#{categoria.get(3)}" />
+        </p:column>
+        <p:column  headerText="Total">
+            <h:outputText  value="#{categoria.get(4)}" />
+        </p:column>
+    </p:dataTable>
+    </div>
+    </center>
+<div id="export">
+    <div class="subtitulo2">
+    <h1>Exportar</h1>
+    </div>
+
+                <div class="icon">
+                    <h:commandLink  >
+                        <p:graphicImage  value="./icons/excel.png" width="70" style="margin-right:20px;"/>
+                        <p:dataExporter type="xls" postProcessor="#{navigationController.postProcessXLS}"
+                            target="table" fileName="answerReport" />
+                    </h:commandLink  >
+                    <h:commandLink  >
+                        <p:graphicImage  value="./icons/pdf.png" width="70"/>
+                        <p:dataExporter type="pdf" target="table" fileName="answerReport" />
+                    </h:commandLink>
+                </div>
+</div>
+</h:form>
+<br></br>
+<div class="subtituloboton">
+    <a href="/app/home.xhtml">Volver</a>
+</div>
+    </h:body>
+</center>
+</f:view>
+
+</html>

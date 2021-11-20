@@ -40,5 +40,10 @@
         FROM Ofertas
     </select>
 
+    <select parameterType="map" id="consultarOfertasCategorias" resultMap="OfertasResult">
+        SELECT * 
+        FROM Ofertas
+        WHERE categoriaId = #{categoria}
+    </select>
     
 </mapper>

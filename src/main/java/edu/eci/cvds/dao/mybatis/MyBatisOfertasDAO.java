@@ -59,5 +59,14 @@ public class MyBatisOfertasDAO implements OfertasDAO{
             throw new ExceptionService(e.getMessage());
         }
     }
+
+    @Override
+    public int consultarOfertasCategorias(int categoria) throws ExceptionService {
+        try {
+            return ofertaMapper.consultarOfertasCategorias(categoria).size();
+        } catch (Exception e) {
+            throw new ExceptionService(e.getMessage());
+        }
+    }
     
 }

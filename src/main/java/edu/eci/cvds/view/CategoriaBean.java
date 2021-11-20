@@ -2,7 +2,11 @@ package edu.eci.cvds.view;
 
 
 import edu.eci.cvds.entities.Categoria;
+import edu.eci.cvds.entities.Necesidad;
+import edu.eci.cvds.entities.Ofertas;
 import edu.eci.cvds.services.ExceptionService;
+import edu.eci.cvds.services.NecesidadesServices;
+import edu.eci.cvds.services.OfertasServices;
 import edu.eci.cvds.services.CategoriaServices;
 
 import javax.faces.application.FacesMessage;
@@ -10,17 +14,25 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.BarChartModel;
+import org.primefaces.model.chart.ChartSeries;
 
-
-
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @javax.faces.bean.ManagedBean(name = "categoriaBean")
 @SessionScoped
 public class CategoriaBean  extends BasePageBean{
 
     @Inject
-    private CategoriaServices CategoriaServices;
+    private CategoriaServices categoriaServices;
+    @Inject
+    private NecesidadesServices necesidadesServices;
+    @Inject
+    private OfertasServices ofertasServices;
     private Categoria categoria;
     private int id;
     private String nombre;
@@ -38,7 +50,7 @@ public class CategoriaBean  extends BasePageBean{
     public void agregarCategoria() throws ExceptionService {
         try {
             Categoria categorie = new Categoria(nombre.toUpperCase(), descripcion);
-            CategoriaServices.registrarCategoria(categorie);
+            categoriaServices.registrarCategoria(categorie);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria creada correctamente",
                     "");
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -67,7 +79,7 @@ public class CategoriaBean  extends BasePageBean{
      */
     public void actualizarCategoria() throws ExceptionService{
         try {
-            CategoriaServices.actualizarCategoria(nombre.toUpperCase(), descripcion, estado, oldnombre.toUpperCase());
+            categoriaServices.actualizarCategoria(nombre.toUpperCase(), descripcion, estado, oldnombre.toUpperCase());
         } catch (ExceptionService e) {
             throw new ExceptionService("Se produjo un error a la hora de actualizar la categoria", e);
         }
@@ -80,7 +92,7 @@ public class CategoriaBean  extends BasePageBean{
      */
     public void eliminarCategoria() throws ExceptionService{
         try {
-            CategoriaServices.eliminarCategoria(nombre.toUpperCase());
+            categoriaServices.eliminarCategoria(nombre.toUpperCase());
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria eliminada correctamente",
                     "");
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -90,6 +102,77 @@ public class CategoriaBean  extends BasePageBean{
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
+
+
+    public List<List<String>> getTabla(){
+        List<List<String>> ans = new ArrayList<>();
+        try {
+            for(Categoria c :categoriaServices.consultarCategorias()){
+                List<String> temp = new ArrayList<>();
+                temp.add(""+c.getId());
+                temp.add(c.getNombre());
+                temp.add(""+ofertasServices.consultarOfertasCategorias(c.getId()));
+                temp.add(""+necesidadesServices.consultarNecesidadCategorias(c.getId()));
+                temp.add(""+(ofertasServices.consultarOfertasCategorias(c.getId())+necesidadesServices.consultarNecesidadCategorias(c.getId())));
+                ans.add(temp);
+            }
+            return ans;
+        } catch (Exception e) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se produjo un error a la crear la tabla",
+                    "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+        return ans;
+    }
+
+    private BarChartModel initBarO(){
+        BarChartModel  model = new BarChartModel ();
+        ChartSeries  chartSeries = new ChartSeries();
+        chartSeries.setLabel("Categorias");
+        model.setSeriesColors("823acf,32e33b,ffffff,e352c6");
+        for(List<String> a : getTabla()){
+            chartSeries.set(a.get(1), Integer.valueOf(a.get(2)));
+        }
+        model.addSeries(chartSeries);
+        return model;
+    }
+    
+        public BarChartModel getGraficoO()  {
+            BarChartModel model = initBarO();
+            model.setTitle("Categorias mas ofrecidas");
+            model.setLegendPosition("ne");
+            Axis xAxis = model.getAxis(AxisType.X);
+            xAxis.setLabel("Categorias");
+            Axis yAxis = model.getAxis(AxisType.Y);
+            yAxis.setMin(0);
+    
+            return model;
+        }
+
+
+        private BarChartModel initBarN(){
+            BarChartModel  model = new BarChartModel ();
+            ChartSeries  chartSeries = new ChartSeries();
+            chartSeries.setLabel("Categorias");
+            model.setSeriesColors("823acf,32e33b,ffffff,e352c6");
+            for(List<String> a : getTabla()){
+                chartSeries.set(a.get(1), Integer.valueOf(a.get(3)));
+            }
+            model.addSeries(chartSeries);
+            return model;
+        }
+        
+            public BarChartModel getGraficoN()  {
+                BarChartModel model = initBarN();
+                model.setTitle("Categorias mas Necesitadas");
+                model.setLegendPosition("ne");
+                Axis xAxis = model.getAxis(AxisType.X);
+                xAxis.setLabel("Categorias");
+                Axis yAxis = model.getAxis(AxisType.Y);
+                yAxis.setMin(0);
+        
+                return model;
+            }
 
     /**
      * Devuelve la categoria
@@ -144,7 +227,7 @@ public class CategoriaBean  extends BasePageBean{
      * @return
      */
     public CategoriaServices getCategoriaServices() {
-        return CategoriaServices;
+        return categoriaServices;
     }
 
     /**
@@ -183,8 +266,8 @@ public class CategoriaBean  extends BasePageBean{
      * Asigna la CategoriaServices
      * @param CategoriaServices
      */
-    public void setCategoriaServices(CategoriaServices CategoriaServices) {
-        this.CategoriaServices = CategoriaServices;
+    public void setCategoriaServices(CategoriaServices categoriaServices) {
+        this.categoriaServices = categoriaServices;
     }
 
     /**

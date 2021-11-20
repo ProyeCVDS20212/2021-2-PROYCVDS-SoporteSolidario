@@ -46,4 +46,11 @@ public interface NecesidadesDAO {
      */
     List<Necesidad> consultarNecesidades() throws PersistenceException;
 
+
+         /**
+     * consulta cantidad de ofertas por la necesidad seleccionada
+     * @param necesidad     id necesidad a consultar
+     * @return
+     */
+    int consultarNecesidadCategorias(int necesidad)throws PersistenceException;
 }

@@ -118,7 +118,7 @@ public class OfertasServicesBean  extends BasePageBean{
     private BarChartModel initBar(){
         BarChartModel  model = new BarChartModel ();
         ChartSeries  chartSeries = new ChartSeries();
-        chartSeries.setLabel("Necesidades");
+        chartSeries.setLabel("Ofertas");
         model.setSeriesColors("823acf,32e33b,ffffff,e352c6");
         int[] values = new int[4];
         for(Ofertas a : getTabla()){

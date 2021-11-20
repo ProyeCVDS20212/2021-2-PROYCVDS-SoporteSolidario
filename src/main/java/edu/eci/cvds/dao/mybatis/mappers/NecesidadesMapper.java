@@ -47,6 +47,11 @@ public interface NecesidadesMapper {
      */
     List<Necesidad> consultarNecesidades ()throws PersistenceException;
 
-
+ /**
+     * consulta cantidad de ofertas por la categoria seleccionada
+     * @param categoria     id categoria a consultar
+     * @return
+     */
+    List<Necesidad> consultarNecesidadCategorias(@Param("categoria") int categoria )throws PersistenceException;
     
 }

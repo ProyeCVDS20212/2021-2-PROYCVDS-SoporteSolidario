@@ -56,4 +56,7 @@ public interface CategoriaDAO {
      * @throws ExceptionService
      */
     void eliminarCategoria(String nombre) throws ExceptionService;
+
+
+
 }
