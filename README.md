@@ -27,32 +27,32 @@ Ingresamos al enlace del Proyecto Solidario [enlace](https://proyecvdssolidaria.
 Con un usuario y una contraseña que se tienen creada, se puede iniciar sesión al diligenciar la siguiente
 forma.
 
-![Pagina Principal](img/Manual/login.PNG)
+![Login](img/Manual/login.png)
 
 Esta es la plataforma principal donde se tiene un menu que se puede usar para navegar entre la pagina
 y un mensaje de bienvenida a los usuarios
 
-![Pagina](img/Manual/PaginaPrincipal.PNG)
+![PaginaPrincipal](img/Manual/PaginaPrincipal.png)
 
 En esta parte de la pagina se pueden crear las necesidades
 
-![Pagina](img/Manual/CrearNecesidad.PNG)
+![CrearNecesidad](img/Manual/CrearNecesidad.png)
 
 En esta parte de la pagina se pueden actualizar las necesidades
 
-![Pagina](img/Manual/ActualizarNecesidad.PNG)
+![ActualizarNecesidad](img/Manual/ActualizarNecesidad.png)
 
 En esta parte de la pagina se pueden crear las ofertas
 
-![Pagina](img/Manual/CrearOferta.PNG)
+![CrearOferta](img/Manual/CrearOferta.png)
 
 En esta parte de la pagina se pueden crear las respuestas para las ofertas
 
-![Pagina](img/Manual/RespuestaOferta.PNG)
+![RespuestaOferta](img/Manual/RespuestaOferta.png)
 
 En esta parte de la pagina se pueden crear las respuestas para las necesidades
 
-![Pagina](img/Manual/RespuestaNecesidad.PNG)
+![RespuestaNecesidad](img/Manual/RespuestaNecesidad.png)
 
 ### Enlace a la app en Heroku
 
