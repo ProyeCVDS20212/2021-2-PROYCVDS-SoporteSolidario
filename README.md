@@ -24,6 +24,35 @@ solicitado. La plataforma cuenta con reportes acerca de las categorias, necesida
 
 ### Manual de Usuario
 Ingresamos al enlace del Proyecto Solidario [enlace](https://proyecvdssolidaria.herokuapp.com/app/login.xhtml)
+Con un usuario y una contraseña que se tienen creada, se puede iniciar sesión al diligenciar la siguiente
+forma.
+
+![Pagina Principal](img/Manual/login.PNG)
+
+Esta es la plataforma principal donde se tiene un menu que se puede usar para navegar entre la pagina
+y un mensaje de bienvenida a los usuarios
+
+![Pagina](img/Manual/PaginaPrincipal.PNG)
+
+En esta parte de la pagina se pueden crear las necesidades
+
+![Pagina](img/Manual/CrearNecesidad.PNG)
+
+En esta parte de la pagina se pueden actualizar las necesidades
+
+![Pagina](img/Manual/ActualizarNecesidad.PNG)
+
+En esta parte de la pagina se pueden crear las ofertas
+
+![Pagina](img/Manual/CrearOferta.PNG)
+
+En esta parte de la pagina se pueden crear las respuestas para las ofertas
+
+![Pagina](img/Manual/RespuestaOferta.PNG)
+
+En esta parte de la pagina se pueden crear las respuestas para las necesidades
+
+![Pagina](img/Manual/RespuestaNecesidad.PNG)
 
 ### Enlace a la app en Heroku
 
@@ -32,3 +61,6 @@ Ingresamos al enlace del Proyecto Solidario [enlace](https://proyecvdssolidaria.
 ### Enlace a Codacy
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4467872301c7452ab97f76063e7a5523)](https://app.codacy.com/gh/ProyeCVDS20212/Proyecto?utm_source=github.com&utm_medium=referral&utm_content=ProyeCVDS20212/Proyecto&utm_campaign=Badge_Grade_Settings)
+
+
+
