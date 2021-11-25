@@ -62,16 +62,6 @@ En esta parte de la pagina se pueden crear las respuestas para las necesidades
 
 ![RespuestaNecesidad](img/Manual/RespuestaNecesidad.png)
 
-### Usuarios para ingresar a la pagina
-
-* Como admin: 
-    Usuario:Carlos
-    Contraseña:123
-    
-* Como estudiante: 
-    Usuario: Ospina
-    Contraseña: 12345678
-
 ### Usuarios
 **Usuario, contraseña, rol**
 
@@ -83,6 +73,34 @@ En esta parte de la pagina se pueden crear las respuestas para las necesidades
 ### Modelo Entidad-Relación
 
 ![Entidad-Relacion](img/Otras%20imagenes/Diagramaer.png)
+
+### Diagrama de clases
+
+![Diagrama de clases](img/Otras%20imagenes/Diagramadeclases.jpg)
+
+### Descripción de la arquitectura
+
+La app esta dividida y formada por 3 capas:
+
+### Capa de presentación 
+
+En esta usamos varias fuentes y tecnologías como:
+
+    * Primefaces(Biblioteca de componentes)
+    * W3Schools(Sitio web con ejemplos de html, css, etc.)
+   
+### Capa de aplicación
+
+En esta otra, usamos otras tecnologías como:
+    
+    * Java
+    * Shiro
+    * Google Guice
+
+### Capa de persistencia
+
+En esta capa fue necesario usar un motor de base de datos, en nuestro caso usamos PostgreSQL, 
+DBeaver para tener una mejor visualización de estas, y myBatis para mapear sentencias SQL
 
 ### Descripción Sprint1
 
