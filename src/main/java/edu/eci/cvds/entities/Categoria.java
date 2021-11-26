@@ -10,10 +10,24 @@ public class Categoria {
     private Date fechacreacion;
     private boolean estado;
     private Date fechamodificacion;
+    private boolean esValido;
+    private String descripcionInvalida;
+
+    /**
+     * Constructor para crear instancias de categoria sin necesidad de ningun atributo
+     */
+    public Categoria(){
+        super();
+    }
 
     public Categoria(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+    }
+
+    public Categoria(boolean estado, boolean esValido){
+        this.estado = estado;
+        this.esValido = esValido;
     }
 
     public Categoria(BigDecimal id,String nombre,String descripcion,Date fechaa,boolean estado, Date fechab){
@@ -42,11 +56,11 @@ public class Categoria {
     }
 
     public String getNombre() {
-        return nombre.toUpperCase();
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre.toUpperCase();
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
@@ -79,5 +93,21 @@ public class Categoria {
 
     public void setFechamodificacion(Date fechamodificacion) {
         this.fechamodificacion = fechamodificacion;
+    }
+
+    public boolean getEsValido() {
+        return esValido;
+    }
+
+    public void setEsValido(boolean esValido) {
+        this.esValido = esValido;
+    }
+
+    public String getDescripcionInvalida() {
+        return descripcionInvalida;
+    }
+
+    public void setDescripcionInvalida(String descripcionInvalida) {
+        this.descripcionInvalida = descripcionInvalida;
     }
 }

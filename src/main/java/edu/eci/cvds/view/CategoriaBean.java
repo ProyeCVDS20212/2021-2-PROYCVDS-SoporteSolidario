@@ -33,7 +33,7 @@ public class CategoriaBean  extends BasePageBean{
     private NecesidadesServices necesidadesServices;
     @Inject
     private OfertasServices ofertasServices;
-    private Categoria categoria;
+    private Categoria categoria = new Categoria(true,true);
     private int id;
     private String nombre;
     private String descripcion;
@@ -41,6 +41,8 @@ public class CategoriaBean  extends BasePageBean{
     private Date fechacreacion;
     private Date fechamodificacion;
     private String oldnombre;
+    private boolean esValido;
+    private String descripcionInvalida;
 
 
     /**
@@ -49,24 +51,27 @@ public class CategoriaBean  extends BasePageBean{
      */
     public void agregarCategoria() throws ExceptionService {
         try {
-            Categoria categorie = new Categoria(nombre.toUpperCase(), descripcion);
-            categoriaServices.registrarCategoria(categorie);
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria creada correctamente",
-                    "");
+            categoriaServices.registrarCategoria(categoria);
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria creada correctamente", "");
             FacesContext.getCurrentInstance().addMessage(null, message);
             //PrimeFaces.current().dialog().showMessageDynamic(message);
             cleanData();
         } catch (ExceptionService ex) {
+            ex.printStackTrace();
             cleanData();
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Ya existe una Categoria con este Nombre",
             "");
             FacesContext.getCurrentInstance().addMessage(null, message);
                         //PrimeFaces.current().dialog().showMessageDynamic(message);
         }
-
         cleanData();
     }
 
+    public void nuevaC() {
+        this.categoria = new Categoria();
+        categoria.setEstado(true);
+        categoria.setEsValido(true);
+    }
 
     public void cleanData() {
         descripcion = "";
@@ -77,22 +82,22 @@ public class CategoriaBean  extends BasePageBean{
      * Le envia los paramentros de la categoria a actualizar a CategoriaServices
      * @throws ExceptionService
      */
+
     public void actualizarCategoria() throws ExceptionService{
         try {
-            categoriaServices.actualizarCategoria(nombre.toUpperCase(), descripcion, estado, oldnombre.toUpperCase());
+            categoriaServices.actualizarCategoria(nombre, descripcion, estado, oldnombre);
         } catch (ExceptionService e) {
             throw new ExceptionService("Se produjo un error a la hora de actualizar la categoria", e);
         }
 
     }
-
     /**
      * Envia el parametro del nombre de la categoria que se desea eliminar a CategoriaServices
      * @throws ExceptionService
      */
     public void eliminarCategoria() throws ExceptionService{
         try {
-            categoriaServices.eliminarCategoria(nombre.toUpperCase());
+            categoriaServices.eliminarCategoria(nombre);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria eliminada correctamente",
                     "");
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -102,7 +107,6 @@ public class CategoriaBean  extends BasePageBean{
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
-
 
     public List<List<String>> getTabla(){
         List<List<String>> ans = new ArrayList<>();
@@ -316,5 +320,21 @@ public class CategoriaBean  extends BasePageBean{
      */
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public boolean getEsValido() {
+        return esValido;
+    }
+
+    public void setEsValido(boolean esValido) {
+        this.esValido = esValido;
+    }
+
+    public String getDescripcionInvalida() {
+        return descripcionInvalida;
+    }
+
+    public void setDescripcionInvalida(String descripcionInvalida) {
+        this.descripcionInvalida = descripcionInvalida;
     }
 }

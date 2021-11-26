@@ -20,13 +20,12 @@
                 <p:submenu label="Categoria" icon="pi pi-pencil" class="subtitulo2">
                     <p:column>
                         <p:submenu label="Categoria" class="subtitulohome">
-                            <p:menuitem value="Crear" outcome="crearCategoria"/>
+                            <p:menuitem value="Crear" outcome="crearCategoria" />
                             <p:menuitem value="Actualizar" outcome="actualizarCategoria"/>
                             <p:menuitem value="Reporte" outcome="reporteCategorias"/>
                         </p:submenu>
                     </p:column>
                 </p:submenu>
-
                 <p:submenu label="Necesidad" icon="pi pi-pencil" class="subtitulo2">
                     <p:column>
                         <p:submenu label="Necesidad" class="subtitulohome">
@@ -67,6 +66,14 @@
                         </p:submenu>
                     </p:column>
                 </p:submenu>
+                <p:submenu label="Salir" icon="pi pi-pencil" class="subtitulo2">
+                    <p:column>
+                        <p:submenu label="Salir" class="subtitulohome">
+                            <p:menuitem value="Salir" action="#{customerBean.cerrarSesion()}"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+
             </p:megaMenu>
         </div>
     </h:form>

@@ -94,6 +94,18 @@ body{
   color: black;
   background: #76CAF0;
 }
+.boton1{
+    font-size: 20px;
+    font-weight: bold;
+    background: #87B2E0;
+    padding: 15px 32px;
+    bottom: 0;
+    top: 90%;
+    color: rgba(45,51,97,1);
+    border: 2px solid #281AD1;
+    font-family: MedievalSharp;
+    cursor: pointer;
+}
 .colortext{
   color: rgba(0,0,255,1);
 }
