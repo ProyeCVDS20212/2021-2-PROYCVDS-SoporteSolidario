@@ -12,12 +12,14 @@
         <result property="fechacreacion" column="fechacreacion"/>
         <result property="estado" column="estado"/>
         <result property="fechamodificacion" column="fechamodificacion"/>
+        <result property="esValido" column="esValido"/>
+        <result property="descripcionInvalida" column="descripcionInvalida"/>
     </resultMap>
 
     <!--registrarCategoria-->
     <insert parameterType="map" id="registrarCategoria">
-        INSERT INTO categoria (nombre,descripcion)
-        VALUES (#{categoria.nombre},#{categoria.descripcion})
+        INSERT INTO categoria (nombre,descripcion,esValido,descripcionInvalida)
+        VALUES (#{categoria.nombre},#{categoria.descripcion},#{categoria.esValido},#{categoria.descripcionInvalida})
     </insert>
 
     <!--actualizarCategoria-->
@@ -52,3 +54,4 @@
     </delete>
 
 </mapper>
+
