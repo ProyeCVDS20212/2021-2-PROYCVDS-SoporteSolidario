@@ -1,8 +1,8 @@
 # Proyecto-SoporteSolidario
 
-## Escuela Colombiana de Ingenieria Julio Garavito (ECI)
+## Proyecto final de Ciclos del Desarrollo de Software 2021-2
 
-## Proyecto final de Ciclos del Desarrollo de Software
+## Escuela Colombiana de Ingenieria Julio Garavito (ECI)
 
 ### Enlace a la app en Heroku
 
@@ -14,13 +14,13 @@
 
 ### Integrantes
 
-- LEON BALLEN DIEGO ALEJANDRO
-- OSPINA CALDERON JUAN SEBASTIAN
-- MONROY SIERRA JUAN FELIPE
+- LEON BALLEN DIEGO ALEJANDRO (Desarrollo)
+- OSPINA CALDERON JUAN SEBASTIAN (Desarrollo)
+- MONROY SIERRA JUAN FELIPE (Desarrollo)
 
 ### Profesor
 
-+ OSPINA RODRIGUEZ OSCAR DAVID (Product Owner)
++ OSPINA RODRIGUEZ OSCAR DAVID (Dueño del producto)
 
 #### Descripción general
 
@@ -102,13 +102,53 @@ En esta otra, usamos otras tecnologías como:
 En esta capa fue necesario usar un motor de base de datos, en nuestro caso usamos PostgreSQL, 
 DBeaver para tener una mejor visualización de estas, y myBatis para mapear sentencias SQL
 
+### Descripción del proceso
+
+Usamos **Java** para crear cada una de las clases que nos permitiria tener un back listo y con las
+funciones pertinentes para que la aplicación funcione, usamos tambien **Postgresql** como motor de 
+bases de datos, donde lo utilizamos para guardar toda la información de la app. usamos **xhtml**
+como herramienta para el desarrollo front y hacer la interfaz, y usamos CSS para hacer esta interfaz
+amigable al usuario. Se realizo tambien la conexion correspondiente entre Front y Back para que la
+app funcione. 
+
 ### Descripción Sprint1
+
+
+En el siguiente [enlace](https://tree.taiga.io/project/juanoyolo-solidaridad-escuela/taskboard/sprint-1-16929)
+se muestran cuales fueron los issues que teniamos en el sprint1, tuvimos que acoplarnos a las nuevas tecnologias como taiga,
+donde dividimos las historias de usuario y en cada una de ellas asignamos tareas para hacer un mejor trabajo de equipo, 
+tuvimos ciertos inconvenientes con la actualización de la categoria, pero luego lo logramos solucionar con un
+trabajo grupal durante toda la semana.
+El mensaje al crear la categoria salia dos veces
 
 ![Sprint1](img/Otras%20imagenes/Sprint1.png)
 
 ### Descripción Sprint2
 
+En el siguiente [enlace](https://tree.taiga.io/project/juanoyolo-solidaridad-escuela/taskboard/sprint-2-9441) se muestran
+los issues del sprint2, donde ahora debemos realizar la implementación de las acciones que pueden realizar los usuarios
+como el registro de oferta, la respuesta, la necesidad y la actualización de las mismas, mas el reporte
+Tuvimops inconvenientes con la creación del reporte de las necesidades
+
+
 ![Sprint2](img/Otras%20imagenes/Sprint2.png)
+
+### Descripción Sprint3
+
+En el siguiente [enlace](https://tree.taiga.io/project/juanoyolo-solidaridad-escuela/taskboard/sprint-3-6363) se muestran
+los issues del sprint3, donde ahora debemos crear los reportes de las ofertas respuestas y categorias, ademas teniamos que
+gestionar las categorias no validas, aquí tuvimos que refactorizar la creación de la categoria para poder realizar lo de 
+categorias no validas, creamos dos constructores y un super, ademas de dos atributos mas para agregarlos a la interfaz y 
+que permita al admin crear y gestionar la validez de las categorias.
+Tuvimos inconvenientes al gestionar la categoria no valida
+Tuvimos que borrar la tabla categoria y volver a crearla
+Tuvimos ciertos inconvenientes con la base de datos, pero al final se soluciono
+
+![Sprint3](img/Otras%20imagenes/Sprint3.png)
+
+### Sprint-Backlog
+
+![Backlog](img/Otras%20imagenes/Backlog.png)
 
 
 
