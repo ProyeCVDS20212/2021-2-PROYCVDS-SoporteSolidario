@@ -42,6 +42,18 @@ y un mensaje de bienvenida a los usuarios
 
 ![PaginaPrincipal](img/Manual/PaginaPrincipal.png)
 
+En esta parte de la pagina se pueden crear las categorias
+
+![CrearCategoria](img/Manual/CrearCategoria.png)
+
+En esta parte de la pagina se pueden actualizar las categorias
+
+![ActualizarCategoria](img/Manual/ActualizarCategoria.png)
+
+En esta parte de la pagina se pueden eliminar las categorias
+
+![EliminarCategoria](img/Manual/EliminarCategoria.png)
+
 En esta parte de la pagina se pueden crear las necesidades
 
 ![CrearNecesidad](img/Manual/CrearNecesidad.png)
