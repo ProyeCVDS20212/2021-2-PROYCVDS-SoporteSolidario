@@ -38,7 +38,11 @@
         <div class="subtitulo">
             <h1>Categoria</h1>
         </div>
-        <p:inputText  placeholder="categoria" class="inpu" required="true" value="#{necesidadBean.categoria}"/>
+        <h:selectOneMenu id="categoria" value="#{necesidadBean.categoriaId}">
+            <f:selectItems value="#{necesidadBean.categorias}" var="c"
+                           itemValue="#{c.id}" itemLabel="#{c.nombre}"/>
+        </h:selectOneMenu>
+
         <br></br>
         <div class="subtitulo">
             <h1>Urgencia</h1>
@@ -57,9 +61,6 @@
         <br></br>
         <h:commandButton value="ENVIAR" update="form" actionListener="#{necesidadBean.agregarNecesidades()}" class="but"/>
     </h:form>
-    <div class="subtituloboton">
-        <a href="/app/home.xhtml" class="boton1">Volver</a>
-    </div>
 </center>
 </body>
 </html>
