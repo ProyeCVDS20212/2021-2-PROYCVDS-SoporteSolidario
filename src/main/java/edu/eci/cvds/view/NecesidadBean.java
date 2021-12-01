@@ -31,6 +31,7 @@ public class NecesidadBean extends BasePageBean{
     @Inject
     RolesServices rolesServices;
     private int id;
+    private Necesidad necesidad;
     private String nombre;
     private String descripcion;
     private int urgencia;
@@ -40,7 +41,8 @@ public class NecesidadBean extends BasePageBean{
     private int categoriaId;
     private int idsolicitante;
     private String categoria;
-
+    private List<Categoria> categorias;
+    private boolean esconder;
     /**
      * Es usado para controlar la funcionalidad de crear necesidad desde la interfaz
      * 
@@ -49,26 +51,25 @@ public class NecesidadBean extends BasePageBean{
     public void agregarNecesidades() throws ExceptionService {
         try {
             idsolicitante = CustomerServicesBean.getcustomerId();
+
             try {
-                List<Categoria> temp = categoriaServices.verificarCategoria(categoria.toUpperCase());
-                if (temp.isEmpty())throw new ExceptionService("La categoria no existe");
-                categoriaId = temp.get(0).getId();
+                if(rolesServices.limiteNecesidades(CustomerServicesBean.getRol()) > necesidadesServices.consultarNecesidadesAsociadasA(idsolicitante)){
+                    necesidadesServices.agregarNecesidades(new Necesidad(nombre.toUpperCase(), descripcion, estado, categoriaId, urgencia, idsolicitante));
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad Creada de forma exitosa", "");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                    clear();
+                }else
+                {
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se supera el limite de necesidades",
+                            "");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                }
             } catch (ExceptionService e) {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, ""+e.getMessage(),
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
-            if(rolesServices.limiteNecesidades(CustomerServicesBean.getRol()) > necesidadesServices.consultarNecesidadesAsociadasA(idsolicitante)){
-                necesidadesServices.agregarNecesidades(new Necesidad(nombre.toUpperCase(), descripcion, estado, categoriaId, urgencia, idsolicitante));
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad Creada de forma exitosa", "");
-                FacesContext.getCurrentInstance().addMessage(null, message);
-                clear();
-            }else
-            {
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se supera el limite de necesidades",
-                "");
-                FacesContext.getCurrentInstance().addMessage(null, message);
-            }
+
         } catch (Exception e) {
             throw new ExceptionService("Se produjo un error a la hora de agregar una necesidad " + e.getMessage());
         }
@@ -173,7 +174,6 @@ private BarChartModel initBar(){
         idsolicitante= 0;
         categoria= null;
     }
-
     public List<Categoria> getCategorias() throws ExceptionService{
         return categoriaServices.consultarCategorias();
     };
@@ -186,6 +186,14 @@ private BarChartModel initBar(){
 
     public int getId() {
         return id;
+    }
+
+    public boolean isEsconder() {
+        return esconder;
+    }
+
+    public void setEsconder(boolean esconder) {
+        this.esconder = esconder;
     }
 
     public String getNombre() {

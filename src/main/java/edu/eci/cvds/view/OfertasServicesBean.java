@@ -53,25 +53,23 @@ public class OfertasServicesBean  extends BasePageBean{
         try {
             solicitanteId = CustomerServicesBean.getcustomerId();
             try {
-                List<Categoria> temp = categoriaServices.verificarCategoria(categoria.toUpperCase());
-                if (temp.isEmpty())throw new ExceptionService("La categoria no existe");
-                categoriaId = temp.get(0).getId();
+                if(rolesServices.limiteOfertas(CustomerServicesBean.getRol()) > ofertasServices.ofertasporUsuario(solicitanteId).size()){
+                    ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,estado,categoriaId,solicitanteId));
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se Agrego de forma exitosa la Oferta",
+                            "");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                }
+                else{
+                    FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se supera el limite de ofertas",
+                            "");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                }
             } catch (ExceptionService e) {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, ""+e.getMessage(),
                 "");
                 FacesContext.getCurrentInstance().addMessage(null, message);
             }
-            if(rolesServices.limiteOfertas(CustomerServicesBean.getRol()) > ofertasServices.ofertasporUsuario(solicitanteId).size()){
-                ofertasServices.agregarOferta(new Ofertas(nombre.toUpperCase(),descripcion,estado,categoriaId,solicitanteId));
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se Agrego de forma exitosa la Oferta",
-                "");
-                FacesContext.getCurrentInstance().addMessage(null, message);
-            }
-            else{
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se supera el limite de ofertas",
-                "");
-                FacesContext.getCurrentInstance().addMessage(null, message);
-            }
+
         } catch (Exception e) {
             clear();
             throw new ExceptionService("Se produjo un error a la hora de agregar una oferta" + e.toString());

@@ -17,12 +17,13 @@
                         </p:submenu>
                     </p:column>
                 </p:submenu>
-                <p:submenu label="Categoria" icon="pi pi-pencil" class="subtitulo2">
+                <p:submenu label="Categoria" icon="pi pi-pencil" class="subtitulo2" style="display: #{rolBean.visible()}">
                     <p:column>
                         <p:submenu label=" " class="subtitulohome">
                             <p:menuitem value="Crear" outcome="crearCategoria" />
                             <p:menuitem value="Actualizar" outcome="actualizarCategoria"/>
                             <p:menuitem value="Reporte" outcome="reporteCategorias"/>
+                            <p:menuitem value="Eliminar" outcome="eliminarCategorias"/>
                         </p:submenu>
                     </p:column>
                 </p:submenu>
