@@ -39,7 +39,10 @@
         <div class="subtitulo">
             <h1>Categoria</h1>
         </div>
-        <p:inputText  placeholder="categoria" class="inpu" required="true" value="#{ofertasBean.categoria}"/>
+        <h:selectOneMenu id="categoria" value="#{ofertasBean.categoriaId}">
+            <f:selectItems value="#{necesidadBean.categorias}" var="c"
+                           itemValue="#{c.id}" itemLabel="#{c.nombre}"/>
+        </h:selectOneMenu>
         <br></br>
         <h:selectOneMenu  class = "inpu" value = "#{ofertasBean.estado}"> 
             <f:selectItem itemValue = "A" itemLabel = "Activo" /> 
