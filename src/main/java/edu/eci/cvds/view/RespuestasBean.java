@@ -34,6 +34,8 @@ public class RespuestasBean extends BasePageBean {
     private int necesidadid;
     private String oferta = "";
     private String necesidad="";
+    private List<Necesidad> necesidadLista;
+    private List<Ofertas> ofertaLista;
 
     /**
      * Es usado para controlar la funcionalidad de registrar las respuestas desde la interfaz
@@ -42,7 +44,7 @@ public class RespuestasBean extends BasePageBean {
         try {
             if(necesidad != ""){
                 try {
-                    List<Necesidad>tempnecesidad =  necesidadesServices.consultarnecesidad(necesidad.toUpperCase());
+                    List<Necesidad>tempnecesidad =  necesidadesServices.consultarnecesidad(necesidad);
                     necesidadid =(tempnecesidad.isEmpty())?0:tempnecesidad.get(0).getId();
                     if(!tempnecesidad.get(0).getEstado().equalsIgnoreCase("A")&&!tempnecesidad.get(0).getEstado().equalsIgnoreCase("E")) throw new ExceptionService("Estado no valido");
                 } catch (ExceptionService e) {
@@ -53,7 +55,7 @@ public class RespuestasBean extends BasePageBean {
             }
             if(oferta != ""){
                 try {
-                    List<Ofertas>tempofertas =  ofertasServices.verificarOferta(oferta.toUpperCase());
+                    List<Ofertas>tempofertas =  ofertasServices.verificarOferta(oferta);
                     ofertaid =(tempofertas.isEmpty())?0:tempofertas.get(0).getId();
                     if(!tempofertas.get(0).getEstado().equalsIgnoreCase("A")&&!tempofertas.get(0).getEstado().equalsIgnoreCase("E")) throw new ExceptionService("Estado no valido");
                 } catch (ExceptionService e) {
@@ -64,7 +66,7 @@ public class RespuestasBean extends BasePageBean {
 
             }
             if(ofertaid != necesidadid && (ofertaid != 0 || necesidadid != 0)){
-                Respuesta temp = new Respuesta(nombre.toUpperCase(), comentario,ofertaid ,necesidadid,CustomerServicesBean.getcustomerId());
+                Respuesta temp = new Respuesta(nombre, comentario,ofertaid ,necesidadid,CustomerServicesBean.getcustomerId());
                 if(ofertaid == 0 ){
                     respuestaServices.registrarRespuestaNecesidad(temp);
                 }
@@ -113,6 +115,22 @@ public class RespuestasBean extends BasePageBean {
         necesidadid=0;
         oferta = "";
         necesidad="";
+    }
+
+    public List<Necesidad> getNecesidadLista() throws ExceptionService{
+        return necesidadesServices.consultarNecesidades();
+    }
+
+    public void setNecesidadLista(List<Necesidad> necesidadLista) {
+        this.necesidadLista = necesidadLista;
+    }
+
+    public List<Ofertas> getOfertaLista() throws ExceptionService{
+        return ofertasServices.consultarOfertas();
+    }
+
+    public void setOfertaLista(List<Ofertas> ofertaLista) {
+        this.ofertaLista = ofertaLista;
     }
 
     public void setComentario(String comentario) {
