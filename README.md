@@ -10,7 +10,7 @@
 
 ### Enlace a Codacy
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/4467872301c7452ab97f76063e7a5523)](https://app.codacy.com/organizations/gh/ProyeCVDS20212/repositories)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/36b5436321ab4abc9fc58dd11b3d0a40)](https://www.codacy.com/gh/ProyeCVDS20212/2021-2-PROYCVDS-SoporteSolidario/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ProyeCVDS20212/2021-2-PROYCVDS-SoporteSolidario&amp;utm_campaign=Badge_Grade)
 
 ### Integrantes
 
