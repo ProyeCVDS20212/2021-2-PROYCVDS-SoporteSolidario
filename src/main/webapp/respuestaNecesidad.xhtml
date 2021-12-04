@@ -29,19 +29,22 @@
         <div class="subtitulo">
             <h1>Nombre</h1>
         </div>
-        <p:inputText  placeholder="nombre" class="inpu" required="true" value="#{respuestasBean.nombre}"/>
+        <p:inputText  placeholder="nombre" class="inpu" required="true" value="#{respuestaBean.nombre}"/>
         <br></br>
         <div class="subtitulo">
             <h1>Descripcion</h1>
         </div>
-        <p:inputText  placeholder="comentario" class="inpu" required="true" value="#{respuestasBean.comentario}"/>
+        <p:inputText  placeholder="comentario" class="inpu" required="true" value="#{respuestaBean.comentario}"/>
         <br></br>
         <div class="subtitulo">
             <h1>Necesidad</h1>
         </div>
-        <p:inputText  placeholder="necesidad" class="inpu" required="true" value="#{respuestasBean.necesidad}"/>
+        <h:selectOneMenu id="necesidad" value="#{respuestaBean.necesidad}">
+            <f:selectItems value="#{respuestaBean.necesidadLista}" var="n"
+                           itemValue="#{n.nombre}" itemLabel="#{n.nombre}"/>
+        </h:selectOneMenu>
         <br></br>
-        <h:commandButton value="ENVIAR" update="form" actionListener="#{respuestasBean.registrarRespuesta()}" class="but"/>
+        <h:commandButton value="ENVIAR" update="form" actionListener="#{respuestaBean.registrarRespuesta()}" class="but"/>
     </h:form>
     <div class="subtituloboton">
         <a href="/app/home.xhtml" class="boton1">Volver</a>
