@@ -111,7 +111,7 @@ public class CategoriaBean  extends BasePageBean{
     public List<List<String>> getTabla(){
         List<List<String>> ans = new ArrayList<>();
         try {
-            for(Categoria c :categoriaServices.consultarCategorias()){
+            for(Categoria c :categoriaServices.consultarCategoriasV()){
                 List<String> temp = new ArrayList<>();
                 temp.add(""+c.getId());
                 temp.add(c.getNombre());

@@ -79,6 +79,14 @@ public class CategoriaServicesImpl implements CategoriaServices {
         }
     }
 
+    public List<Categoria> consultarCategoriasV() throws ExceptionService {
+        try {
+            return categoriaDAO.consultarCategoriasV();
+        }catch (Exception e){
+            throw new ExceptionService("No se encuentra la lista de categorias", e);
+        }
+    }
+
     @Override
     public Categoria consultarCategoria(int cId) throws ExceptionService {
         try {
@@ -87,6 +95,8 @@ public class CategoriaServicesImpl implements CategoriaServices {
             throw new ExceptionService("No se encuentra la categoria", e);
         }
     }
+
+    
 
     @Override
     public void eliminarCategoria(String nombre) throws ExceptionService {

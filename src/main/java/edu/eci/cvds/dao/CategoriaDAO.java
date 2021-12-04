@@ -42,6 +42,13 @@ public interface CategoriaDAO {
     List<Categoria> consultarCategorias() throws ExceptionService;
 
     /**
+    * Retorna todas las categorias que existen 
+     * @return
+     * @throws ExceptionService
+     */
+    List<Categoria> consultarCategoriasV() throws ExceptionService;
+
+    /**
      * 
      * Devuelve la categoria deseada dependiendo del id
      * @param cId id de la categoria que se desea retornar

@@ -35,6 +35,12 @@ public interface CategoriaMapper {
      * @return
      */
     public List<Categoria> consultarCategorias();
+    
+    /**
+     * Retorna todas las categorias que existen 
+     * @return
+     */
+    public List<Categoria> consultarCategoriasV();
 
     /**
      * Devuelve la categoria deseada dependiendo del id

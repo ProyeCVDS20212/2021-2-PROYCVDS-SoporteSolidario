@@ -175,7 +175,7 @@ private BarChartModel initBar(){
         categoria= null;
     }
     public List<Categoria> getCategorias() throws ExceptionService{
-        return categoriaServices.consultarCategorias();
+        return categoriaServices.consultarCategoriasV();
     };
     public Categoria getC(int cId) throws ExceptionService{
         return categoriaServices.consultarCategoria(cId);

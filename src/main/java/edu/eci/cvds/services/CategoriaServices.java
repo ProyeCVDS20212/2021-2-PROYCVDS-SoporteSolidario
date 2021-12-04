@@ -38,6 +38,13 @@ public interface CategoriaServices{
      * @throws ExceptionService
      */
     List<Categoria> consultarCategorias() throws ExceptionService;
+    
+    /**
+     * Devuelve todas las categorias existentes
+     * @return
+     * @throws ExceptionService
+     */
+    List<Categoria> consultarCategoriasV() throws ExceptionService;
 
     /**
      * Retorna la categoria deseada de acuerdo al id

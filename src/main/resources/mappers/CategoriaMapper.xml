@@ -33,10 +33,16 @@
         SELECT * 
         FROM categoria
         WHERE nombre=#{oldnombre}
-    </select>
+    </select>       
 
     <!--Consultar categorias-->
     <select id="consultarCategorias" parameterType="map" resultMap="CategoriaResult">
+        SELECT *
+        FROM categoria where esvalido = true;
+    </select>
+
+    <!--Consultar categorias-->
+    <select id="consultarCategoriasV" parameterType="map" resultMap="CategoriaResult">
         SELECT *
         FROM categoria
     </select>
@@ -54,4 +60,3 @@
     </delete>
 
 </mapper>
-
